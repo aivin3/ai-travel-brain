@@ -1,0 +1,1059 @@
+{
+  "kicker": "KAOHSIUNG · TAIWAN",
+  "title": "高雄輕鬆慢遊 7 天",
+  "subtitle": "3 大 1 小（8 歲女）· 8/15–8/21 · 必去打卡 + 高分名店 + 每段交通時間",
+  "dateRange": "2026/8/15（六）– 8/21（五）",
+  "travelers": "3 大人 + 1 小童（8 歲）",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Kaohsiung_Skyline_2020_%28cropped%29.jpg",
+  "highlights": [
+    "必去全入：輕軌龍貓隧道、野森動物學校（魔法動物學校）、美麗島光之穹頂、駁二木育森林、愛河愛之船+西子灣夕陽、壽山情人觀景台、崗山之眼（機動日）",
+    "★ 兩個更正：①「魔法動物學校」其實係內門「野森動物學校」唔喺旗津，要包車約 50–60 分；②崗山之眼自 2025/2 休園整建，出發前必查 khh.travel 是否已重開，未開行小琉球/義大",
+    "8/15 出發已對齊星期避開休館：壽山動物園/兒美/瑞豐(週一)、佛館(週二)、奇美(週三)、野森(疑週二三)→ 排最安全嘅週四(8/20)",
+    "每段行程附『➡️ 去下一站』交通＋時間＋車資；上山/郊區(壽山/崗山/內門)建議 Uber 或包車慳體力",
+    "獨立『餐廳指南』29 間分 9 類（台灣菜/海鮮/夜市/甜品冰品/小食/飲品/咖啡/伴手禮/邊行邊食），每間有介紹+招牌+📍地圖+🔗介紹+📋Menu"
+  ],
+  "weather": {
+    "summary": "盛夏酷熱潮濕，午後雷陣雨頻密（約 1–3 小時），5–9 月為颱風季。",
+    "avgHigh": 32,
+    "avgLow": 26,
+    "rainfall": "約 46–50%",
+    "clothing": "輕薄透氣衫、帽、太陽眼鏡、防曬 SPF50+；室內冷氣強帶薄外套；女童帶替換衫。",
+    "tips": "帶輕便雨衣（山上/海島風大傘無用）+ 電解質；戶外排上午、13:00–17:00 改室內；崗山之眼/壽山夜景/渡輪全靠天氣，颱風即停。"
+  },
+  "days": [
+    {
+      "date": "8/15",
+      "weekday": "週六",
+      "theme": "落地・光之穹頂・愛河夜航（輕量）",
+      "weather": {
+        "icon": "partly",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "中午",
+          "name": "香港 → 高雄國際機場（小港 KHH）",
+          "icon": "✈️",
+          "note": "香港直飛約 1.5–2 小時",
+          "transport": "捷運紅線 R4",
+          "mapQuery": "Kaohsiung International Airport",
+          "transfer": "捷運紅線 機場R4 → 美麗島R10 直達，約16分・NT$30/人（行李多 Uber 約NT$250–320/車）"
+        },
+        {
+          "time": "15:00",
+          "name": "Airbnb Check-in（美麗島/中央公園區）",
+          "icon": "🏠",
+          "note": "首選紅橘雙捷運核心，放行李抖一抖",
+          "transport": "捷運",
+          "mapQuery": "美麗島站 高雄",
+          "transfer": "步行 5–10 分（住美麗島區）・免費"
+        },
+        {
+          "time": "18:00",
+          "name": "美麗島站・光之穹頂",
+          "note": "世界級最美地鐵站，穿堂層免費影相",
+          "duration": "30分",
+          "cost": 0,
+          "transport": "捷運紅／橘線美麗島站",
+          "mustDo": "晚上 8 點睇燈光秀（週六加映 5pm/7pm）",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/formosa.jpg",
+          "mapQuery": "美麗島站 光之穹頂",
+          "transfer": "步行 3 分（美麗島站 11 號出口外）・免費"
+        },
+        {
+          "time": "18:30",
+          "name": "六合夜市（晚餐）",
+          "note": "捷運美麗島站旁，最方便",
+          "duration": "1.5h",
+          "cost": "NT$200–300/人",
+          "mustDo": "鄭老牌木瓜牛奶 + 莊記海產粥",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Liouho-Night-Market-Kaohsiung.jpg",
+          "mapQuery": "六合觀光夜市",
+          "transfer": "Uber 約8分・NT$130/車（或橘線+步行約15分）"
+        },
+        {
+          "time": "20:00",
+          "name": "愛河・愛之船夜航",
+          "note": "河岸夜景約 25 分；上船點國賓站",
+          "duration": "45–60分",
+          "cost": "約 NT$130–250",
+          "mustDo": "黃昏後搭船最靚；網購 KKday/Klook 票平過現場",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Love_River_2015.JPG",
+          "mapQuery": "愛之船 國賓站"
+        }
+      ],
+      "backup": [
+        "累 → 跳愛之船，改愛河畔散步；落雨 → 漢神/大立室內百貨",
+        {
+          "name": "瑞豐夜市",
+          "note": "想去夜市 backup；★ 週一三公休，今日週六開",
+          "mapQuery": "瑞豐夜市"
+        }
+      ]
+    },
+    {
+      "date": "8/16",
+      "weekday": "週日",
+      "theme": "駁二・木育森林・西子灣夕陽搭船・旗津海鮮",
+      "weather": {
+        "icon": "showers",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "10:30",
+          "name": "木育森林（駁二門市）",
+          "icon": "🧩",
+          "note": "起點：橘線美麗島O5→鹽埕埔O2 約6分 NT$25 步行8分。室內木製遊樂園 50+ 設施，避正午曬+雷暴",
+          "duration": "1.5–2h",
+          "cost": "約 NT$250–350（未核實）",
+          "transport": "捷運橘線鹽埕埔站",
+          "mustDo": "官網先線上購票（現場較貴）；玩大型木製遊具+DIY",
+          "mapQuery": "木育森林 駁二",
+          "transfer": "步行 3–10 分（同園區內）・免費",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/muyu.jpg"
+        },
+        {
+          "time": "13:00",
+          "name": "駁二藝術特區（午餐+逛）",
+          "note": "倉庫文創、小火車、大港橋、海風",
+          "duration": "2–3h",
+          "cost": 0,
+          "transport": "步行",
+          "mustDo": "微熱山丘領免費鳳梨酥+茶、婆婆冰芒果冰、大港橋打卡",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/LiveWarehouse_Kaohsiung.jpg/1280px-LiveWarehouse_Kaohsiung.jpg",
+          "mapQuery": "駁二藝術特區",
+          "transfer": "輕軌 駁二大義C12 → 哈瑪星C14 約5分・NT$20，步行8分（或沿海散步20–25分）"
+        },
+        {
+          "time": "16:30",
+          "name": "西子灣・鼓山渡輪夕陽",
+          "note": "鼓山輪渡站搭渡輪海上吹風睇夕陽",
+          "duration": "1–2h",
+          "cost": "渡輪 NT$40・優待 15",
+          "transport": "鼓山渡輪",
+          "mustDo": "搭渡輪過旗津、睇夕陽（8 月約 18:30）",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/2017_NSYSU_bay1.jpg",
+          "mapQuery": "鼓山輪渡站",
+          "transfer": "鼓山-旗津渡輪 約5分・NT$40/人（兒童15），班次密 5–7 分一班"
+        },
+        {
+          "time": "17:30",
+          "meal": {
+            "name": "旗津海產（旗后活海產 / 金聖春）",
+            "cuisine": "現撈海鮮合菜",
+            "perPerson": "NT$500–1000",
+            "recommended": "現撈生魚片、清蒸魚、蒜蓉蝦；多人建議訂位、先問價",
+            "location": "旗津老街",
+            "mapQuery": "旗后活海產 旗津",
+            "menuLink": "https://www.bigfang.tw/blog/post/qihou-seafood"
+          }
+        }
+      ],
+      "backup": [
+        "雷暴延長 → 木育森林多玩 + 駁二室內展；唔想過旗津 → 西子灣睇完夕陽市區晚餐",
+        {
+          "name": "棧貳庫 KW2",
+          "note": "港邊文創倉庫，室內避雨兼食嘢",
+          "mapQuery": "棧貳庫"
+        }
+      ]
+    },
+    {
+      "date": "8/17",
+      "weekday": "週一",
+      "theme": "輕軌龍貓隧道・美術館（避開週一休館點）",
+      "weather": {
+        "icon": "partly",
+        "high": 33,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "高雄輕軌龍貓隧道（C21 美術館站）",
+          "note": "起點：Uber直達約12分 NT$170/車，或捷運+輕軌約35–40分。約500m 小葉欖仁綠色樹隧道，早上人少光線靚",
+          "duration": "30–45分",
+          "cost": "輕軌 NT$30",
+          "transport": "輕軌 C21 美術館站",
+          "mustDo": "綠色樹隧道+蜜柑號彩繪列車打卡；★ 切勿走入軌道，月台用長焦影",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/%E9%AB%98%E9%9B%84%E8%BC%95%E8%BB%8C%E8%9C%9C%E6%9F%91%E8%99%9F_%28cropped%29.jpg",
+          "mapQuery": "高雄輕軌美術館站 龍貓隧道",
+          "transfer": "步行穿綠色隧道入內惟埤園區 約10–15分・免費（沿途就係打卡點）"
+        },
+        {
+          "time": "10:30",
+          "name": "高雄市立美術館 + 內惟埤文化園區",
+          "icon": "🎨",
+          "note": "室內冷氣避午熱（週一本館照開，休的是兒美館）",
+          "duration": "2–3h",
+          "cost": "全票 NT$90・12 歲以下免費",
+          "transport": "步行／輕軌",
+          "mustDo": "行內惟埤園區綠地避暑",
+          "mapQuery": "高雄市立美術館",
+          "transfer": "輕軌 美術館C21 → 駁二大義C12 約15分・NT$20 步行5–8分（或 Uber 12分 NT$160/車）到鹽埕",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A820240704.jpg/1280px-%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A820240704.jpg"
+        },
+        {
+          "time": "13:00",
+          "meal": {
+            "name": "鴨肉珍（鹽埕・午餐）",
+            "cuisine": "65 年鴨肉飯老店",
+            "perPerson": "NT$100–180",
+            "recommended": "鴨肉飯、鴨米血、下水湯；★本店週二休（今日週一開）；飯後高雄婆婆冰芒果冰",
+            "location": "鹽埕",
+            "mapQuery": "鴨肉珍 鹽埕",
+            "menuLink": "https://bobotravel.tw/blog/post/duck-zhen"
+          }
+        },
+        {
+          "time": "18:00",
+          "name": "凱旋夜市",
+          "icon": "🏮",
+          "note": "瑞豐今日週一休，改凱旋／光華夜市",
+          "duration": "1.5h",
+          "cost": "NT$200–300/人",
+          "transport": "捷運／Uber",
+          "mustDo": "邊行邊食銅板小食",
+          "mapQuery": "凱旋夜市",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/kaixuan.jpg"
+        }
+      ],
+      "backup": [
+        "午後雷雨 → 美術館多待 / 改漢神巨蛋商場",
+        {
+          "name": "蓮池潭・龍虎塔",
+          "note": "想加廟宇打卡（去前查整修，無遮蔭帶水）",
+          "mapQuery": "蓮池潭龍虎塔"
+        }
+      ]
+    },
+    {
+      "date": "8/18",
+      "weekday": "週二",
+      "theme": "壽山動物園・哈瑪星・情人觀景台夜景（同山區集中）",
+      "weather": {
+        "icon": "sunny",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "10:00",
+          "name": "壽山動物園",
+          "icon": "🦒",
+          "note": "起點：Uber直上約18分 NT$230/車，或鹽埕埔站4號出口56號公車直上 約15–20分 NT$12/人。2022 重新開放、親子友善（週二開）",
+          "duration": "2–2.5h",
+          "cost": "全票約 NT$90・6–12 歲約 NT$40（未核實）",
+          "transport": "56 號公車／Uber",
+          "mustDo": "上午較涼先去",
+          "mapQuery": "壽山動物園",
+          "transfer": "落山 56 號公車或 Uber 約12分 NT$160/車到哈瑪星",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/shoushan_zoo.jpg"
+        },
+        {
+          "time": "13:00",
+          "meal": {
+            "name": "新濱町海洋廚房 / 一二三亭（哈瑪星午餐）",
+            "cuisine": "海港美食聚落／日式老屋喫茶",
+            "perPerson": "NT$300–600",
+            "recommended": "2025 新開幕舊魚市場活化，一幻拉麵/日乃屋咖哩；一二三亭為 1920 年代老料亭",
+            "location": "鼓山渡船頭／哈瑪星",
+            "mapQuery": "新濱町海洋廚房 高雄",
+            "menuLink": "https://ajunfun.tw/shinhamacho-cuisine-hub/"
+          }
+        },
+        {
+          "time": "15:00",
+          "name": "打狗鐵道故事館・哈瑪星鐵道園區",
+          "note": "渡船頭、鐵道館、大草坪連成一片，落雷暴可入館",
+          "duration": "1.5h",
+          "cost": "免費／鐵道館約 NT$149",
+          "transport": "步行",
+          "mustDo": "大草坪放電 + 鐵道模型（8歲啱）",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/%E6%89%93%E7%8B%97%E9%90%B5%E9%81%93%E6%95%85%E4%BA%8B%E9%A4%A801.jpg",
+          "mapQuery": "打狗鐵道故事館",
+          "transfer": "Uber／小黃上山 約12–15分・NT$200–250/車（叫司機等回程，山上難叫車）"
+        },
+        {
+          "time": "18:00",
+          "name": "壽山情人觀景台（LOVE）日落夜景",
+          "icon": "🌃",
+          "note": "忠烈祠旁，免費；天黑前上山先賞山海日景再等華燈",
+          "duration": "45–60分",
+          "cost": 0,
+          "transport": "Uber／包車",
+          "mustDo": "LOVE 字+夕陽夜景打卡；★ 注意獼猴勿餵食、勿手持食物膠袋",
+          "mapQuery": "壽山情人觀景台",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/lover.jpg"
+        }
+      ],
+      "backup": [
+        "天氣差睇唔到夜景 → 改 85 大樓觀景台或駁二夜逛",
+        {
+          "name": "漢來福園台菜（晚餐升級）",
+          "note": "想食一餐正：米其林推薦五星台菜，務必訂位 07-2135739",
+          "mapQuery": "福園台菜海鮮餐廳 漢來大飯店"
+        }
+      ]
+    },
+    {
+      "date": "8/19",
+      "weekday": "週三",
+      "theme": "機動王牌日：崗山之眼 / 小琉球 / 義大（揀最晴一日）",
+      "weather": {
+        "icon": "sunny",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "全日",
+          "name": "★ 用天氣預報揀全程最晴朗一日做呢日（可同其他日對調）",
+          "icon": "🌦️",
+          "note": "崗山之眼/夜景/海島都靠天氣，呢日做機動王牌",
+          "transport": "—",
+          "mapQuery": "高雄"
+        },
+        {
+          "time": "方案A",
+          "name": "崗山之眼（岡山天空廊道）",
+          "note": "⚠️ 自 2025/2 休園整建，未公告重開 → 出發前必查 khh.travel；去程：紅線美麗島→南岡山R24 約35分 NT$45，轉紅68+觀光公車上山約25–30分 NT$25（或包車一日 NT$2,500–3,000）",
+          "duration": "1.5–2h",
+          "cost": "門票約 NT$60–80 + 接駁 NT$25（整修前參考）",
+          "transport": "包車／捷運+接駁",
+          "mustDo": "天空廊道俯瞰大高雄、傍晚夜景；★ 純晴天先值得去",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Siaogangshan_Skywalk_Park_%E5%B2%A1%E5%B1%B1%E4%B9%8B%E7%9C%BC%E5%85%A8%E6%99%AF.jpg",
+          "mapQuery": "崗山之眼"
+        }
+      ],
+      "backup": [
+        {
+          "name": "小琉球（海島後備）",
+          "note": "天氣極佳又想去海島先做：東港搭船 25–30 分睇海龜浮潛/半潛艇；帶8歲女拉車到東港較攰，列後備",
+          "mapQuery": "小琉球白沙尾漁港"
+        },
+        {
+          "name": "義大世界",
+          "note": "想玩樂園：大樹區，全日票約 NT$650，8月戶外曬備雨具",
+          "mapQuery": "義大遊樂世界"
+        }
+      ]
+    },
+    {
+      "date": "8/20",
+      "weekday": "週四",
+      "theme": "★ 野森動物學校（魔法動物學校・內門整日）",
+      "weather": {
+        "icon": "partly",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "高雄市區 → 內門（包車）",
+          "icon": "🚐",
+          "note": "野森喺內門區唔喺旗津，無捷運直達；包車一日約 NT$3,000–3,800 最實際（公共交通要客運→旗山轉運站→接駁車多重轉乘）",
+          "duration": "60分",
+          "transport": "包車／自駕",
+          "mapQuery": "野森動物學校",
+          "transfer": "包車直送園區（公共交通：高雄客運往旗山約50–60分 NT$80–100，轉野森免費接駁約15–20分）"
+        },
+        {
+          "time": "10:00",
+          "name": "野森動物學校（魔法動物學校）",
+          "icon": "🦦",
+          "note": "11.5 公頃戶外生態園，20+ 種動物近距離互動餵食，8 歲女最愛；一開門入避正午高溫",
+          "duration": "3–4h",
+          "cost": "全票 NT$399・半票(兒童) NT$149",
+          "transport": "園區內步行",
+          "mustDo": "餵水豚/樹懶/笑笑羊/狐狸；★ 先官網預約購票(每日限1000)、電 07-6672017 確認公休(官網週三/媒體週二三)",
+          "mapQuery": "高雄市內門區中正路39巷168號",
+          "transfer": "園區接駁/8035 返旗山轉運站 約15–20分（包車直接15分到老街）",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/yesen.jpg"
+        },
+        {
+          "time": "14:30",
+          "name": "旗山老街（回程順遊）",
+          "note": "枝仔冰、香蕉蛋糕、巴洛克街屋慢逛",
+          "duration": "1.5h",
+          "cost": "視消費",
+          "transport": "包車／客運",
+          "mustDo": "枝仔冰、香蕉蛋糕、仿巴洛克老街拱廊",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%E6%97%97%E5%B1%B1%E4%BA%AD%E4%BB%94%E8%85%B3%EF%BC%88%E7%9F%B3%E6%8B%B1%E5%9C%88%EF%BC%89%EF%BC%9C1%EF%BC%9E.jpg/1280px-%E6%97%97%E5%B1%B1%E4%BA%AD%E4%BB%94%E8%85%B3%EF%BC%88%E7%9F%B3%E6%8B%B1%E5%9C%88%EF%BC%89%EF%BC%9C1%EF%BC%9E.jpg",
+          "mapQuery": "旗山老街",
+          "transfer": "包車直送 Airbnb 約50分（客運返高雄火車站約50–60分 NT$80–100，留意尾班約 21:00 前）"
+        }
+      ],
+      "backup": [
+        "野森當日竟公休 → 改壽山動物園或市區寵物互動館",
+        "嫌內門太遠 → 改義大樂園或市區親子館，留返體力"
+      ]
+    },
+    {
+      "date": "8/21",
+      "weekday": "週五",
+      "theme": "手信採購・捷運直達機場（輕量）",
+      "weather": {
+        "icon": "cloudy",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "10:00",
+          "name": "手信採購（舊振南/微熱山丘/巴堂蜂蜜蛋糕）",
+          "icon": "🎁",
+          "note": "鳳梨酥、蜂蜜蛋糕；單店滿 NT$2,000 可退稅帶護照",
+          "duration": "1.5h",
+          "cost": "視消費",
+          "transport": "捷運",
+          "mustDo": "舊振南小金磚鳳梨酥、巴堂蜂蜜蛋糕",
+          "mapQuery": "舊振南餅店 高雄",
+          "transfer": "捷運紅線到凱旋R6，3 號出口夢時代免費接駁車約10分（或輕軌前鎮之星C3→夢時代C5 約5分 NT$20）"
+        },
+        {
+          "time": "12:00",
+          "name": "統一夢時代（室內避暑+最後血拼）",
+          "note": "頂樓摩天輪；看航班時間，室內涼快",
+          "duration": "2h",
+          "cost": "視消費",
+          "transport": "捷運／輕軌",
+          "mustDo": "頂樓摩天輪",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/%E7%B5%B1%E4%B8%80%E5%A4%A2%E6%99%82%E4%BB%A3%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83_%282%29.JPG",
+          "mapQuery": "統一夢時代購物中心",
+          "transfer": "輕軌 夢時代C5→前鎮之星C3 轉紅線凱旋R6→機場R4 約25分・NT$45/人（或 Uber 直送15分 NT$220–280/車）"
+        },
+        {
+          "time": "下午",
+          "name": "高雄國際機場（小港）→ 回程",
+          "icon": "✈️",
+          "note": "捷運紅線直達機場站，預留 2.5–3 小時 buffer",
+          "duration": "30分",
+          "cost": "捷運 NT$35/人",
+          "transport": "捷運紅線 R4",
+          "mapQuery": "Kaohsiung International Airport"
+        }
+      ],
+      "backup": [
+        {
+          "name": "草衙道商場（近機場）",
+          "note": "商場＋鈴鹿賽道樂園，回程前最後放電",
+          "mapQuery": "大魯閣草衙道"
+        }
+      ]
+    }
+  ],
+  "dining": [
+    {
+      "category": "🍱 台灣菜 / 正餐",
+      "items": [
+        {
+          "name": "福園台菜海鮮（漢來 9F）",
+          "area": "前金・近美麗島站",
+          "price": "人均 NT$800–1200",
+          "hours": "11:30–14:30 / 17:30–21:30（每日，+10%）",
+          "intro": "米其林指南推薦，南霸天級台菜，五星飯店主廚手路菜，有包廂，一家人/長輩首選。",
+          "signature": "火爆鱔魚炒意麵 $480、芋茸酥鴨方、八珍海鮮羹",
+          "mapQuery": "福園台菜海鮮餐廳 漢來大飯店",
+          "link": "https://www.grand-hilai.com/restaurant-detail/chinese-restaurants/taiwanese-restaurant/",
+          "menuLink": "https://hoolee.tw/hilai-fuyun/"
+        },
+        {
+          "name": "弘記肉燥飯舖",
+          "area": "左營・巨蛋商圈",
+          "price": "人均 NT$120–200",
+          "hours": "11:30–14:30 / 17:00–20:30",
+          "intro": "米其林必比登三連霸，傳承 50 年，平價適合一家大細。",
+          "signature": "肉燥飯（半熟蛋）、豬腿庫、骨仔肉湯",
+          "mapQuery": "弘記肉燥飯舖 左營",
+          "link": "https://guide.michelin.com/us/en/kaohsiung-region/kaohsiung/restaurant/hung-chi-rice-shop",
+          "menuLink": "https://hoolee.tw/hungchi-rice/"
+        },
+        {
+          "name": "鴨肉珍",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$100–180",
+          "hours": "本店 10:00–20:20，★週二休（大公店有冷氣，週三四休）",
+          "intro": "鹽埕鴨肉飯霸主，65 年老店，秘製鴨肉嫩滑淋肉燥滷汁。",
+          "signature": "鴨肉飯、鴨米血、下水湯",
+          "mapQuery": "鴨肉珍 鹽埕",
+          "link": "https://bobotravel.tw/blog/post/duck-zhen"
+        }
+      ]
+    },
+    {
+      "category": "🦐 海鮮",
+      "items": [
+        {
+          "name": "四兩千金活蝦之家",
+          "area": "左營・文學路",
+          "price": "人均 NT$500–800",
+          "hours": "17:00–00:30（每日，+10%）",
+          "intro": "庭園式活蝦餐廳，有大型溜滑梯+白飯冰淇淋吃到飽，超適合帶 8 歲女。",
+          "signature": "胡椒蝦、檸檬蝦、養生黑蒜蝦",
+          "mapQuery": "四兩千金活蝦之家 左營",
+          "link": "https://hoolee.tw/siliangqianjin-shrimp/",
+          "menuLink": "https://angelala.tw/shrimp-baby-2023/"
+        },
+        {
+          "name": "旗后活海產",
+          "area": "旗津・輪渡站旁",
+          "price": "人均 NT$400–600",
+          "hours": "約 11:00–21:00，★週一休（建議致電）",
+          "intro": "旗津海產一條街 40 年老字號，現撈現秤，新鮮唔油膩。",
+          "signature": "清蒸螃蟹(時價)、鹽烤蝦、深海魚",
+          "mapQuery": "旗后活海產 旗津",
+          "link": "https://nellydyu.tw/blog/post/qihou",
+          "menuLink": "https://www.bigfang.tw/blog/post/qihou-seafood"
+        },
+        {
+          "name": "金聖春活海產",
+          "area": "旗津",
+          "price": "人均 NT$400–600",
+          "hours": "11:00–14:30 / 17:00–22:30",
+          "intro": "旗津人氣現撈，秤重計價、價格平實，龍蝦/螃蟹粥出名。",
+          "signature": "龍蝦粥、螃蟹粥、現撈海鮮(秤重)",
+          "mapQuery": "金聖春活海產 旗津",
+          "link": "https://rainieis.tw/jin-sheng-chun/"
+        },
+        {
+          "name": "莊記海產粥",
+          "area": "新興・六合夜市",
+          "price": "人均 NT$150–300",
+          "hours": "17:30–01:30（無固定公休）",
+          "intro": "六合夜市 50 年宵夜老攤，每碗滿滿海鮮料。",
+          "signature": "海產粥 $150、鹽蒸蝦、鹽蒸蚵",
+          "mapQuery": "莊記海產粥 六合夜市",
+          "link": "https://orange-dog.com/6seafood/",
+          "menuLink": "https://supertaste.tvbs.com.tw/infocard/12728"
+        }
+      ]
+    },
+    {
+      "category": "🏮 夜市",
+      "items": [
+        {
+          "name": "六合觀光夜市",
+          "area": "新興・美麗島站 11 號出口",
+          "price": "人均 NT$200–400",
+          "hours": "約 17:00–凌晨（每日）",
+          "intro": "高雄最知名觀光夜市，捷運直達，適合家庭。",
+          "signature": "海鮮粥、烤肉、木瓜牛奶",
+          "mapQuery": "六合觀光夜市",
+          "link": "https://www.taiwan.net.tw/m1.aspx?sNo=0001121&id=2245"
+        },
+        {
+          "name": "瑞豐夜市",
+          "area": "左營・近巨蛋站",
+          "price": "人均 NT$200–400",
+          "hours": "★ 只開二、四、五、六、日（週一、三休）約 17:00–凌晨",
+          "intro": "高雄規模最大、本地人氣最旺夜市，攤位多。",
+          "signature": "天使雞排、火魂德國豬腳",
+          "mapQuery": "瑞豐夜市",
+          "link": "https://gofunit.com/瑞豐夜市/"
+        },
+        {
+          "name": "天使雞排（瑞豐）",
+          "area": "瑞豐夜市第12排",
+          "price": "人均 NT$80–120",
+          "hours": "15:00–00:00（隨夜市，週一三休）",
+          "intro": "瑞豐人氣冠軍雞排，酥厚多汁，Google 6900+ 評。",
+          "signature": "酥厚雞排",
+          "mapQuery": "天使雞排 瑞豐夜市",
+          "link": "https://www.facebook.com/ANGEL594881/"
+        },
+        {
+          "name": "火魂德國豬腳（瑞豐）",
+          "area": "瑞豐夜市",
+          "price": "人均 NT$150–250",
+          "hours": "★ 週一、三公休",
+          "intro": "夜市少見德國豬腳，醃→炸→炭烤，皮脆肉嫩。",
+          "signature": "炭烤德國豬腳",
+          "mapQuery": "火魂德國豬腳 瑞豐夜市",
+          "link": "https://gofunit.com/瑞豐夜市/"
+        }
+      ]
+    },
+    {
+      "category": "🍧 甜品冰品（8 月芒果旺季）",
+      "items": [
+        {
+          "name": "高雄婆婆冰（創始店）",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$80–150",
+          "hours": "10:00–00:00，★週二公休",
+          "intro": "1934 年創立，80+ 年古早味刨冰，8 月芒果當造必食。",
+          "signature": "芒果雪花冰、超級水果冰、番茄切盤",
+          "mapQuery": "高雄婆婆冰 創始店 鹽埕",
+          "link": "https://inmap.tw/archives/73303",
+          "menuLink": "https://www.bigfang.tw/blog/post/popoice-main-kaohsiung"
+        },
+        {
+          "name": "渡船頭海之冰",
+          "area": "鼓山・近西子灣站",
+          "price": "人均 NT$100–200（共享更抵）",
+          "hours": "11:00–23:30，★週一公休",
+          "intro": "大碗公冰創始店，冰可放大 1–20 倍，一碗幾個人食，超啱一家人打卡。",
+          "signature": "大碗公水果牛奶冰、芒果冰",
+          "mapQuery": "渡船頭海之冰 鼓山",
+          "link": "https://albertblog.tw/25384/ice-bowl"
+        },
+        {
+          "name": "玉井有間冰舖",
+          "area": "台南玉井（高雄出發約45分）",
+          "price": "人均 NT$120–200",
+          "hours": "約 09:00–18:00（建議致電）",
+          "intro": "芒果故鄉玉井最著名芒果冰，澎湃大碗，8 月鮮芒果當造。",
+          "signature": "芒果雪綿冰、新鮮芒果冰",
+          "mapQuery": "有間冰舖 玉井",
+          "link": "https://shopee.tw/blog/yujing-mango/"
+        }
+      ]
+    },
+    {
+      "category": "🍢 小食",
+      "items": [
+        {
+          "name": "北港蔡三代筒仔米糕",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$60–120",
+          "hours": "13:30–21:30，★週三公休（只收現金）",
+          "intro": "1956 年 60 年老店，米其林必比登推薦。",
+          "signature": "筒仔米糕、蒸蛋湯、滷鐵蛋",
+          "mapQuery": "北港蔡三代筒仔米糕 鹽埕",
+          "link": "https://guide.michelin.com/us/en/kaohsiung-region/kaohsiung/restaurant/bei-gang-tsai-rice-tube-yancheng",
+          "menuLink": "https://momoblog.tw/beigangcai/"
+        },
+        {
+          "name": "冬粉王",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$80–150",
+          "hours": "08:30–20:00（無固定公休）",
+          "intro": "50 年老字號冬粉專賣，內臟控天堂，用餐時段一位難求。",
+          "signature": "鴨肉冬粉湯、乾冬粉、腰子湯",
+          "mapQuery": "冬粉王 鹽埕",
+          "link": "https://www.bigfang.tw/blog/post/dongfenwang-kaohsiung",
+          "menuLink": "https://tiffany0118.tw/cellophanenoodles/"
+        },
+        {
+          "name": "永和小籠包",
+          "area": "鹽埕・巷弄",
+          "price": "人均 NT$80–150",
+          "hours": "約 11:00–19:30，★週二公休（建議致電）",
+          "intro": "開業 40 年，現點現蒸爆汁小籠湯包。",
+          "signature": "小籠湯包、酸辣湯、豬血湯",
+          "mapQuery": "永和小籠包 鹽埕",
+          "link": "https://hoolee.tw/yonghe-soup-dumpling/",
+          "menuLink": "https://nellydyu.tw/blog/post/41002654"
+        }
+      ]
+    },
+    {
+      "category": "🥤 飲品（手搖 / 果汁）",
+      "items": [
+        {
+          "name": "樺達奶茶（鹽埕總店）",
+          "area": "鹽埕・鹽埕埔站奶茶街",
+          "price": "一杯 NT$60–70",
+          "hours": "09:00–22:00（每日）",
+          "intro": "1982 年創，高雄奶茶始祖，全系列唔加冰塊（冰鎮）由頭濃到尾。",
+          "signature": "益壽奶茶、樺達奶茶、加珍珠 +$5",
+          "mapQuery": "樺達奶茶 鹽埕總店",
+          "link": "https://blog.pylin.org/hwadamilktea.html"
+        },
+        {
+          "name": "鄭老牌木瓜牛奶",
+          "area": "新興・六合夜市入口",
+          "price": "人均 NT$60–100",
+          "hours": "17:00–02:00",
+          "intro": "近 60 年，現點現打超純木瓜牛奶，六合必飲。",
+          "signature": "木瓜牛奶、現打果汁",
+          "mapQuery": "鄭老牌木瓜牛奶 六合夜市",
+          "link": "https://blog.pklife.tw/2024/05/kaohsiung-zheng.html",
+          "menuLink": "https://tiffany0118.tw/hihijlppapaya/"
+        },
+        {
+          "name": "双妃奶茶",
+          "area": "鹽埕・近永和小籠包",
+          "price": "人均 NT$50–70",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "鹽埕巷弄人氣奶茶，常同永和小籠包一齊食。",
+          "signature": "奶茶系列",
+          "mapQuery": "双妃奶茶 鹽埕",
+          "link": "https://nellydyu.tw/blog/post/41002654"
+        }
+      ]
+    },
+    {
+      "category": "☕ 咖啡 Café",
+      "items": [
+        {
+          "name": "書店喫茶 一二三亭",
+          "area": "鼓山・哈瑪星站",
+          "price": "人均 NT$200–350",
+          "hours": "10:00–18:00（每日）",
+          "intro": "1914 年日治高級料亭改建，書香文青老宅，行完哈瑪星歇腳一流。",
+          "signature": "抹茶拿鐵、抹茶冰淇淋紅豆煎餅、紅酒燉牛肉烏龍麵",
+          "mapQuery": "書店喫茶一二三亭 哈瑪星",
+          "link": "https://jeremyfoodie.tw/cafehifumi/"
+        },
+        {
+          "name": "新濱·駅前（Hamasen）",
+          "area": "鼓山・哈瑪星",
+          "price": "人均 NT$200–350",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "1921 年三和銀行改建，大正和洋風老建築，高人氣網美咖啡。",
+          "signature": "手沖咖啡、輕食甜點",
+          "mapQuery": "新濱駅前 哈瑪星",
+          "link": "https://mymarcy.tw/kaohsiung-cafes-guide/"
+        },
+        {
+          "name": "厚里 Horli Baking",
+          "area": "鹽埕・鐵道園區旁",
+          "price": "人均 NT$150–300",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "火車車廂造型店面，望哈瑪星鐵道園區，小朋友會鍾意。",
+          "signature": "手撕包、咖啡",
+          "mapQuery": "厚里 Horli Baking 鹽埕",
+          "link": "https://mymarcy.tw/kaohsiung-cafes-guide/"
+        },
+        {
+          "name": "路人咖啡（駁二）",
+          "area": "鹽埕・駁二",
+          "price": "人均 NT$150–300",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "駁二內，大面落地窗望大港橋，行駁二順遊。",
+          "signature": "精品咖啡、氣泡飲",
+          "mapQuery": "路人咖啡 駁二",
+          "link": "https://damei17.com/yancheng-coffee/"
+        }
+      ]
+    },
+    {
+      "category": "🛍 伴手禮",
+      "items": [
+        {
+          "name": "舊振南餅店",
+          "area": "前鎮 SOGO B2／大寮文化館",
+          "price": "禮盒 NT$300–800",
+          "hours": "SOGO 店 11:00–21:30（五六到 22:00）",
+          "intro": "1890 年百年漢餅，小金磚鳳梨酥最出名，送禮體面。",
+          "signature": "小金磚鳳梨酥、綠豆椪、杏香酥",
+          "mapQuery": "舊振南餅店 SOGO 高雄",
+          "link": "https://www.jzn.com.tw/",
+          "menuLink": "https://shop.jzn.com.tw/"
+        },
+        {
+          "name": "巴堂蜂蜜蛋糕",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$200–500",
+          "hours": "09:00–21:30",
+          "intro": "傳承百年，招牌蜂蜜蛋糕（日本巴堂授權），鹽埕在地伴手禮。",
+          "signature": "蜂蜜蛋糕、芝麻Q餅、銅鑼燒",
+          "mapQuery": "巴堂蜂蜜蛋糕 鹽埕",
+          "link": "https://www.batung.com.tw/",
+          "menuLink": "https://appletrees.tw/blog/post/batung"
+        },
+        {
+          "name": "微熱山丘（駁二門市）",
+          "area": "鹽埕・駁二",
+          "price": "禮盒 NT$300–500",
+          "hours": "11:00–19:00（僅除夕初一休）",
+          "intro": "知名土鳳梨酥，入內每人免費奉茶+鳳梨酥一塊，白色船塢建築好打卡。",
+          "signature": "土鳳梨酥、山丘芭娜娜",
+          "mapQuery": "微熱山丘 駁二",
+          "link": "https://www.fonfood.com/store/3022199",
+          "menuLink": "https://smilevivi.com/sunnyhills/"
+        }
+      ]
+    },
+    {
+      "category": "🚶 邊行邊食",
+      "items": [
+        {
+          "name": "新濱町海洋廚房",
+          "area": "鼓山・哈瑪星站步行8分",
+          "price": "人均 NT$300–500",
+          "hours": "11:30–22:00（每日）",
+          "intro": "2025/3 新開，原鼓山魚市場改建，進駐 15 家品牌，海港景觀邊行邊食，超啱一家人。",
+          "signature": "一幻蝦拉麵、日乃屋咖哩、JAPAN 燒烤",
+          "mapQuery": "新濱町海洋廚房 鼓山",
+          "link": "https://www.facebook.com/ShinhamachoCuisineHub/",
+          "menuLink": "https://ajunfun.tw/shinhamacho-cuisine-hub/"
+        },
+        {
+          "name": "旗津老街小吃",
+          "area": "旗津・輪渡站落船即到",
+          "price": "人均 NT$150–300",
+          "hours": "約 10:00–20:00（週末最旺）",
+          "intro": "搭渡輪過旗津，老街一路邊行邊食銅板小食。",
+          "signature": "番茄切盤、炭烤小卷、白糖粿、旗魚黑輪",
+          "mapQuery": "旗津老街",
+          "link": "https://bobowin.blog/cijin-food/",
+          "menuLink": "https://www.bring-you.info/zh-tw/qijin-street-snake"
+        },
+        {
+          "name": "駁二／鹽埕邊行邊食",
+          "area": "鹽埕・鹽埕埔站／輕軌駁二",
+          "price": "人均 NT$150–300",
+          "hours": "園區全天，店家各異",
+          "intro": "倉庫群文創+美食，一路微熱山丘→路人咖啡→婆婆冰邊行邊食邊睇展。",
+          "signature": "鳳梨酥、芒果冰、沿街攤",
+          "mapQuery": "駁二藝術特區 大義倉庫",
+          "link": "https://damei17.com/yancheng-coffee/"
+        }
+      ]
+    }
+  ],
+  "alternatives": [
+    {
+      "category": "👧 親子・8 歲女童啱玩（後備加減）",
+      "items": [
+        {
+          "name": "國立科學工藝博物館（科工館）",
+          "area": "三民區",
+          "hours": "09:00–17:00（暑假假日到18:00）",
+          "cost": "常設展約 NT$100",
+          "tag": "室內・互動",
+          "note": "大量互動科學展，雨天最佳",
+          "mapQuery": "國立科學工藝博物館"
+        },
+        {
+          "name": "兒童美術館（高美館園區）",
+          "area": "鼓山／內惟",
+          "hours": "09:30–17:30，★週一休",
+          "cost": 0,
+          "tag": "免費・室內",
+          "note": "沙坑、故事屋、積木",
+          "mapQuery": "高雄市立兒童美術館"
+        },
+        {
+          "name": "義大遊樂世界",
+          "area": "大樹區 約40分",
+          "cost": "全日票約 NT$650",
+          "tag": "樂園",
+          "note": "摩天輪＋主題樂園；8月戶外曬",
+          "mapQuery": "義大遊樂世界"
+        },
+        {
+          "name": "大魯閣草衙道",
+          "area": "前鎮・近機場",
+          "cost": "入場免費・設施另計",
+          "tag": "室內外樂園",
+          "note": "鈴鹿賽道樂園，回程前放電",
+          "mapQuery": "大魯閣草衙道"
+        }
+      ]
+    },
+    {
+      "category": "🌧️ 室內・落雨 backup",
+      "items": [
+        {
+          "name": "夢時代購物中心",
+          "area": "前鎮",
+          "cost": "免費入場",
+          "tag": "避暑・摩天輪",
+          "note": "全天候室內",
+          "mapQuery": "統一夢時代購物中心"
+        },
+        {
+          "name": "棧貳庫 KW2",
+          "area": "鼓山港邊",
+          "cost": "免費入場",
+          "tag": "文創倉庫",
+          "note": "港邊文創＋食肆",
+          "mapQuery": "棧貳庫"
+        },
+        {
+          "name": "哈瑪星台灣鐵道館",
+          "area": "鼓山",
+          "cost": "約 NT$149",
+          "tag": "鐵道模型",
+          "note": "亞洲最大實體鐵道模型",
+          "mapQuery": "哈瑪星台灣鐵道館"
+        }
+      ]
+    },
+    {
+      "category": "🏝️ 海島・近郊（彈性後備）",
+      "items": [
+        {
+          "name": "小琉球（東港搭船）",
+          "area": "東港船 25–30 分",
+          "cost": "來回 NT$360–450・兒童 225",
+          "tag": "看海龜・後備",
+          "note": "浮潛/半潛艇；8月旺季+颱風雙風險",
+          "mapQuery": "小琉球白沙尾漁港"
+        },
+        {
+          "name": "奇美博物館（台南）",
+          "area": "台鐵約40分",
+          "hours": "09:30–17:30，★週三休",
+          "cost": "常設展約 NT$200",
+          "tag": "室內・冷氣",
+          "note": "歐式建築＋藝術典藏，台鐵當日來回",
+          "mapQuery": "奇美博物館"
+        },
+        {
+          "name": "蓮池潭・龍虎塔",
+          "area": "左營",
+          "cost": 0,
+          "tag": "廟宇打卡",
+          "note": "龍口入虎口出；去前查整修",
+          "mapQuery": "蓮池潭龍虎塔"
+        }
+      ]
+    }
+  ],
+  "hotels": [
+    {
+      "name": "🥇 Airbnb 整套 3 房・美麗島／中央公園區（首選）",
+      "area": "紅線R10×橘線O5 雙捷運",
+      "pricePerNight": "6晚 ≈ HK$6,000–8,000",
+      "rating": "區域首選",
+      "highlights": "高雄唯一雙捷運交會，去邊都唔轉線、去機場最快（→小港約12–15分）；樓下六合夜市/新崛江/便利店。揀盤 filter：整套 entire place・房數≥3・入住≥4人・近捷運≤8分・評分≥4.8・Superhost・每房冷氣・電梯・洗衣機。",
+      "confirmation": "（自己 Airbnb 訂・填訂單號）",
+      "mapQuery": "美麗島站 高雄"
+    },
+    {
+      "name": "🥈 Airbnb 整套・鹽埕／駁二區",
+      "area": "橘線 O2 鹽埕埔",
+      "pricePerNight": "6晚 ≈ HK$5,250–8,250",
+      "rating": "最有特色",
+      "highlights": "老屋改建設計民宿密度最高，行得到駁二、大港橋、棧貳庫、愛河、旗津渡輪，文青慢遊一流；缺點：去機場要美麗島轉紅線（約20–25分）。",
+      "confirmation": "",
+      "mapQuery": "鹽埕埔站 高雄"
+    },
+    {
+      "name": "🥉 Airbnb 整套・左營／巨蛋區",
+      "area": "紅線 R16 高鐵／R14 巨蛋",
+      "pricePerNight": "6晚 ≈ HK$8,250–13,500",
+      "rating": "最新淨",
+      "highlights": "高鐵左營站出站即捷運，跨城方便；漢神巨蛋+瑞豐夜市生活機能足、較新。缺點：離駁二老城遠、去機場最遠（約28分）、整套房較貴。",
+      "confirmation": "",
+      "mapQuery": "高鐵左營站"
+    },
+    {
+      "name": "⚠️ 合法民宿 + 訂房自保（必讀）",
+      "area": "全高雄",
+      "rating": "避坑",
+      "highlights": "台灣無牌日租屬違法且未過消防/保險審查。訂前去『台灣旅宿網 taiwanstay.net.tw』核對合法黃色標章+證號；揀 Superhost+大量真實評論；全程 Airbnb 平台付款，切勿私下匯款；入住即影屋況。暑假早訂、揀免費取消先 lock。",
+      "confirmation": "",
+      "mapQuery": "台灣旅宿網"
+    }
+  ],
+  "budget": {
+    "tiers": [
+      {
+        "label": "💵 經濟",
+        "total": "≈ HK$11,000",
+        "note": "人均 ~2,750｜平價整套2房・夜市為主"
+      },
+      {
+        "label": "💴 中等（已鎖）",
+        "total": "≈ HK$16,500",
+        "note": "人均 ~4,125｜Airbnb整套3房・食唔慳配名店",
+        "pick": true
+      },
+      {
+        "label": "💎 寬鬆",
+        "total": "≈ HK$24,000",
+        "note": "人均 ~6,000｜設計民宿+樂園+多餐廳+包車多日"
+      }
+    ],
+    "accommodation": {
+      "items": [],
+      "subtotal": "Airbnb整套3房 6晚 ≈ NT$28,000（約 HK$7,000）"
+    },
+    "transport": {
+      "items": [],
+      "subtotal": "捷運/台鐵+機動日2次包車 ≈ NT$9,000（約 HK$2,250）"
+    },
+    "food": {
+      "items": [],
+      "subtotal": "食唔慳・配名店+福園一餐 ≈ NT$13,000（約 HK$3,250）"
+    },
+    "tickets": {
+      "items": [],
+      "subtotal": "木育/野森/壽山/美術館/愛之船/崗山 ≈ NT$6,000（約 HK$1,500）"
+    },
+    "other": {
+      "items": [],
+      "subtotal": "手信/雜項 ≈ NT$4,000（約 HK$1,000）"
+    },
+    "total": "≈ NT$66,000（約 HK$16,500）",
+    "perPerson": "≈ HK$4,125",
+    "note": "中等檔（4人6夜・不計機票・食唔慳）。匯率 HK$1≈NT$4.0（參考~）。8月暑假最旺，Airbnb 越早訂越平，揀免費取消方案。所有價為 2025–26 公開資料整合，落單前以平台即時價為準；標 未核實／估算 者尤其要自行核對。"
+  },
+  "essentials": {
+    "currency": "新台幣 TWD；HK$1 ≈ NT$4.0（出發前查即時匯率）",
+    "plug": "A 型兩腳扁插，110V",
+    "transit": "一卡通 iPASS（捷運/輕軌/渡輪/56號公車/台鐵通用，85 折）",
+    "emergency": "警察 110 / 救護消防 119 / 旅遊諮詢 0800-011-765",
+    "sim": "機場買 eSIM 或租 Wi-Fi 蛋；中華電信訊號好",
+    "timezone": "台北時間，同香港無時差",
+    "language": "國語／台語，講普通話通",
+    "tipping": "唔使俾小費"
+  },
+  "tips": [
+    "★ 出發前 3 件 must-do 核實：①崗山之眼是否已重開（khh.travel）未開行小琉球/義大；②野森動物學校公休日(官網週三/媒體週二三)+先線上預約(每日限1000)，電 07-6672017；③木育森林確切票價+線上購票。",
+    "★ 休館/公休日已對齊：壽山動物園/兒美/瑞豐(週一)、佛館(週二)、奇美(週三)；餐廳婆婆冰(二)、北港蔡/鴨肉珍本店(二三)、永和小籠包(二)、旗后海產/海之冰(一)、火魂豬腳(一三)。",
+    "上山/郊區交通：壽山(動物園+情人觀景台)、崗山之眼、內門野森，公車疏/轉乘多，3大1小建議 Uber 或半日/全日包車慳體力。",
+    "颱風＝船班/夜景全泡湯：渡輪、小琉球、崗山之眼、壽山夜景全靠天氣，把崗山/海島放最晴一日（8/19 機動日可同其他日對調）。",
+    "午後雷陣雨幾乎每日：戶外排上午，13:00–17:00 改室內；隨身帶輕便雨衣（山上/海島風大傘無用）。",
+    "輕軌龍貓隧道：切勿走入軌道，月台用長焦影；壽山獼猴勿餵食、勿手持食物膠袋。",
+    "每人買一張一卡通 iPASS：捷運/輕軌/渡輪/56號公車/台鐵通用 85 折，兒童票更平；落單前以官方為準。",
+    "退稅：單店滿 NT$2,000 可退稅，手信集中買，帶護照。"
+  ],
+  "events": [
+    {
+      "name": "神行祭（民俗文化・市集・音樂）",
+      "date": "8/15–16",
+      "where": "駁二大義紅磚廊道",
+      "tag": "🎯 啱你 D1–D2",
+      "note": "臺灣民俗文化為核心：廟埕+市集+音樂+地方飲食+街藝演出（待官方確認）",
+      "link": "https://khh.travel/zh-tw/event/calendar/2026/",
+      "mapQuery": "駁二大義紅磚廊道"
+    },
+    {
+      "name": "駁二週末市集",
+      "date": "8/15(六)、8/16(日)",
+      "where": "駁二大義/大勇/蓬萊區廣場",
+      "tag": "順遊",
+      "note": "7–9 月週末市集，駁二多個廣場輪流（待確認）",
+      "link": "https://khh.tainanoutlook.com/kaohsiung-events-2026",
+      "mapQuery": "駁二藝術特區"
+    },
+    {
+      "name": "高雄展覽館・寵物用品展",
+      "date": "8/19–22",
+      "where": "高雄展覽館（亞洲新灣區）",
+      "tag": "女童或鍾意",
+      "note": "重疊你 8/19–21；近圖書館/夢時代（待確認）",
+      "link": "https://www.khmice.org.tw/xcexhibition/calendar?xsmsid=0N195602520127054073",
+      "mapQuery": "高雄展覽館"
+    },
+    {
+      "name": "高雄展覽館・酒展",
+      "date": "8/14–17",
+      "where": "高雄展覽館",
+      "tag": "成人向",
+      "note": "小朋友一般，順帶一提（待確認）",
+      "link": "https://www.khmice.org.tw/xcexhibition/calendar?xsmsid=0N195602520127054073",
+      "mapQuery": "高雄展覽館"
+    },
+    {
+      "name": "游鴻明《敵不過想念》演唱會",
+      "date": "8/22",
+      "where": "高雄巨蛋 K-ARENA",
+      "tag": "❌ 差一日",
+      "note": "你 8/21 走，差一日；如改機可考慮（待確認）",
+      "link": "https://www.kaoarena.com.tw/Home/CalendarList?year=2026",
+      "mapQuery": "高雄巨蛋"
+    }
+  ]
+}

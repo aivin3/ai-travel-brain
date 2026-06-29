@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>東京親子 3 天遊（示範）</title>
+<style>
+  :root{
+    --bg:#0f172a; --bg2:#1e293b; --card:#1e293b; --card2:#273449;
+    --line:#334155; --text:#e2e8f0; --muted:#94a3b8; --accent:#38bdf8;
+    --accent2:#fbbf24; --good:#34d399; --warn:#f87171; --pill:#0ea5e9;
+    --radius:16px; --maxw:680px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans HK","Microsoft JhengHei",sans-serif;
+    line-height:1.6; font-size:16px; padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 14px}
+  a{color:var(--accent);text-decoration:none}
+  h1,h2,h3{margin:0;line-height:1.25}
+  .muted{color:var(--muted)}
+  .small{font-size:13px}
+
+  /* Cover */
+  .cover{
+    position:relative;border-radius:0 0 24px 24px;overflow:hidden;
+    padding:32px 18px 26px;margin-bottom:14px;
+    background:linear-gradient(160deg,#0c4a6e 0%,#0f172a 70%);
+  }
+  .cover.hasimg{background:#0f172a}
+  .cover .hero{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:.42}
+  .cover .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,23,42,.35),rgba(15,23,42,.92))}
+  .cover .ct{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto}
+  .cover h1{font-size:27px;font-weight:800;letter-spacing:.5px}
+  .cover .sub{margin-top:6px;color:#cbd5e1}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);
+    padding:5px 11px;border-radius:999px;font-size:13px;color:#e2e8f0;white-space:nowrap}
+
+  /* Sticky day nav */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(15,23,42,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -14px}
+  .nav .scroller{display:flex;gap:7px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
+  .nav .scroller::-webkit-scrollbar{display:none}
+  .nav button{flex:0 0 auto;background:var(--card2);color:var(--text);border:1px solid var(--line);
+    border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600;cursor:pointer}
+  .nav button.active{background:var(--accent);color:#06283d;border-color:var(--accent)}
+
+  section{margin:18px 0}
+  .sec-title{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;margin:0 0 10px}
+  .sec-title .i{font-size:20px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;margin-bottom:12px}
+  .card.tight{padding:12px}
+
+  /* Day */
+  .day-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+  .day-head .d{font-size:15px;font-weight:800;color:var(--accent2)}
+  .day-theme{font-size:17px;font-weight:800;margin:2px 0 8px}
+  .wx{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);
+    background:var(--card2);border:1px solid var(--line);padding:3px 9px;border-radius:999px}
+
+  .act{display:flex;gap:11px;padding:11px 0;border-top:1px dashed var(--line)}
+  .act:first-child{border-top:0}
+  .act .time{flex:0 0 50px;font-weight:800;color:var(--accent);font-size:14px;padding-top:1px}
+  .act .body{flex:1;min-width:0}
+  .act .nm{font-weight:700;font-size:16px}
+  .act .det{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .act .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--card2);
+    border:1px solid var(--line);color:#cbd5e1;white-space:nowrap}
+  .tag.cost{color:var(--accent2)}
+  .tag.free{color:var(--good)}
+  .act img.thumb{width:100%;border-radius:12px;margin-top:9px;display:block;border:1px solid var(--line)}
+  .meal{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 11px;margin-top:8px}
+  .meal .mt{font-weight:700}
+  .btn-map{display:inline-flex;align-items:center;gap:5px;margin-top:8px;
+    background:rgba(56,189,248,.14);border:1px solid rgba(56,189,248,.4);color:var(--accent);
+    padding:6px 12px;border-radius:10px;font-size:13.5px;font-weight:700}
+  .btn-map:active{background:rgba(56,189,248,.3)}
+
+  /* Hotels */
+  .hotel .hn{font-weight:800;font-size:16px}
+  .hotel .row{display:flex;justify-content:space-between;gap:10px;margin-top:4px;font-size:14px}
+  .hotel .price{color:var(--accent2);font-weight:800}
+  .hotel img.thumb{width:100%;border-radius:12px;margin-top:9px;border:1px solid var(--line)}
+
+  /* Budget */
+  table.bud{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.bud td{padding:8px 4px;border-top:1px solid var(--line)}
+  table.bud tr:first-child td{border-top:0}
+  table.bud td.r{text-align:right;font-variant-numeric:tabular-nums}
+  table.bud .total td{font-weight:800;font-size:16px;border-top:2px solid var(--accent);color:var(--accent2)}
+
+  ul.tips{margin:0;padding-left:18px}
+  ul.tips li{margin:6px 0}
+
+  .ess{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .ess .e{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+  .ess .e .k{font-size:12px;color:var(--muted)}
+  .ess .e .v{font-weight:700;font-size:14.5px;margin-top:1px}
+
+  .reliab{font-size:12px;color:var(--muted);margin-top:8px;font-style:italic}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 32px}
+  .totop{position:fixed;right:14px;bottom:18px;z-index:40;width:44px;height:44px;border-radius:50%;
+    background:var(--accent);color:#06283d;border:0;font-size:20px;font-weight:800;cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,.4);display:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<button class="totop" id="totop" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script id="trip-data" type="application/json">
+{
+  "title": "東京親子 3 天遊（示範）",
+  "subtitle": "淺草・台場・新宿 — 輕鬆節奏 + 親子友善",
+  "dateRange": "2026-08-10 ~ 08-12",
+  "travelers": "2 大 1 小（5 歲）",
+  "highlights": [
+    "First day 輕鬆落地，淺草老街 + 晴空塔睇夜景，唔趕行程",
+    "台場一日：teamLab + 高達 + 海濱，全部室內外彈性，落雨都有得玩",
+    "新宿買嘢食嘢一條過，回程前掃手信"
+  ],
+  "weather": {
+    "summary": "盛夏炎熱潮濕，午後偶有雷陣雨。",
+    "avgHigh": 31,
+    "avgLow": 25,
+    "rainfall": "40%",
+    "clothing": "輕薄透氣衫、帽、太陽眼鏡；室內冷氣強，帶件薄外套。",
+    "tips": "帶折疊雨傘 + 小風扇；多補水，小朋友避免正午暴曬。"
+  },
+  "days": [
+    {
+      "date": "08/10",
+      "weekday": "週一",
+      "theme": "落地 + 淺草老街夜景",
+      "weather": {
+        "icon": "partly",
+        "high": 31,
+        "low": 25
+      },
+      "activities": [
+        {
+          "time": "14:00",
+          "name": "成田機場 → 酒店 Check-in",
+          "note": "Skyliner 直達上野，再轉地鐵",
+          "duration": "1.5h",
+          "transport": "Skyliner ¥2,570",
+          "cost": "HK$300",
+          "mapQuery": "Narita Airport Terminal 1"
+        },
+        {
+          "time": "16:30",
+          "name": "淺草寺 & 仲見世商店街",
+          "note": "雷門影相、行老街食人形燒",
+          "duration": "2h",
+          "cost": 0,
+          "transport": "步行",
+          "mapQuery": "Senso-ji Temple Asakusa"
+        },
+        {
+          "time": "18:30",
+          "name": "晴空塔 Tokyo Skytree",
+          "note": "黃昏上展望台睇日落轉夜景，建議網上預約",
+          "duration": "1.5h",
+          "cost": "¥2,100/人",
+          "transport": "步行 15 分鐘",
+          "mapQuery": "Tokyo Skytree"
+        },
+        {
+          "time": "20:00",
+          "meal": {
+            "name": "天丼 ひさご（淺草）",
+            "cuisine": "日式天婦羅丼",
+            "perPerson": "¥1,800",
+            "recommended": "海老天丼、味噌湯",
+            "location": "淺草站附近"
+          }
+        }
+      ]
+    },
+    {
+      "date": "08/11",
+      "weekday": "週二",
+      "theme": "台場一日：teamLab + 高達 + 海濱",
+      "weather": {
+        "icon": "showers",
+        "high": 30,
+        "low": 25
+      },
+      "activities": [
+        {
+          "time": "10:00",
+          "name": "teamLab Borderless（麻布台）",
+          "note": "沉浸式數位藝術，小朋友最愛，務必事前購票",
+          "duration": "2.5h",
+          "cost": "¥3,800/人",
+          "transport": "地鐵神谷町站",
+          "mapQuery": "teamLab Borderless Azabudai Hills"
+        },
+        {
+          "time": "13:00",
+          "meal": {
+            "name": "AQUA CiTY 美食廣場",
+            "cuisine": "多國美食",
+            "perPerson": "¥1,500",
+            "recommended": "拉麵 / 親子丼任揀",
+            "location": "台場 AQUA CiTY"
+          }
+        },
+        {
+          "time": "14:30",
+          "name": "獨角獸高達立像",
+          "note": "DiverCity 商場外，定時變身表演",
+          "duration": "1h",
+          "cost": 0,
+          "transport": "步行",
+          "mapQuery": "Unicorn Gundam Statue DiverCity Tokyo Plaza"
+        },
+        {
+          "time": "16:00",
+          "name": "台場海濱公園",
+          "note": "睇彩虹大橋同自由女神像，海風散步",
+          "duration": "1h",
+          "cost": 0,
+          "transport": "步行",
+          "mapQuery": "Odaiba Seaside Park"
+        }
+      ]
+    },
+    {
+      "date": "08/12",
+      "weekday": "週三",
+      "theme": "新宿掃貨 + 回程",
+      "weather": {
+        "icon": "sunny",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "新宿御苑",
+          "note": "晨早散步，避開正午熱",
+          "duration": "1.5h",
+          "cost": "¥500/人",
+          "transport": "新宿御苑前站",
+          "mapQuery": "Shinjuku Gyoen National Garden"
+        },
+        {
+          "time": "11:30",
+          "name": "新宿掃手信（唐吉訶德 + Bic Camera）",
+          "note": "藥妝、電器、零食一次過",
+          "duration": "2h",
+          "cost": "視乎",
+          "transport": "步行",
+          "mapQuery": "Don Quijote Shinjuku"
+        },
+        {
+          "time": "14:00",
+          "name": "酒店取行李 → 成田機場",
+          "note": "預留 3 小時 buffer",
+          "duration": "1.5h",
+          "transport": "Skyliner",
+          "cost": "HK$300",
+          "mapQuery": "Narita Airport Terminal 1"
+        }
+      ]
+    }
+  ],
+  "hotels": [
+    {
+      "name": "淺草 Richmond Hotel",
+      "area": "淺草",
+      "pricePerNight": "HK$900",
+      "rating": "4.4",
+      "checkIn": "2026-08-10",
+      "checkOut": "2026-08-12",
+      "highlights": "近淺草站，行得到淺草寺/晴空塔，親子房乾淨",
+      "confirmation": "（自己填訂單號）",
+      "mapQuery": "Richmond Hotel Asakusa"
+    }
+  ],
+  "budget": {
+    "transport": {
+      "items": [],
+      "subtotal": "HK$2,400"
+    },
+    "accommodation": {
+      "items": [],
+      "subtotal": "HK$1,800"
+    },
+    "food": {
+      "items": [],
+      "subtotal": "HK$1,500"
+    },
+    "tickets": {
+      "items": [],
+      "subtotal": "HK$900"
+    },
+    "other": {
+      "items": [],
+      "subtotal": "HK$600"
+    },
+    "total": "HK$7,200",
+    "perPerson": "HK$2,400",
+    "note": "示範估算（≈估算）；機票另計。落單前請於官方平台核實。"
+  },
+  "essentials": {
+    "currency": "日圓 JPY；HK$1 ≈ ¥19",
+    "plug": "A 型兩腳扁插，100V",
+    "transit": "Suica / PASMO（可用 Apple Pay 加值）",
+    "emergency": "警察 110 / 救護消防 119",
+    "sim": "機場買 eSIM 或租 Wi-Fi 蛋",
+    "timezone": "JST（HK +1 小時）",
+    "language": "日語；旅遊區英文 OK",
+    "tipping": "唔使俾小費"
+  },
+  "tips": [
+    "暑假人多，熱門景點（teamLab / 晴空塔）一定要網上預約。",
+    "JR / 地鐵下載 Google Maps 離線地圖；Suica 入 Apple Wallet 最方便。",
+    "午後雷陣雨頻密，行程留室內 backup（商場 / 館）。",
+    "帶定退稅護照影本，掃貨滿 ¥5,000 可退稅。"
+  ],
+  "generationDate": "2026-06-23"
+}
+</script>
+<script>
+const T = JSON.parse(document.getElementById('trip-data').textContent);
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const has=v=>v!==undefined&&v!==null&&v!=='';
+function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
+function mapBtn(q,label){if(!has(q))return '';return `<a class="btn-map" target="_blank" rel="noopener" href="${mapUrl(q)}">📍 ${E(label||'開地圖導航')}</a>`;}
+function costTag(c){
+  if(c===0) return '<span class="tag free">免費</span>';
+  if(has(c)) return `<span class="tag cost">${E(c)}</span>`;
+  return '';
+}
+function wxIcon(k){const m={sunny:'☀️',cloudy:'☁️',rain:'🌧️',showers:'🌦️',snow:'❄️',storm:'⛈️',partly:'⛅',windy:'🌬️',fog:'🌫️'};return m[k]||'🌤️';}
+
+function render(){
+  let h='';
+  // Cover
+  const hero = has(T.heroImage)?`<div class="hero" style="background-image:url('${E(T.heroImage)}')"></div><div class="veil"></div>`:'';
+  h+=`<div class="cover ${has(T.heroImage)?'hasimg':''}">${hero}<div class="ct">
+    <h1>${E(T.title)}</h1>
+    ${has(T.subtitle)?`<div class="sub">${E(T.subtitle)}</div>`:''}
+    <div class="meta">
+      ${has(T.dateRange)?`<span class="chip">📅 ${E(T.dateRange)}</span>`:''}
+      ${has(T.travelers)?`<span class="chip">👥 ${E(T.travelers)}</span>`:''}
+      ${has(T.days)?`<span class="chip">🗓️ ${T.days.length} 天</span>`:''}
+      ${has(T.budget&&T.budget.perPerson)?`<span class="chip">💰 人均 ${E(T.budget.perPerson)}</span>`:''}
+    </div></div></div>`;
+
+  h+='<div class="wrap">';
+
+  // Day nav
+  if(has(T.days)&&T.days.length){
+    h+='<div class="nav"><div class="scroller" id="dnav">';
+    h+=`<button data-go="top" class="active">總覽</button>`;
+    T.days.forEach((d,i)=>{h+=`<button data-go="day${i}">D${i+1}${has(d.date)?' · '+E(d.date):''}</button>`;});
+    if(has(T.budget)) h+=`<button data-go="budget">預算</button>`;
+    if(has(T.essentials)) h+=`<button data-go="ess">實用</button>`;
+    h+='</div></div>';
+  }
+
+  // Highlights
+  if(has(T.highlights)&&T.highlights.length){
+    h+=`<section id="top"><div class="sec-title"><span class="i">✨</span>行程亮點</div><div class="card">`;
+    h+='<ul class="tips">'+T.highlights.map(x=>`<li>${E(x)}</li>`).join('')+'</ul></div></section>';
+  }
+
+  // Weather overview
+  if(has(T.weather)){
+    const w=T.weather;
+    h+=`<section><div class="sec-title"><span class="i">🌤️</span>天氣 & 穿搭</div><div class="card">
+      <div>${E(w.summary)||''}</div>
+      <div class="tags" style="margin-top:8px">
+        ${has(w.avgHigh)?`<span class="tag">高 ${E(w.avgHigh)}°</span>`:''}
+        ${has(w.avgLow)?`<span class="tag">低 ${E(w.avgLow)}°</span>`:''}
+        ${has(w.rainfall)?`<span class="tag">降雨 ${E(w.rainfall)}</span>`:''}
+      </div>
+      ${has(w.clothing)?`<div class="small muted" style="margin-top:8px">👕 ${E(w.clothing)}</div>`:''}
+      ${has(w.tips)?`<div class="small muted" style="margin-top:4px">💡 ${E(w.tips)}</div>`:''}
+    </div></section>`;
+  }
+
+  // Days
+  if(has(T.days)) T.days.forEach((d,i)=>{
+    h+=`<section id="day${i}"><div class="card">
+      <div class="day-head"><div class="d">DAY ${i+1}${has(d.date)?' · '+E(d.date):''}${has(d.weekday)?' ('+E(d.weekday)+')':''}</div>
+      ${has(d.weather)?`<span class="wx">${wxIcon(d.weather.icon)} ${has(d.weather.high)?E(d.weather.high)+'°':''}${has(d.weather.low)?'/'+E(d.weather.low)+'°':''}</span>`:''}</div>
+      ${has(d.theme)?`<div class="day-theme">${E(d.theme)}</div>`:''}`;
+    (d.activities||[]).forEach(a=>{
+      if(a.meal){
+        const m=a.meal;
+        h+=`<div class="act"><div class="time">${E(a.time)||'🍽️'}</div><div class="body">
+          <div class="meal"><div class="mt">🍴 ${E(m.name)}</div>
+          <div class="det">${[m.cuisine,has(m.perPerson)?'人均 '+E(m.perPerson):'',m.location].filter(has).map(E).join(' · ')}</div>
+          ${has(m.recommended)?`<div class="small muted" style="margin-top:3px">推薦：${E(m.recommended)}</div>`:''}
+          ${mapBtn(m.mapQuery||((m.name||'')+' '+(m.location||'')),'搵餐廳')}
+          </div></div></div>`;
+      } else {
+        h+=`<div class="act"><div class="time">${E(a.time)||'•'}</div><div class="body">
+          <div class="nm">${E(a.name)}</div>
+          ${has(a.note)?`<div class="det">${E(a.note)}</div>`:''}
+          <div class="tags">
+            ${has(a.duration)?`<span class="tag">⏱ ${E(a.duration)}</span>`:''}
+            ${costTag(a.cost)}
+            ${has(a.transport)?`<span class="tag">🚇 ${E(a.transport)}</span>`:''}
+          </div>
+          ${has(a.imageUrl)?`<img class="thumb" loading="lazy" src="${E(a.imageUrl)}" alt="">`:''}
+          ${mapBtn(a.mapQuery||a.address||a.name)}
+        </div></div>`;
+      }
+    });
+    h+=`</div></section>`;
+  });
+
+  // Hotels
+  if(has(T.hotels)&&T.hotels.length){
+    h+=`<section id="hotels"><div class="sec-title"><span class="i">🏨</span>住宿</div>`;
+    T.hotels.forEach(ht=>{
+      h+=`<div class="card hotel"><div class="hn">${E(ht.name)}</div>
+        <div class="row"><span class="muted">${E(ht.area)||''}${has(ht.rating)?' · ⭐'+E(ht.rating):''}</span>
+        ${has(ht.pricePerNight)?`<span class="price">${E(ht.pricePerNight)}/晚</span>`:''}</div>
+        ${has(ht.checkIn)?`<div class="small muted" style="margin-top:4px">入住 ${E(ht.checkIn)}${has(ht.checkOut)?' → 退房 '+E(ht.checkOut):''}</div>`:''}
+        ${has(ht.highlights)?`<div class="small" style="margin-top:5px">${E(ht.highlights)}</div>`:''}
+        ${has(ht.confirmation)?`<div class="small muted" style="margin-top:4px">訂單號：${E(ht.confirmation)}</div>`:''}
+        ${has(ht.imageUrl)?`<img class="thumb" loading="lazy" src="${E(ht.imageUrl)}" alt="">`:''}
+        ${mapBtn(ht.mapQuery||ht.address||((ht.name||'')+' '+(ht.area||'')))}
+      </div>`;
+    });
+    h+=`</section>`;
+  }
+
+  // Budget
+  if(has(T.budget)){
+    const b=T.budget, cats=[['transport','🚄 交通'],['accommodation','🏨 住宿'],['food','🍴 餐飲'],['tickets','🎫 門票'],['other','🛍 其他']];
+    h+=`<section id="budget"><div class="sec-title"><span class="i">💰</span>預算</div><div class="card"><table class="bud">`;
+    cats.forEach(([k,lbl])=>{if(b[k]&&has(b[k].subtotal))h+=`<tr><td>${lbl}</td><td class="r">${E(b[k].subtotal)}</td></tr>`;});
+    if(has(b.total))h+=`<tr class="total"><td>總計</td><td class="r">${E(b.total)}</td></tr>`;
+    if(has(b.perPerson))h+=`<tr><td class="muted">人均</td><td class="r muted">${E(b.perPerson)}</td></tr>`;
+    h+=`</table>${has(b.note)?`<div class="reliab">${E(b.note)}</div>`:'<div class="reliab">航班/酒店為動態定價，落單前請於官方平台再確認。標 實查/參考~/估算 為可靠度。</div>'}</div></section>`;
+  }
+
+  // Essentials
+  if(has(T.essentials)){
+    const es=T.essentials;
+    const rows=[['currency','💱 貨幣 / 匯率'],['plug','🔌 插頭電壓'],['transit','🚇 交通卡'],['emergency','🚨 緊急電話'],['sim','📶 上網 / SIM'],['timezone','🕐 時區'],['language','🗣 語言 / 用語'],['tipping','💵 小費']];
+    h+=`<section id="ess"><div class="sec-title"><span class="i">🧭</span>實用資訊</div><div class="card"><div class="ess">`;
+    rows.forEach(([k,lbl])=>{if(has(es[k]))h+=`<div class="e"><div class="k">${lbl}</div><div class="v">${E(es[k])}</div></div>`;});
+    h+=`</div></div></section>`;
+  }
+
+  // Tips
+  if(has(T.tips)&&T.tips.length){
+    h+=`<section><div class="sec-title"><span class="i">📝</span>貼士</div><div class="card"><ul class="tips">`;
+    h+=T.tips.map(x=>`<li>${E(x)}</li>`).join('')+`</ul></div></section>`;
+  }
+
+  h+=`<footer>由 AI Travel Brain 生成${has(T.generationDate)?' · '+E(T.generationDate):''}<br>資料僅供參考，出發前請核實營業時間 / 票價 / 交通。</footer>`;
+  h+='</div>';
+  document.getElementById('app').innerHTML=h;
+  wireNav();
+}
+
+function wireNav(){
+  const nav=document.getElementById('dnav');
+  if(nav){
+    nav.addEventListener('click',e=>{
+      const b=e.target.closest('button[data-go]');if(!b)return;
+      const id=b.dataset.go;
+      const el=id==='top'?document.body:document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    // scroll-spy
+    const secs=[...document.querySelectorAll('section[id]')];
+    const btns=[...nav.querySelectorAll('button')];
+    const map={}; btns.forEach(b=>map[b.dataset.go]=b);
+    const io=new IntersectionObserver(ents=>{
+      ents.forEach(en=>{if(en.isIntersecting){
+        btns.forEach(x=>x.classList.remove('active'));
+        const m=map[en.target.id]||map['top']; if(m){m.classList.add('active');m.scrollIntoView({inline:'center',block:'nearest'});}
+      }});
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(s=>io.observe(s));
+  }
+  const tt=document.getElementById('totop');
+  addEventListener('scroll',()=>{tt.style.display=scrollY>500?'block':'none'});
+}
+render();
+</script>
+</body>
+</html>

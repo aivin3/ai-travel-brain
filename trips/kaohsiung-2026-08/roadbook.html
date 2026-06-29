@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0ea5b7">
+<title>高雄輕鬆慢遊 7 天</title>
+<style>
+  :root{
+    --ink:#0f2742; --ink2:#3a5670; --muted:#6b7f95;
+    --teal:#0ea5b7; --teal-d:#0b7c8a; --coral:#f4647d; --amber:#f59e0b; --good:#10b981; --sky:#3b82f6; --indigo:#6366f1;
+    --glass:rgba(255,255,255,.72); --glass2:rgba(255,255,255,.5); --line:rgba(15,39,66,.10);
+    --radius:18px; --maxw:700px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+  html,body{margin:0;padding:0}
+  body{
+    color:var(--ink); min-height:100vh; position:relative;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans HK","Microsoft JhengHei",sans-serif;
+    line-height:1.62; font-size:16px; padding-bottom:env(safe-area-inset-bottom);
+    background:linear-gradient(160deg,#9be8ff 0%,#bba6ff 22%,#ff9fde 46%,#ffc07a 70%,#86ffd2 100%);
+    background-size:240% 240%;
+    animation:dreamy 24s ease-in-out infinite;
+  }
+  @keyframes dreamy{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+  /* 夢幻光暈色團（更鮮） */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(40% 34% at 15% 16%, rgba(255,110,200,.68), transparent 70%),
+      radial-gradient(38% 32% at 88% 12%, rgba(100,165,255,.64), transparent 70%),
+      radial-gradient(44% 38% at 80% 74%, rgba(168,120,255,.6), transparent 72%),
+      radial-gradient(42% 36% at 18% 86%, rgba(80,235,190,.58), transparent 72%),
+      radial-gradient(32% 28% at 52% 48%, rgba(255,210,90,.5), transparent 72%);
+    filter:blur(24px) saturate(1.2); animation:floaty 18s ease-in-out infinite alternate;}
+  @keyframes floaty{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-18px,0) scale(1.06)}}
+  @media (prefers-reduced-motion:reduce){body,body::before{animation:none}}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 14px}
+  a{color:var(--teal-d);text-decoration:none}
+  h1,h2,h3{margin:0;line-height:1.25}
+  .muted{color:var(--muted)}
+  .small{font-size:13px}
+
+  .printbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:9px 14px 0}
+  .printbtn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;
+    padding:9px 15px;border-radius:13px;font-size:14px;font-weight:800;box-shadow:0 8px 20px rgba(14,165,183,.35)}
+  .printbtn:active{transform:translateY(1px)}
+
+  .cover{position:relative;border-radius:24px;overflow:hidden;padding:34px 20px 28px;margin:6px 0 4px;
+    background:linear-gradient(130deg,#06b6d4 0%,#3b82f6 38%,#a855f7 64%,#f472b6 82%,#fb923c 100%);
+    box-shadow:0 18px 40px rgba(59,130,246,.28)}
+  .cover .hero{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:.34;mix-blend-mode:overlay}
+  .cover .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,40,80,.05),rgba(8,40,80,.34))}
+  .cover .ct{position:relative;z-index:2}
+  .cover .kicker{font-size:13px;font-weight:800;letter-spacing:3px;color:rgba(255,255,255,.9);text-transform:uppercase}
+  .cover h1{font-size:29px;font-weight:900;color:#fff;letter-spacing:.5px;margin-top:6px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+  .cover .sub{margin-top:7px;color:rgba(255,255,255,.95);font-weight:600}
+  .cover .deco{margin-top:12px;font-size:21px;letter-spacing:7px;filter:drop-shadow(0 2px 5px rgba(0,0,0,.22))}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(6px);
+    padding:6px 12px;border-radius:999px;font-size:13px;color:#fff;font-weight:700;white-space:nowrap}
+
+  .nav{position:sticky;top:50px;z-index:30;margin:10px -14px 0}
+  .nav .scroller{display:flex;gap:7px;overflow-x:auto;padding:9px 14px;scrollbar-width:none;
+    background:rgba(255,255,255,.6);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav .scroller::-webkit-scrollbar{display:none}
+  .nav button{flex:0 0 auto;background:#fff;color:var(--ink2);border:1px solid var(--line);
+    border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(15,39,66,.06)}
+  .nav button.active{background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(14,165,183,.4)}
+
+  section{margin:20px 0}
+  .sec-title{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:900;margin:0 0 12px;
+    background:linear-gradient(100deg,#7c3aed,#0ea5b7 45%,#f4647d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sec-title .i{font-size:22px;-webkit-text-fill-color:initial}
+
+  .card{background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.6));backdrop-filter:blur(16px) saturate(1.3);
+    border:1px solid rgba(255,255,255,.75);border-radius:var(--radius);padding:15px;margin-bottom:13px;
+    box-shadow:0 12px 30px rgba(124,93,237,.12),0 2px 8px rgba(244,100,125,.08)}
+
+  .day-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .day-head .d{font-size:14px;font-weight:900;letter-spacing:.5px;color:#fff;
+    background:linear-gradient(135deg,var(--coral),var(--amber));padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(244,100,125,.32)}
+  .day-theme{font-size:18px;font-weight:900;margin:4px 0 12px;color:var(--ink)}
+  .wx{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--ink2);font-weight:700;
+    background:rgba(255,255,255,.7);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+
+  .act{display:flex;gap:12px;padding:13px 0;border-top:1px dashed var(--line)}
+  .act:first-of-type{border-top:0;padding-top:4px}
+  .act .time{flex:0 0 54px;font-weight:900;color:#fff;font-size:12.5px;text-align:center;
+    background:linear-gradient(135deg,var(--teal),var(--sky));border-radius:10px;padding:5px 4px;height:fit-content;box-shadow:0 4px 10px rgba(14,165,183,.3)}
+  .act .body{flex:1;min-width:0}
+  .act .nm{font-weight:800;font-size:16.5px}
+  .act .det{font-size:13.5px;color:var(--ink2);margin-top:3px}
+  .act .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tag{font-size:12px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid var(--line);color:var(--ink2);white-space:nowrap;font-weight:600}
+  .tag.cost{background:linear-gradient(135deg,rgba(245,158,11,.16),rgba(244,100,125,.16));border-color:rgba(245,158,11,.45);color:#b45309}
+  .tag.free{background:linear-gradient(135deg,rgba(16,185,129,.16),rgba(14,165,183,.16));border-color:rgba(16,185,129,.45);color:#047857}
+  .act img.thumb{width:100%;border-radius:14px;margin-top:10px;display:block;border:1px solid rgba(255,255,255,.6)}
+  .act-ph{margin-top:10px;height:118px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    color:#fff;font-weight:900;font-size:15.5px;text-shadow:0 2px 9px rgba(0,0,0,.32);position:relative;overflow:hidden;
+    background:linear-gradient(125deg,#22d3ee 0%,#6366f1 38%,#d946ef 68%,#fb7185 88%,#fbbf24 100%);border:1px solid rgba(255,255,255,.55)}
+  .act-ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 24%,rgba(255,255,255,.5),transparent 42%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.28),transparent 45%)}
+  .act-ph .pe{font-size:40px;line-height:1;position:relative;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
+  .act-ph span{position:relative;max-width:82%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .din-item img.thumb{width:100%;height:150px;object-fit:cover;border-radius:13px;margin:0 0 9px;border:1px solid rgba(255,255,255,.6);display:block}
+  .mustdo{margin-top:8px;background:linear-gradient(135deg,rgba(16,185,129,.13),rgba(245,158,11,.12));
+    border:1px solid rgba(16,185,129,.38);border-radius:12px;padding:8px 11px;font-size:13.5px}
+  .mustdo b{color:#047857}
+  .transfer{margin-top:11px;font-size:13px;color:var(--ink2);background:rgba(59,130,246,.09);
+    border-left:3px solid var(--sky);border-radius:0 10px 10px 0;padding:7px 11px;font-weight:600}
+  .meal{background:linear-gradient(135deg,rgba(245,158,11,.10),rgba(244,100,125,.08));border:1px solid rgba(245,158,11,.28);border-radius:14px;padding:11px 12px;margin-top:4px}
+  .meal .mt{font-weight:800}
+
+  .btn-map,.btn-link,.btn-menu,.btn-photo{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding:7px 12px;border-radius:11px;font-size:13px;font-weight:800}
+  .btn-photo{background:linear-gradient(135deg,rgba(244,100,125,.16),rgba(217,70,239,.14));border:1px solid rgba(244,100,125,.5);color:#be185d}
+  .btn-photo:active{transform:translateY(1px)}
+  .btn-map{background:linear-gradient(135deg,rgba(14,165,183,.14),rgba(59,130,246,.14));border:1px solid rgba(14,165,183,.4);color:var(--teal-d)}
+  .btn-link{background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.4);color:#4f46e5}
+  .btn-menu{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.5);color:#b45309}
+  .btn-map:active,.btn-link:active,.btn-menu:active{transform:translateY(1px)}
+
+  .backup{margin-top:12px;background:rgba(59,130,246,.07);border:1px dashed rgba(59,130,246,.4);border-radius:13px;padding:10px 12px}
+  .backup .bt{font-weight:800;font-size:13.5px;color:var(--sky);margin-bottom:5px}
+  .backup ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink2)}
+  .backup li{margin:3px 0}
+
+  .alt-group{margin-bottom:16px}
+  .alt-group h3{font-size:16px;font-weight:900;margin:0 0 9px;display:flex;align-items:center;gap:7px}
+  .alt-item,.din-item{background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:11px 12px;margin-bottom:9px}
+  .alt-item .an,.din-item .an{font-weight:800;font-size:15.5px}
+  .alt-item .ad,.din-item .ad{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .alt-item .anote,.din-item .anote{font-size:13.5px;color:var(--ink2);margin-top:5px}
+  .din-item .sig{font-size:13px;color:#b45309;margin-top:5px;font-weight:600}
+  .alt-item .arow,.din-item .arow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:6px}
+
+  .hotel .hn{font-weight:900;font-size:17px}
+  .hotel .row{display:flex;justify-content:space-between;gap:10px;margin-top:5px;font-size:14px}
+  .hotel .price{color:#b45309;font-weight:900}
+  .hotel img.thumb{width:100%;border-radius:14px;margin-top:10px;border:1px solid rgba(255,255,255,.6)}
+
+  table.bud{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.bud td{padding:9px 4px;border-top:1px solid var(--line)}
+  table.bud tr:first-child td{border-top:0}
+  table.bud td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+  table.bud .total td{font-weight:900;font-size:16px;border-top:2px solid var(--coral);color:#b45309}
+  .tiers{display:flex;gap:9px;margin:2px 0 12px;overflow-x:auto;scrollbar-width:none}
+  .tier{flex:1;min-width:118px;background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:11px;text-align:center}
+  .tier .tl{font-size:13px;font-weight:800;color:var(--ink2)}
+  .tier .tv{font-size:18px;font-weight:900;margin-top:3px;background:linear-gradient(135deg,var(--teal),var(--coral));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tier .tp{font-size:12px;color:var(--muted);margin-top:2px}
+  .tier.pick{border-color:var(--teal);box-shadow:0 6px 16px rgba(14,165,183,.2)}
+
+  ul.tips{margin:0;padding-left:19px}
+  ul.tips li{margin:7px 0}
+  .ess{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .ess .e{background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:13px;padding:10px 12px}
+  .ess .e .k{font-size:12px;color:var(--muted);font-weight:700}
+  .ess .e .v{font-weight:800;font-size:14.5px;margin-top:2px}
+
+  .reliab{font-size:12px;color:var(--muted);margin-top:9px;font-style:italic}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 34px}
+  .totop{position:fixed;right:14px;bottom:18px;z-index:40;width:46px;height:46px;border-radius:50%;
+    background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(14,165,183,.4);display:none}
+
+  /* ===== 工具列 + 計錢分帳 ===== */
+  .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:8px 14px;background:rgba(255,255,255,.62);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid rgba(255,255,255,.6)}
+  .modetabs{display:flex;gap:7px}
+  .modetabs button{background:#fff;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 2px 6px rgba(15,39,66,.06)}
+  .modetabs button.active{background:linear-gradient(135deg,#d946ef,#6366f1);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(217,70,239,.4)}
+  #exp input,#exp select{font:inherit;padding:9px 11px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.88);color:var(--ink);min-width:0}
+  #exp input:focus,#exp select:focus{outline:2px solid rgba(99,102,241,.4)}
+  #exp #edesc{width:100%}
+  .exlab{font-weight:900;font-size:16px;margin-bottom:9px}
+  .exlab2{font-weight:800;font-size:13.5px;color:var(--ink2);margin:9px 0 6px}
+  .exrow{display:flex;gap:8px;margin-top:9px}
+  .exrow input{flex:1}
+  .exbtn{background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;border-radius:11px;padding:9px 15px;font-weight:800;cursor:pointer;white-space:nowrap}
+  .exbtn.full{width:100%;margin-top:10px;padding:11px}
+  .exbtn.ghost{background:rgba(244,100,125,.12);color:#be185d;border:1px solid rgba(244,100,125,.4)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .mchip{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(14,165,183,.16),rgba(59,130,246,.14));border:1px solid rgba(14,165,183,.4);color:var(--teal-d);padding:5px 10px;border-radius:999px;font-weight:700;font-size:13.5px}
+  .mchip button{background:none;border:0;color:var(--coral);cursor:pointer;font-weight:900;font-size:14px;padding:0;line-height:1}
+  .wchip{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.8);border:1px solid var(--line);padding:5px 10px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer}
+  .exitem{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed var(--line)}
+  .exitem:first-of-type{border-top:0}
+  .examt{font-weight:800;white-space:nowrap;display:flex;align-items:center;gap:8px}
+  .examt button{background:none;border:0;color:var(--coral);cursor:pointer;font-weight:900;font-size:15px}
+  .exsum{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;font-size:14.5px}
+  .exsum .pos{color:#047857}.exsum .neg{color:#be185d}
+  .extx{background:rgba(99,102,241,.08);border-left:3px solid var(--indigo);border-radius:0 10px 10px 0;padding:7px 11px;margin:5px 0;font-weight:600;font-size:14px}
+  .bar{height:12px;border-radius:999px;background:rgba(15,39,66,.1);overflow:hidden;margin:7px 0}
+  .barfill{height:100%;background:linear-gradient(90deg,var(--teal),var(--amber),var(--coral))}
+  .exrate{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--muted);white-space:nowrap}
+  .exrate input{width:56px;padding:6px 8px}
+
+  .pool{background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(99,102,241,.10));border:2px solid var(--good);border-radius:14px;padding:13px;margin-bottom:13px}
+  .pool .ptop{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .pool .plab{font-weight:900;font-size:15px;color:var(--ink)}
+  .pool .pbal{font-weight:900;font-size:23px;color:var(--good)}
+  .pool .psub{font-size:12px;color:var(--muted);margin-top:2px}
+  .curtog{display:inline-flex;border:2px solid var(--indigo);border-radius:999px;overflow:hidden}
+  .curtog button{background:#fff;color:var(--indigo);border:0;padding:5px 13px;font-weight:800;font-size:13px;cursor:pointer}
+  .curtog button.on{background:var(--indigo);color:#fff}
+  .anarow{display:flex;align-items:center;gap:9px;margin:8px 0;font-size:13.5px}
+  .anarow .albl{flex:0 0 84px;font-weight:800;color:var(--ink2)}
+  .anabar{flex:1;height:14px;border-radius:999px;background:rgba(99,102,241,.14);overflow:hidden}
+  .anabar i{display:block;height:100%;background:linear-gradient(90deg,var(--indigo),var(--good))}
+  .anaval{flex:0 0 auto;font-weight:800;font-variant-numeric:tabular-nums}
+  #exp input[type=date]{flex:1}
+
+  .synccard{background:#fff;border:2px solid var(--good);border-radius:13px;padding:12px;margin-bottom:13px}
+  .synccard.on{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;color:var(--good)}
+  .syncleave{margin-left:auto;background:#fff;border:2px solid #e8334a;color:#e8334a;border-radius:9px;padding:4px 11px;font-weight:800;cursor:pointer}
+
+  .dirbtn{display:inline-block;margin-left:8px;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:8px;padding:2px 9px;text-decoration:none}
+  .daymap{display:inline-flex;align-items:center;gap:5px;margin:0 0 11px;font-size:13px;font-weight:800;color:#fff;background:var(--good);border-radius:10px;padding:6px 12px;text-decoration:none}
+  .qrov{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
+  .qrcard{background:#fff;border-radius:18px;padding:22px;text-align:center;max-width:300px}
+  .qrcard img{width:210px;height:210px;display:block;margin:0 auto}
+  .bk-today{border-color:var(--good)!important}
+
+  @media print{
+    @page{margin:11mm}
+    body{background:#fff!important;font-size:12.5px;animation:none}
+    body::before{display:none!important}
+    .topbar,.nav,.totop{display:none!important}
+    .wrap{max-width:none}
+    .cover{box-shadow:none;border-radius:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section,.card,.act,.hotel,.alt-item,.din-item{break-inside:avoid;page-break-inside:avoid}
+    .card{box-shadow:none;background:#fff;border:1px solid #d7dee6;backdrop-filter:none}
+    .sec-title{break-after:avoid}
+    .day-head .d,.act .time,.tag.cost,.tag.free,.day-theme,.mustdo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .btn-map,.btn-link,.btn-menu,.btn-photo,.dirbtn,.daymap,.act-ph{display:none!important}
+    .act img.thumb,.hotel img.thumb,.din-item img.thumb{max-height:150px;object-fit:cover}
+  }
+</style>
+
+</head>
+<body>
+<div class="topbar">
+  <div class="modetabs">
+    <button id="mb-trip" class="active" onclick="setMode('trip')">📋 行程</button>
+    <button id="mb-money" onclick="setMode('money')">🧮 分帳</button>
+    <button id="mb-book" onclick="setMode('book')">🎫 訂單</button>
+  </div>
+  <button class="printbtn" onclick="shareQR()" style="background:#7b3fb5;box-shadow:none">📱 分享</button>
+  <button class="printbtn" onclick="window.print()">🖨 PDF</button>
+</div>
+<div id="view-trip"><div class="wrap"><div id="app"></div></div></div>
+<div id="view-tools" style="display:none"><div class="wrap"><div id="exp"></div></div></div>
+<div id="view-book" style="display:none"><div class="wrap"><div id="book"></div></div></div>
+<button class="totop" id="totop" onclick="goTop()">↑</button>
+
+<script id="trip-data" type="application/json">
+{
+  "kicker": "KAOHSIUNG · TAIWAN",
+  "title": "高雄輕鬆慢遊 7 天",
+  "subtitle": "3 大 1 小（8 歲女）· 8/15–8/21 · 必去打卡 + 高分名店 + 每段交通時間",
+  "dateRange": "2026/8/15（六）– 8/21（五）",
+  "travelers": "3 大人 + 1 小童（8 歲）",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Kaohsiung_Skyline_2020_%28cropped%29.jpg",
+  "highlights": [
+    "必去全入：輕軌龍貓隧道、野森動物學校（魔法動物學校）、美麗島光之穹頂、駁二木育森林、愛河愛之船+西子灣夕陽、壽山情人觀景台、崗山之眼（機動日）",
+    "★ 兩個更正：①「魔法動物學校」其實係內門「野森動物學校」唔喺旗津，要包車約 50–60 分；②崗山之眼自 2025/2 休園整建，出發前必查 khh.travel 是否已重開，未開行小琉球/義大",
+    "8/15 出發已對齊星期避開休館：壽山動物園/兒美/瑞豐(週一)、佛館(週二)、奇美(週三)、野森(疑週二三)→ 排最安全嘅週四(8/20)",
+    "每段行程附『➡️ 去下一站』交通＋時間＋車資；上山/郊區(壽山/崗山/內門)建議 Uber 或包車慳體力",
+    "獨立『餐廳指南』29 間分 9 類（台灣菜/海鮮/夜市/甜品冰品/小食/飲品/咖啡/伴手禮/邊行邊食），每間有介紹+招牌+📍地圖+🔗介紹+📋Menu"
+  ],
+  "weather": {
+    "summary": "盛夏酷熱潮濕，午後雷陣雨頻密（約 1–3 小時），5–9 月為颱風季。",
+    "avgHigh": 32,
+    "avgLow": 26,
+    "rainfall": "約 46–50%",
+    "clothing": "輕薄透氣衫、帽、太陽眼鏡、防曬 SPF50+；室內冷氣強帶薄外套；女童帶替換衫。",
+    "tips": "帶輕便雨衣（山上/海島風大傘無用）+ 電解質；戶外排上午、13:00–17:00 改室內；崗山之眼/壽山夜景/渡輪全靠天氣，颱風即停。"
+  },
+  "days": [
+    {
+      "date": "8/15",
+      "weekday": "週六",
+      "theme": "落地・光之穹頂・愛河夜航（輕量）",
+      "weather": {
+        "icon": "partly",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "中午",
+          "name": "香港 → 高雄國際機場（小港 KHH）",
+          "icon": "✈️",
+          "note": "香港直飛約 1.5–2 小時",
+          "transport": "捷運紅線 R4",
+          "mapQuery": "Kaohsiung International Airport",
+          "transfer": "捷運紅線 機場R4 → 美麗島R10 直達，約16分・NT$30/人（行李多 Uber 約NT$250–320/車）"
+        },
+        {
+          "time": "15:00",
+          "name": "Airbnb Check-in（美麗島/中央公園區）",
+          "icon": "🏠",
+          "note": "首選紅橘雙捷運核心，放行李抖一抖",
+          "transport": "捷運",
+          "mapQuery": "美麗島站 高雄",
+          "transfer": "步行 5–10 分（住美麗島區）・免費"
+        },
+        {
+          "time": "18:00",
+          "name": "美麗島站・光之穹頂",
+          "note": "世界級最美地鐵站，穿堂層免費影相",
+          "duration": "30分",
+          "cost": 0,
+          "transport": "捷運紅／橘線美麗島站",
+          "mustDo": "晚上 8 點睇燈光秀（週六加映 5pm/7pm）",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/formosa.jpg",
+          "mapQuery": "美麗島站 光之穹頂",
+          "transfer": "步行 3 分（美麗島站 11 號出口外）・免費"
+        },
+        {
+          "time": "18:30",
+          "name": "六合夜市（晚餐）",
+          "note": "捷運美麗島站旁，最方便",
+          "duration": "1.5h",
+          "cost": "NT$200–300/人",
+          "mustDo": "鄭老牌木瓜牛奶 + 莊記海產粥",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Liouho-Night-Market-Kaohsiung.jpg",
+          "mapQuery": "六合觀光夜市",
+          "transfer": "Uber 約8分・NT$130/車（或橘線+步行約15分）"
+        },
+        {
+          "time": "20:00",
+          "name": "愛河・愛之船夜航",
+          "note": "河岸夜景約 25 分；上船點國賓站",
+          "duration": "45–60分",
+          "cost": "約 NT$130–250",
+          "mustDo": "黃昏後搭船最靚；網購 KKday/Klook 票平過現場",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Love_River_2015.JPG",
+          "mapQuery": "愛之船 國賓站"
+        }
+      ],
+      "backup": [
+        "累 → 跳愛之船，改愛河畔散步；落雨 → 漢神/大立室內百貨",
+        {
+          "name": "瑞豐夜市",
+          "note": "想去夜市 backup；★ 週一三公休，今日週六開",
+          "mapQuery": "瑞豐夜市"
+        }
+      ]
+    },
+    {
+      "date": "8/16",
+      "weekday": "週日",
+      "theme": "駁二・木育森林・西子灣夕陽搭船・旗津海鮮",
+      "weather": {
+        "icon": "showers",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "10:30",
+          "name": "木育森林（駁二門市）",
+          "icon": "🧩",
+          "note": "起點：橘線美麗島O5→鹽埕埔O2 約6分 NT$25 步行8分。室內木製遊樂園 50+ 設施，避正午曬+雷暴",
+          "duration": "1.5–2h",
+          "cost": "約 NT$250–350（未核實）",
+          "transport": "捷運橘線鹽埕埔站",
+          "mustDo": "官網先線上購票（現場較貴）；玩大型木製遊具+DIY",
+          "mapQuery": "木育森林 駁二",
+          "transfer": "步行 3–10 分（同園區內）・免費",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/muyu.jpg"
+        },
+        {
+          "time": "13:00",
+          "name": "駁二藝術特區（午餐+逛）",
+          "note": "倉庫文創、小火車、大港橋、海風",
+          "duration": "2–3h",
+          "cost": 0,
+          "transport": "步行",
+          "mustDo": "微熱山丘領免費鳳梨酥+茶、婆婆冰芒果冰、大港橋打卡",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/LiveWarehouse_Kaohsiung.jpg/1280px-LiveWarehouse_Kaohsiung.jpg",
+          "mapQuery": "駁二藝術特區",
+          "transfer": "輕軌 駁二大義C12 → 哈瑪星C14 約5分・NT$20，步行8分（或沿海散步20–25分）"
+        },
+        {
+          "time": "16:30",
+          "name": "西子灣・鼓山渡輪夕陽",
+          "note": "鼓山輪渡站搭渡輪海上吹風睇夕陽",
+          "duration": "1–2h",
+          "cost": "渡輪 NT$40・優待 15",
+          "transport": "鼓山渡輪",
+          "mustDo": "搭渡輪過旗津、睇夕陽（8 月約 18:30）",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/2017_NSYSU_bay1.jpg",
+          "mapQuery": "鼓山輪渡站",
+          "transfer": "鼓山-旗津渡輪 約5分・NT$40/人（兒童15），班次密 5–7 分一班"
+        },
+        {
+          "time": "17:30",
+          "meal": {
+            "name": "旗津海產（旗后活海產 / 金聖春）",
+            "cuisine": "現撈海鮮合菜",
+            "perPerson": "NT$500–1000",
+            "recommended": "現撈生魚片、清蒸魚、蒜蓉蝦；多人建議訂位、先問價",
+            "location": "旗津老街",
+            "mapQuery": "旗后活海產 旗津",
+            "menuLink": "https://www.bigfang.tw/blog/post/qihou-seafood"
+          }
+        }
+      ],
+      "backup": [
+        "雷暴延長 → 木育森林多玩 + 駁二室內展；唔想過旗津 → 西子灣睇完夕陽市區晚餐",
+        {
+          "name": "棧貳庫 KW2",
+          "note": "港邊文創倉庫，室內避雨兼食嘢",
+          "mapQuery": "棧貳庫"
+        }
+      ]
+    },
+    {
+      "date": "8/17",
+      "weekday": "週一",
+      "theme": "輕軌龍貓隧道・美術館（避開週一休館點）",
+      "weather": {
+        "icon": "partly",
+        "high": 33,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "高雄輕軌龍貓隧道（C21 美術館站）",
+          "note": "起點：Uber直達約12分 NT$170/車，或捷運+輕軌約35–40分。約500m 小葉欖仁綠色樹隧道，早上人少光線靚",
+          "duration": "30–45分",
+          "cost": "輕軌 NT$30",
+          "transport": "輕軌 C21 美術館站",
+          "mustDo": "綠色樹隧道+蜜柑號彩繪列車打卡；★ 切勿走入軌道，月台用長焦影",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/%E9%AB%98%E9%9B%84%E8%BC%95%E8%BB%8C%E8%9C%9C%E6%9F%91%E8%99%9F_%28cropped%29.jpg",
+          "mapQuery": "高雄輕軌美術館站 龍貓隧道",
+          "transfer": "步行穿綠色隧道入內惟埤園區 約10–15分・免費（沿途就係打卡點）"
+        },
+        {
+          "time": "10:30",
+          "name": "高雄市立美術館 + 內惟埤文化園區",
+          "icon": "🎨",
+          "note": "室內冷氣避午熱（週一本館照開，休的是兒美館）",
+          "duration": "2–3h",
+          "cost": "全票 NT$90・12 歲以下免費",
+          "transport": "步行／輕軌",
+          "mustDo": "行內惟埤園區綠地避暑",
+          "mapQuery": "高雄市立美術館",
+          "transfer": "輕軌 美術館C21 → 駁二大義C12 約15分・NT$20 步行5–8分（或 Uber 12分 NT$160/車）到鹽埕",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A820240704.jpg/1280px-%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A820240704.jpg"
+        },
+        {
+          "time": "13:00",
+          "meal": {
+            "name": "鴨肉珍（鹽埕・午餐）",
+            "cuisine": "65 年鴨肉飯老店",
+            "perPerson": "NT$100–180",
+            "recommended": "鴨肉飯、鴨米血、下水湯；★本店週二休（今日週一開）；飯後高雄婆婆冰芒果冰",
+            "location": "鹽埕",
+            "mapQuery": "鴨肉珍 鹽埕",
+            "menuLink": "https://bobotravel.tw/blog/post/duck-zhen"
+          }
+        },
+        {
+          "time": "18:00",
+          "name": "凱旋夜市",
+          "icon": "🏮",
+          "note": "瑞豐今日週一休，改凱旋／光華夜市",
+          "duration": "1.5h",
+          "cost": "NT$200–300/人",
+          "transport": "捷運／Uber",
+          "mustDo": "邊行邊食銅板小食",
+          "mapQuery": "凱旋夜市",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/kaixuan.jpg"
+        }
+      ],
+      "backup": [
+        "午後雷雨 → 美術館多待 / 改漢神巨蛋商場",
+        {
+          "name": "蓮池潭・龍虎塔",
+          "note": "想加廟宇打卡（去前查整修，無遮蔭帶水）",
+          "mapQuery": "蓮池潭龍虎塔"
+        }
+      ]
+    },
+    {
+      "date": "8/18",
+      "weekday": "週二",
+      "theme": "壽山動物園・哈瑪星・情人觀景台夜景（同山區集中）",
+      "weather": {
+        "icon": "sunny",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "10:00",
+          "name": "壽山動物園",
+          "icon": "🦒",
+          "note": "起點：Uber直上約18分 NT$230/車，或鹽埕埔站4號出口56號公車直上 約15–20分 NT$12/人。2022 重新開放、親子友善（週二開）",
+          "duration": "2–2.5h",
+          "cost": "全票約 NT$90・6–12 歲約 NT$40（未核實）",
+          "transport": "56 號公車／Uber",
+          "mustDo": "上午較涼先去",
+          "mapQuery": "壽山動物園",
+          "transfer": "落山 56 號公車或 Uber 約12分 NT$160/車到哈瑪星",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/shoushan_zoo.jpg"
+        },
+        {
+          "time": "13:00",
+          "meal": {
+            "name": "新濱町海洋廚房 / 一二三亭（哈瑪星午餐）",
+            "cuisine": "海港美食聚落／日式老屋喫茶",
+            "perPerson": "NT$300–600",
+            "recommended": "2025 新開幕舊魚市場活化，一幻拉麵/日乃屋咖哩；一二三亭為 1920 年代老料亭",
+            "location": "鼓山渡船頭／哈瑪星",
+            "mapQuery": "新濱町海洋廚房 高雄",
+            "menuLink": "https://ajunfun.tw/shinhamacho-cuisine-hub/"
+          }
+        },
+        {
+          "time": "15:00",
+          "name": "打狗鐵道故事館・哈瑪星鐵道園區",
+          "note": "渡船頭、鐵道館、大草坪連成一片，落雷暴可入館",
+          "duration": "1.5h",
+          "cost": "免費／鐵道館約 NT$149",
+          "transport": "步行",
+          "mustDo": "大草坪放電 + 鐵道模型（8歲啱）",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/%E6%89%93%E7%8B%97%E9%90%B5%E9%81%93%E6%95%85%E4%BA%8B%E9%A4%A801.jpg",
+          "mapQuery": "打狗鐵道故事館",
+          "transfer": "Uber／小黃上山 約12–15分・NT$200–250/車（叫司機等回程，山上難叫車）"
+        },
+        {
+          "time": "18:00",
+          "name": "壽山情人觀景台（LOVE）日落夜景",
+          "icon": "🌃",
+          "note": "忠烈祠旁，免費；天黑前上山先賞山海日景再等華燈",
+          "duration": "45–60分",
+          "cost": 0,
+          "transport": "Uber／包車",
+          "mustDo": "LOVE 字+夕陽夜景打卡；★ 注意獼猴勿餵食、勿手持食物膠袋",
+          "mapQuery": "壽山情人觀景台",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/lover.jpg"
+        }
+      ],
+      "backup": [
+        "天氣差睇唔到夜景 → 改 85 大樓觀景台或駁二夜逛",
+        {
+          "name": "漢來福園台菜（晚餐升級）",
+          "note": "想食一餐正：米其林推薦五星台菜，務必訂位 07-2135739",
+          "mapQuery": "福園台菜海鮮餐廳 漢來大飯店"
+        }
+      ]
+    },
+    {
+      "date": "8/19",
+      "weekday": "週三",
+      "theme": "機動王牌日：崗山之眼 / 小琉球 / 義大（揀最晴一日）",
+      "weather": {
+        "icon": "sunny",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "全日",
+          "name": "★ 用天氣預報揀全程最晴朗一日做呢日（可同其他日對調）",
+          "icon": "🌦️",
+          "note": "崗山之眼/夜景/海島都靠天氣，呢日做機動王牌",
+          "transport": "—",
+          "mapQuery": "高雄"
+        },
+        {
+          "time": "方案A",
+          "name": "崗山之眼（岡山天空廊道）",
+          "note": "⚠️ 自 2025/2 休園整建，未公告重開 → 出發前必查 khh.travel；去程：紅線美麗島→南岡山R24 約35分 NT$45，轉紅68+觀光公車上山約25–30分 NT$25（或包車一日 NT$2,500–3,000）",
+          "duration": "1.5–2h",
+          "cost": "門票約 NT$60–80 + 接駁 NT$25（整修前參考）",
+          "transport": "包車／捷運+接駁",
+          "mustDo": "天空廊道俯瞰大高雄、傍晚夜景；★ 純晴天先值得去",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Siaogangshan_Skywalk_Park_%E5%B2%A1%E5%B1%B1%E4%B9%8B%E7%9C%BC%E5%85%A8%E6%99%AF.jpg",
+          "mapQuery": "崗山之眼"
+        }
+      ],
+      "backup": [
+        {
+          "name": "小琉球（海島後備）",
+          "note": "天氣極佳又想去海島先做：東港搭船 25–30 分睇海龜浮潛/半潛艇；帶8歲女拉車到東港較攰，列後備",
+          "mapQuery": "小琉球白沙尾漁港"
+        },
+        {
+          "name": "義大世界",
+          "note": "想玩樂園：大樹區，全日票約 NT$650，8月戶外曬備雨具",
+          "mapQuery": "義大遊樂世界"
+        }
+      ]
+    },
+    {
+      "date": "8/20",
+      "weekday": "週四",
+      "theme": "★ 野森動物學校（魔法動物學校・內門整日）",
+      "weather": {
+        "icon": "partly",
+        "high": 33,
+        "low": 27
+      },
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "高雄市區 → 內門（包車）",
+          "icon": "🚐",
+          "note": "野森喺內門區唔喺旗津，無捷運直達；包車一日約 NT$3,000–3,800 最實際（公共交通要客運→旗山轉運站→接駁車多重轉乘）",
+          "duration": "60分",
+          "transport": "包車／自駕",
+          "mapQuery": "野森動物學校",
+          "transfer": "包車直送園區（公共交通：高雄客運往旗山約50–60分 NT$80–100，轉野森免費接駁約15–20分）"
+        },
+        {
+          "time": "10:00",
+          "name": "野森動物學校（魔法動物學校）",
+          "icon": "🦦",
+          "note": "11.5 公頃戶外生態園，20+ 種動物近距離互動餵食，8 歲女最愛；一開門入避正午高溫",
+          "duration": "3–4h",
+          "cost": "全票 NT$399・半票(兒童) NT$149",
+          "transport": "園區內步行",
+          "mustDo": "餵水豚/樹懶/笑笑羊/狐狸；★ 先官網預約購票(每日限1000)、電 07-6672017 確認公休(官網週三/媒體週二三)",
+          "mapQuery": "高雄市內門區中正路39巷168號",
+          "transfer": "園區接駁/8035 返旗山轉運站 約15–20分（包車直接15分到老街）",
+          "imageUrl": "https://aivin3.github.io/kaohsiung-trip-2026/img/yesen.jpg"
+        },
+        {
+          "time": "14:30",
+          "name": "旗山老街（回程順遊）",
+          "note": "枝仔冰、香蕉蛋糕、巴洛克街屋慢逛",
+          "duration": "1.5h",
+          "cost": "視消費",
+          "transport": "包車／客運",
+          "mustDo": "枝仔冰、香蕉蛋糕、仿巴洛克老街拱廊",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%E6%97%97%E5%B1%B1%E4%BA%AD%E4%BB%94%E8%85%B3%EF%BC%88%E7%9F%B3%E6%8B%B1%E5%9C%88%EF%BC%89%EF%BC%9C1%EF%BC%9E.jpg/1280px-%E6%97%97%E5%B1%B1%E4%BA%AD%E4%BB%94%E8%85%B3%EF%BC%88%E7%9F%B3%E6%8B%B1%E5%9C%88%EF%BC%89%EF%BC%9C1%EF%BC%9E.jpg",
+          "mapQuery": "旗山老街",
+          "transfer": "包車直送 Airbnb 約50分（客運返高雄火車站約50–60分 NT$80–100，留意尾班約 21:00 前）"
+        }
+      ],
+      "backup": [
+        "野森當日竟公休 → 改壽山動物園或市區寵物互動館",
+        "嫌內門太遠 → 改義大樂園或市區親子館，留返體力"
+      ]
+    },
+    {
+      "date": "8/21",
+      "weekday": "週五",
+      "theme": "手信採購・捷運直達機場（輕量）",
+      "weather": {
+        "icon": "cloudy",
+        "high": 32,
+        "low": 26
+      },
+      "activities": [
+        {
+          "time": "10:00",
+          "name": "手信採購（舊振南/微熱山丘/巴堂蜂蜜蛋糕）",
+          "icon": "🎁",
+          "note": "鳳梨酥、蜂蜜蛋糕；單店滿 NT$2,000 可退稅帶護照",
+          "duration": "1.5h",
+          "cost": "視消費",
+          "transport": "捷運",
+          "mustDo": "舊振南小金磚鳳梨酥、巴堂蜂蜜蛋糕",
+          "mapQuery": "舊振南餅店 高雄",
+          "transfer": "捷運紅線到凱旋R6，3 號出口夢時代免費接駁車約10分（或輕軌前鎮之星C3→夢時代C5 約5分 NT$20）"
+        },
+        {
+          "time": "12:00",
+          "name": "統一夢時代（室內避暑+最後血拼）",
+          "note": "頂樓摩天輪；看航班時間，室內涼快",
+          "duration": "2h",
+          "cost": "視消費",
+          "transport": "捷運／輕軌",
+          "mustDo": "頂樓摩天輪",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/%E7%B5%B1%E4%B8%80%E5%A4%A2%E6%99%82%E4%BB%A3%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83_%282%29.JPG",
+          "mapQuery": "統一夢時代購物中心",
+          "transfer": "輕軌 夢時代C5→前鎮之星C3 轉紅線凱旋R6→機場R4 約25分・NT$45/人（或 Uber 直送15分 NT$220–280/車）"
+        },
+        {
+          "time": "下午",
+          "name": "高雄國際機場（小港）→ 回程",
+          "icon": "✈️",
+          "note": "捷運紅線直達機場站，預留 2.5–3 小時 buffer",
+          "duration": "30分",
+          "cost": "捷運 NT$35/人",
+          "transport": "捷運紅線 R4",
+          "mapQuery": "Kaohsiung International Airport"
+        }
+      ],
+      "backup": [
+        {
+          "name": "草衙道商場（近機場）",
+          "note": "商場＋鈴鹿賽道樂園，回程前最後放電",
+          "mapQuery": "大魯閣草衙道"
+        }
+      ]
+    }
+  ],
+  "dining": [
+    {
+      "category": "🍱 台灣菜 / 正餐",
+      "items": [
+        {
+          "name": "福園台菜海鮮（漢來 9F）",
+          "area": "前金・近美麗島站",
+          "price": "人均 NT$800–1200",
+          "hours": "11:30–14:30 / 17:30–21:30（每日，+10%）",
+          "intro": "米其林指南推薦，南霸天級台菜，五星飯店主廚手路菜，有包廂，一家人/長輩首選。",
+          "signature": "火爆鱔魚炒意麵 $480、芋茸酥鴨方、八珍海鮮羹",
+          "mapQuery": "福園台菜海鮮餐廳 漢來大飯店",
+          "link": "https://www.grand-hilai.com/restaurant-detail/chinese-restaurants/taiwanese-restaurant/",
+          "menuLink": "https://hoolee.tw/hilai-fuyun/"
+        },
+        {
+          "name": "弘記肉燥飯舖",
+          "area": "左營・巨蛋商圈",
+          "price": "人均 NT$120–200",
+          "hours": "11:30–14:30 / 17:00–20:30",
+          "intro": "米其林必比登三連霸，傳承 50 年，平價適合一家大細。",
+          "signature": "肉燥飯（半熟蛋）、豬腿庫、骨仔肉湯",
+          "mapQuery": "弘記肉燥飯舖 左營",
+          "link": "https://guide.michelin.com/us/en/kaohsiung-region/kaohsiung/restaurant/hung-chi-rice-shop",
+          "menuLink": "https://hoolee.tw/hungchi-rice/"
+        },
+        {
+          "name": "鴨肉珍",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$100–180",
+          "hours": "本店 10:00–20:20，★週二休（大公店有冷氣，週三四休）",
+          "intro": "鹽埕鴨肉飯霸主，65 年老店，秘製鴨肉嫩滑淋肉燥滷汁。",
+          "signature": "鴨肉飯、鴨米血、下水湯",
+          "mapQuery": "鴨肉珍 鹽埕",
+          "link": "https://bobotravel.tw/blog/post/duck-zhen"
+        }
+      ]
+    },
+    {
+      "category": "🦐 海鮮",
+      "items": [
+        {
+          "name": "四兩千金活蝦之家",
+          "area": "左營・文學路",
+          "price": "人均 NT$500–800",
+          "hours": "17:00–00:30（每日，+10%）",
+          "intro": "庭園式活蝦餐廳，有大型溜滑梯+白飯冰淇淋吃到飽，超適合帶 8 歲女。",
+          "signature": "胡椒蝦、檸檬蝦、養生黑蒜蝦",
+          "mapQuery": "四兩千金活蝦之家 左營",
+          "link": "https://hoolee.tw/siliangqianjin-shrimp/",
+          "menuLink": "https://angelala.tw/shrimp-baby-2023/"
+        },
+        {
+          "name": "旗后活海產",
+          "area": "旗津・輪渡站旁",
+          "price": "人均 NT$400–600",
+          "hours": "約 11:00–21:00，★週一休（建議致電）",
+          "intro": "旗津海產一條街 40 年老字號，現撈現秤，新鮮唔油膩。",
+          "signature": "清蒸螃蟹(時價)、鹽烤蝦、深海魚",
+          "mapQuery": "旗后活海產 旗津",
+          "link": "https://nellydyu.tw/blog/post/qihou",
+          "menuLink": "https://www.bigfang.tw/blog/post/qihou-seafood"
+        },
+        {
+          "name": "金聖春活海產",
+          "area": "旗津",
+          "price": "人均 NT$400–600",
+          "hours": "11:00–14:30 / 17:00–22:30",
+          "intro": "旗津人氣現撈，秤重計價、價格平實，龍蝦/螃蟹粥出名。",
+          "signature": "龍蝦粥、螃蟹粥、現撈海鮮(秤重)",
+          "mapQuery": "金聖春活海產 旗津",
+          "link": "https://rainieis.tw/jin-sheng-chun/"
+        },
+        {
+          "name": "莊記海產粥",
+          "area": "新興・六合夜市",
+          "price": "人均 NT$150–300",
+          "hours": "17:30–01:30（無固定公休）",
+          "intro": "六合夜市 50 年宵夜老攤，每碗滿滿海鮮料。",
+          "signature": "海產粥 $150、鹽蒸蝦、鹽蒸蚵",
+          "mapQuery": "莊記海產粥 六合夜市",
+          "link": "https://orange-dog.com/6seafood/",
+          "menuLink": "https://supertaste.tvbs.com.tw/infocard/12728"
+        }
+      ]
+    },
+    {
+      "category": "🏮 夜市",
+      "items": [
+        {
+          "name": "六合觀光夜市",
+          "area": "新興・美麗島站 11 號出口",
+          "price": "人均 NT$200–400",
+          "hours": "約 17:00–凌晨（每日）",
+          "intro": "高雄最知名觀光夜市，捷運直達，適合家庭。",
+          "signature": "海鮮粥、烤肉、木瓜牛奶",
+          "mapQuery": "六合觀光夜市",
+          "link": "https://www.taiwan.net.tw/m1.aspx?sNo=0001121&id=2245"
+        },
+        {
+          "name": "瑞豐夜市",
+          "area": "左營・近巨蛋站",
+          "price": "人均 NT$200–400",
+          "hours": "★ 只開二、四、五、六、日（週一、三休）約 17:00–凌晨",
+          "intro": "高雄規模最大、本地人氣最旺夜市，攤位多。",
+          "signature": "天使雞排、火魂德國豬腳",
+          "mapQuery": "瑞豐夜市",
+          "link": "https://gofunit.com/瑞豐夜市/"
+        },
+        {
+          "name": "天使雞排（瑞豐）",
+          "area": "瑞豐夜市第12排",
+          "price": "人均 NT$80–120",
+          "hours": "15:00–00:00（隨夜市，週一三休）",
+          "intro": "瑞豐人氣冠軍雞排，酥厚多汁，Google 6900+ 評。",
+          "signature": "酥厚雞排",
+          "mapQuery": "天使雞排 瑞豐夜市",
+          "link": "https://www.facebook.com/ANGEL594881/"
+        },
+        {
+          "name": "火魂德國豬腳（瑞豐）",
+          "area": "瑞豐夜市",
+          "price": "人均 NT$150–250",
+          "hours": "★ 週一、三公休",
+          "intro": "夜市少見德國豬腳，醃→炸→炭烤，皮脆肉嫩。",
+          "signature": "炭烤德國豬腳",
+          "mapQuery": "火魂德國豬腳 瑞豐夜市",
+          "link": "https://gofunit.com/瑞豐夜市/"
+        }
+      ]
+    },
+    {
+      "category": "🍧 甜品冰品（8 月芒果旺季）",
+      "items": [
+        {
+          "name": "高雄婆婆冰（創始店）",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$80–150",
+          "hours": "10:00–00:00，★週二公休",
+          "intro": "1934 年創立，80+ 年古早味刨冰，8 月芒果當造必食。",
+          "signature": "芒果雪花冰、超級水果冰、番茄切盤",
+          "mapQuery": "高雄婆婆冰 創始店 鹽埕",
+          "link": "https://inmap.tw/archives/73303",
+          "menuLink": "https://www.bigfang.tw/blog/post/popoice-main-kaohsiung"
+        },
+        {
+          "name": "渡船頭海之冰",
+          "area": "鼓山・近西子灣站",
+          "price": "人均 NT$100–200（共享更抵）",
+          "hours": "11:00–23:30，★週一公休",
+          "intro": "大碗公冰創始店，冰可放大 1–20 倍，一碗幾個人食，超啱一家人打卡。",
+          "signature": "大碗公水果牛奶冰、芒果冰",
+          "mapQuery": "渡船頭海之冰 鼓山",
+          "link": "https://albertblog.tw/25384/ice-bowl"
+        },
+        {
+          "name": "玉井有間冰舖",
+          "area": "台南玉井（高雄出發約45分）",
+          "price": "人均 NT$120–200",
+          "hours": "約 09:00–18:00（建議致電）",
+          "intro": "芒果故鄉玉井最著名芒果冰，澎湃大碗，8 月鮮芒果當造。",
+          "signature": "芒果雪綿冰、新鮮芒果冰",
+          "mapQuery": "有間冰舖 玉井",
+          "link": "https://shopee.tw/blog/yujing-mango/"
+        }
+      ]
+    },
+    {
+      "category": "🍢 小食",
+      "items": [
+        {
+          "name": "北港蔡三代筒仔米糕",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$60–120",
+          "hours": "13:30–21:30，★週三公休（只收現金）",
+          "intro": "1956 年 60 年老店，米其林必比登推薦。",
+          "signature": "筒仔米糕、蒸蛋湯、滷鐵蛋",
+          "mapQuery": "北港蔡三代筒仔米糕 鹽埕",
+          "link": "https://guide.michelin.com/us/en/kaohsiung-region/kaohsiung/restaurant/bei-gang-tsai-rice-tube-yancheng",
+          "menuLink": "https://momoblog.tw/beigangcai/"
+        },
+        {
+          "name": "冬粉王",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$80–150",
+          "hours": "08:30–20:00（無固定公休）",
+          "intro": "50 年老字號冬粉專賣，內臟控天堂，用餐時段一位難求。",
+          "signature": "鴨肉冬粉湯、乾冬粉、腰子湯",
+          "mapQuery": "冬粉王 鹽埕",
+          "link": "https://www.bigfang.tw/blog/post/dongfenwang-kaohsiung",
+          "menuLink": "https://tiffany0118.tw/cellophanenoodles/"
+        },
+        {
+          "name": "永和小籠包",
+          "area": "鹽埕・巷弄",
+          "price": "人均 NT$80–150",
+          "hours": "約 11:00–19:30，★週二公休（建議致電）",
+          "intro": "開業 40 年，現點現蒸爆汁小籠湯包。",
+          "signature": "小籠湯包、酸辣湯、豬血湯",
+          "mapQuery": "永和小籠包 鹽埕",
+          "link": "https://hoolee.tw/yonghe-soup-dumpling/",
+          "menuLink": "https://nellydyu.tw/blog/post/41002654"
+        }
+      ]
+    },
+    {
+      "category": "🥤 飲品（手搖 / 果汁）",
+      "items": [
+        {
+          "name": "樺達奶茶（鹽埕總店）",
+          "area": "鹽埕・鹽埕埔站奶茶街",
+          "price": "一杯 NT$60–70",
+          "hours": "09:00–22:00（每日）",
+          "intro": "1982 年創，高雄奶茶始祖，全系列唔加冰塊（冰鎮）由頭濃到尾。",
+          "signature": "益壽奶茶、樺達奶茶、加珍珠 +$5",
+          "mapQuery": "樺達奶茶 鹽埕總店",
+          "link": "https://blog.pylin.org/hwadamilktea.html"
+        },
+        {
+          "name": "鄭老牌木瓜牛奶",
+          "area": "新興・六合夜市入口",
+          "price": "人均 NT$60–100",
+          "hours": "17:00–02:00",
+          "intro": "近 60 年，現點現打超純木瓜牛奶，六合必飲。",
+          "signature": "木瓜牛奶、現打果汁",
+          "mapQuery": "鄭老牌木瓜牛奶 六合夜市",
+          "link": "https://blog.pklife.tw/2024/05/kaohsiung-zheng.html",
+          "menuLink": "https://tiffany0118.tw/hihijlppapaya/"
+        },
+        {
+          "name": "双妃奶茶",
+          "area": "鹽埕・近永和小籠包",
+          "price": "人均 NT$50–70",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "鹽埕巷弄人氣奶茶，常同永和小籠包一齊食。",
+          "signature": "奶茶系列",
+          "mapQuery": "双妃奶茶 鹽埕",
+          "link": "https://nellydyu.tw/blog/post/41002654"
+        }
+      ]
+    },
+    {
+      "category": "☕ 咖啡 Café",
+      "items": [
+        {
+          "name": "書店喫茶 一二三亭",
+          "area": "鼓山・哈瑪星站",
+          "price": "人均 NT$200–350",
+          "hours": "10:00–18:00（每日）",
+          "intro": "1914 年日治高級料亭改建，書香文青老宅，行完哈瑪星歇腳一流。",
+          "signature": "抹茶拿鐵、抹茶冰淇淋紅豆煎餅、紅酒燉牛肉烏龍麵",
+          "mapQuery": "書店喫茶一二三亭 哈瑪星",
+          "link": "https://jeremyfoodie.tw/cafehifumi/"
+        },
+        {
+          "name": "新濱·駅前（Hamasen）",
+          "area": "鼓山・哈瑪星",
+          "price": "人均 NT$200–350",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "1921 年三和銀行改建，大正和洋風老建築，高人氣網美咖啡。",
+          "signature": "手沖咖啡、輕食甜點",
+          "mapQuery": "新濱駅前 哈瑪星",
+          "link": "https://mymarcy.tw/kaohsiung-cafes-guide/"
+        },
+        {
+          "name": "厚里 Horli Baking",
+          "area": "鹽埕・鐵道園區旁",
+          "price": "人均 NT$150–300",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "火車車廂造型店面，望哈瑪星鐵道園區，小朋友會鍾意。",
+          "signature": "手撕包、咖啡",
+          "mapQuery": "厚里 Horli Baking 鹽埕",
+          "link": "https://mymarcy.tw/kaohsiung-cafes-guide/"
+        },
+        {
+          "name": "路人咖啡（駁二）",
+          "area": "鹽埕・駁二",
+          "price": "人均 NT$150–300",
+          "hours": "依店家（Google Maps 查）",
+          "intro": "駁二內，大面落地窗望大港橋，行駁二順遊。",
+          "signature": "精品咖啡、氣泡飲",
+          "mapQuery": "路人咖啡 駁二",
+          "link": "https://damei17.com/yancheng-coffee/"
+        }
+      ]
+    },
+    {
+      "category": "🛍 伴手禮",
+      "items": [
+        {
+          "name": "舊振南餅店",
+          "area": "前鎮 SOGO B2／大寮文化館",
+          "price": "禮盒 NT$300–800",
+          "hours": "SOGO 店 11:00–21:30（五六到 22:00）",
+          "intro": "1890 年百年漢餅，小金磚鳳梨酥最出名，送禮體面。",
+          "signature": "小金磚鳳梨酥、綠豆椪、杏香酥",
+          "mapQuery": "舊振南餅店 SOGO 高雄",
+          "link": "https://www.jzn.com.tw/",
+          "menuLink": "https://shop.jzn.com.tw/"
+        },
+        {
+          "name": "巴堂蜂蜜蛋糕",
+          "area": "鹽埕・鹽埕埔站",
+          "price": "人均 NT$200–500",
+          "hours": "09:00–21:30",
+          "intro": "傳承百年，招牌蜂蜜蛋糕（日本巴堂授權），鹽埕在地伴手禮。",
+          "signature": "蜂蜜蛋糕、芝麻Q餅、銅鑼燒",
+          "mapQuery": "巴堂蜂蜜蛋糕 鹽埕",
+          "link": "https://www.batung.com.tw/",
+          "menuLink": "https://appletrees.tw/blog/post/batung"
+        },
+        {
+          "name": "微熱山丘（駁二門市）",
+          "area": "鹽埕・駁二",
+          "price": "禮盒 NT$300–500",
+          "hours": "11:00–19:00（僅除夕初一休）",
+          "intro": "知名土鳳梨酥，入內每人免費奉茶+鳳梨酥一塊，白色船塢建築好打卡。",
+          "signature": "土鳳梨酥、山丘芭娜娜",
+          "mapQuery": "微熱山丘 駁二",
+          "link": "https://www.fonfood.com/store/3022199",
+          "menuLink": "https://smilevivi.com/sunnyhills/"
+        }
+      ]
+    },
+    {
+      "category": "🚶 邊行邊食",
+      "items": [
+        {
+          "name": "新濱町海洋廚房",
+          "area": "鼓山・哈瑪星站步行8分",
+          "price": "人均 NT$300–500",
+          "hours": "11:30–22:00（每日）",
+          "intro": "2025/3 新開，原鼓山魚市場改建，進駐 15 家品牌，海港景觀邊行邊食，超啱一家人。",
+          "signature": "一幻蝦拉麵、日乃屋咖哩、JAPAN 燒烤",
+          "mapQuery": "新濱町海洋廚房 鼓山",
+          "link": "https://www.facebook.com/ShinhamachoCuisineHub/",
+          "menuLink": "https://ajunfun.tw/shinhamacho-cuisine-hub/"
+        },
+        {
+          "name": "旗津老街小吃",
+          "area": "旗津・輪渡站落船即到",
+          "price": "人均 NT$150–300",
+          "hours": "約 10:00–20:00（週末最旺）",
+          "intro": "搭渡輪過旗津，老街一路邊行邊食銅板小食。",
+          "signature": "番茄切盤、炭烤小卷、白糖粿、旗魚黑輪",
+          "mapQuery": "旗津老街",
+          "link": "https://bobowin.blog/cijin-food/",
+          "menuLink": "https://www.bring-you.info/zh-tw/qijin-street-snake"
+        },
+        {
+          "name": "駁二／鹽埕邊行邊食",
+          "area": "鹽埕・鹽埕埔站／輕軌駁二",
+          "price": "人均 NT$150–300",
+          "hours": "園區全天，店家各異",
+          "intro": "倉庫群文創+美食，一路微熱山丘→路人咖啡→婆婆冰邊行邊食邊睇展。",
+          "signature": "鳳梨酥、芒果冰、沿街攤",
+          "mapQuery": "駁二藝術特區 大義倉庫",
+          "link": "https://damei17.com/yancheng-coffee/"
+        }
+      ]
+    }
+  ],
+  "alternatives": [
+    {
+      "category": "👧 親子・8 歲女童啱玩（後備加減）",
+      "items": [
+        {
+          "name": "國立科學工藝博物館（科工館）",
+          "area": "三民區",
+          "hours": "09:00–17:00（暑假假日到18:00）",
+          "cost": "常設展約 NT$100",
+          "tag": "室內・互動",
+          "note": "大量互動科學展，雨天最佳",
+          "mapQuery": "國立科學工藝博物館"
+        },
+        {
+          "name": "兒童美術館（高美館園區）",
+          "area": "鼓山／內惟",
+          "hours": "09:30–17:30，★週一休",
+          "cost": 0,
+          "tag": "免費・室內",
+          "note": "沙坑、故事屋、積木",
+          "mapQuery": "高雄市立兒童美術館"
+        },
+        {
+          "name": "義大遊樂世界",
+          "area": "大樹區 約40分",
+          "cost": "全日票約 NT$650",
+          "tag": "樂園",
+          "note": "摩天輪＋主題樂園；8月戶外曬",
+          "mapQuery": "義大遊樂世界"
+        },
+        {
+          "name": "大魯閣草衙道",
+          "area": "前鎮・近機場",
+          "cost": "入場免費・設施另計",
+          "tag": "室內外樂園",
+          "note": "鈴鹿賽道樂園，回程前放電",
+          "mapQuery": "大魯閣草衙道"
+        }
+      ]
+    },
+    {
+      "category": "🌧️ 室內・落雨 backup",
+      "items": [
+        {
+          "name": "夢時代購物中心",
+          "area": "前鎮",
+          "cost": "免費入場",
+          "tag": "避暑・摩天輪",
+          "note": "全天候室內",
+          "mapQuery": "統一夢時代購物中心"
+        },
+        {
+          "name": "棧貳庫 KW2",
+          "area": "鼓山港邊",
+          "cost": "免費入場",
+          "tag": "文創倉庫",
+          "note": "港邊文創＋食肆",
+          "mapQuery": "棧貳庫"
+        },
+        {
+          "name": "哈瑪星台灣鐵道館",
+          "area": "鼓山",
+          "cost": "約 NT$149",
+          "tag": "鐵道模型",
+          "note": "亞洲最大實體鐵道模型",
+          "mapQuery": "哈瑪星台灣鐵道館"
+        }
+      ]
+    },
+    {
+      "category": "🏝️ 海島・近郊（彈性後備）",
+      "items": [
+        {
+          "name": "小琉球（東港搭船）",
+          "area": "東港船 25–30 分",
+          "cost": "來回 NT$360–450・兒童 225",
+          "tag": "看海龜・後備",
+          "note": "浮潛/半潛艇；8月旺季+颱風雙風險",
+          "mapQuery": "小琉球白沙尾漁港"
+        },
+        {
+          "name": "奇美博物館（台南）",
+          "area": "台鐵約40分",
+          "hours": "09:30–17:30，★週三休",
+          "cost": "常設展約 NT$200",
+          "tag": "室內・冷氣",
+          "note": "歐式建築＋藝術典藏，台鐵當日來回",
+          "mapQuery": "奇美博物館"
+        },
+        {
+          "name": "蓮池潭・龍虎塔",
+          "area": "左營",
+          "cost": 0,
+          "tag": "廟宇打卡",
+          "note": "龍口入虎口出；去前查整修",
+          "mapQuery": "蓮池潭龍虎塔"
+        }
+      ]
+    }
+  ],
+  "hotels": [
+    {
+      "name": "🥇 Airbnb 整套 3 房・美麗島／中央公園區（首選）",
+      "area": "紅線R10×橘線O5 雙捷運",
+      "pricePerNight": "6晚 ≈ HK$6,000–8,000",
+      "rating": "區域首選",
+      "highlights": "高雄唯一雙捷運交會，去邊都唔轉線、去機場最快（→小港約12–15分）；樓下六合夜市/新崛江/便利店。揀盤 filter：整套 entire place・房數≥3・入住≥4人・近捷運≤8分・評分≥4.8・Superhost・每房冷氣・電梯・洗衣機。",
+      "confirmation": "（自己 Airbnb 訂・填訂單號）",
+      "mapQuery": "美麗島站 高雄"
+    },
+    {
+      "name": "🥈 Airbnb 整套・鹽埕／駁二區",
+      "area": "橘線 O2 鹽埕埔",
+      "pricePerNight": "6晚 ≈ HK$5,250–8,250",
+      "rating": "最有特色",
+      "highlights": "老屋改建設計民宿密度最高，行得到駁二、大港橋、棧貳庫、愛河、旗津渡輪，文青慢遊一流；缺點：去機場要美麗島轉紅線（約20–25分）。",
+      "confirmation": "",
+      "mapQuery": "鹽埕埔站 高雄"
+    },
+    {
+      "name": "🥉 Airbnb 整套・左營／巨蛋區",
+      "area": "紅線 R16 高鐵／R14 巨蛋",
+      "pricePerNight": "6晚 ≈ HK$8,250–13,500",
+      "rating": "最新淨",
+      "highlights": "高鐵左營站出站即捷運，跨城方便；漢神巨蛋+瑞豐夜市生活機能足、較新。缺點：離駁二老城遠、去機場最遠（約28分）、整套房較貴。",
+      "confirmation": "",
+      "mapQuery": "高鐵左營站"
+    },
+    {
+      "name": "⚠️ 合法民宿 + 訂房自保（必讀）",
+      "area": "全高雄",
+      "rating": "避坑",
+      "highlights": "台灣無牌日租屬違法且未過消防/保險審查。訂前去『台灣旅宿網 taiwanstay.net.tw』核對合法黃色標章+證號；揀 Superhost+大量真實評論；全程 Airbnb 平台付款，切勿私下匯款；入住即影屋況。暑假早訂、揀免費取消先 lock。",
+      "confirmation": "",
+      "mapQuery": "台灣旅宿網"
+    }
+  ],
+  "budget": {
+    "tiers": [
+      {
+        "label": "💵 經濟",
+        "total": "≈ HK$11,000",
+        "note": "人均 ~2,750｜平價整套2房・夜市為主"
+      },
+      {
+        "label": "💴 中等（已鎖）",
+        "total": "≈ HK$16,500",
+        "note": "人均 ~4,125｜Airbnb整套3房・食唔慳配名店",
+        "pick": true
+      },
+      {
+        "label": "💎 寬鬆",
+        "total": "≈ HK$24,000",
+        "note": "人均 ~6,000｜設計民宿+樂園+多餐廳+包車多日"
+      }
+    ],
+    "accommodation": {
+      "items": [],
+      "subtotal": "Airbnb整套3房 6晚 ≈ NT$28,000（約 HK$7,000）"
+    },
+    "transport": {
+      "items": [],
+      "subtotal": "捷運/台鐵+機動日2次包車 ≈ NT$9,000（約 HK$2,250）"
+    },
+    "food": {
+      "items": [],
+      "subtotal": "食唔慳・配名店+福園一餐 ≈ NT$13,000（約 HK$3,250）"
+    },
+    "tickets": {
+      "items": [],
+      "subtotal": "木育/野森/壽山/美術館/愛之船/崗山 ≈ NT$6,000（約 HK$1,500）"
+    },
+    "other": {
+      "items": [],
+      "subtotal": "手信/雜項 ≈ NT$4,000（約 HK$1,000）"
+    },
+    "total": "≈ NT$66,000（約 HK$16,500）",
+    "perPerson": "≈ HK$4,125",
+    "note": "中等檔（4人6夜・不計機票・食唔慳）。匯率 HK$1≈NT$4.0（參考~）。8月暑假最旺，Airbnb 越早訂越平，揀免費取消方案。所有價為 2025–26 公開資料整合，落單前以平台即時價為準；標 未核實／估算 者尤其要自行核對。"
+  },
+  "essentials": {
+    "currency": "新台幣 TWD；HK$1 ≈ NT$4.0（出發前查即時匯率）",
+    "plug": "A 型兩腳扁插，110V",
+    "transit": "一卡通 iPASS（捷運/輕軌/渡輪/56號公車/台鐵通用，85 折）",
+    "emergency": "警察 110 / 救護消防 119 / 旅遊諮詢 0800-011-765",
+    "sim": "機場買 eSIM 或租 Wi-Fi 蛋；中華電信訊號好",
+    "timezone": "台北時間，同香港無時差",
+    "language": "國語／台語，講普通話通",
+    "tipping": "唔使俾小費"
+  },
+  "tips": [
+    "★ 出發前 3 件 must-do 核實：①崗山之眼是否已重開（khh.travel）未開行小琉球/義大；②野森動物學校公休日(官網週三/媒體週二三)+先線上預約(每日限1000)，電 07-6672017；③木育森林確切票價+線上購票。",
+    "★ 休館/公休日已對齊：壽山動物園/兒美/瑞豐(週一)、佛館(週二)、奇美(週三)；餐廳婆婆冰(二)、北港蔡/鴨肉珍本店(二三)、永和小籠包(二)、旗后海產/海之冰(一)、火魂豬腳(一三)。",
+    "上山/郊區交通：壽山(動物園+情人觀景台)、崗山之眼、內門野森，公車疏/轉乘多，3大1小建議 Uber 或半日/全日包車慳體力。",
+    "颱風＝船班/夜景全泡湯：渡輪、小琉球、崗山之眼、壽山夜景全靠天氣，把崗山/海島放最晴一日（8/19 機動日可同其他日對調）。",
+    "午後雷陣雨幾乎每日：戶外排上午，13:00–17:00 改室內；隨身帶輕便雨衣（山上/海島風大傘無用）。",
+    "輕軌龍貓隧道：切勿走入軌道，月台用長焦影；壽山獼猴勿餵食、勿手持食物膠袋。",
+    "每人買一張一卡通 iPASS：捷運/輕軌/渡輪/56號公車/台鐵通用 85 折，兒童票更平；落單前以官方為準。",
+    "退稅：單店滿 NT$2,000 可退稅，手信集中買，帶護照。"
+  ],
+  "events": [
+    {
+      "name": "神行祭（民俗文化・市集・音樂）",
+      "date": "8/15–16",
+      "where": "駁二大義紅磚廊道",
+      "tag": "🎯 啱你 D1–D2",
+      "note": "臺灣民俗文化為核心：廟埕+市集+音樂+地方飲食+街藝演出（待官方確認）",
+      "link": "https://khh.travel/zh-tw/event/calendar/2026/",
+      "mapQuery": "駁二大義紅磚廊道"
+    },
+    {
+      "name": "駁二週末市集",
+      "date": "8/15(六)、8/16(日)",
+      "where": "駁二大義/大勇/蓬萊區廣場",
+      "tag": "順遊",
+      "note": "7–9 月週末市集，駁二多個廣場輪流（待確認）",
+      "link": "https://khh.tainanoutlook.com/kaohsiung-events-2026",
+      "mapQuery": "駁二藝術特區"
+    },
+    {
+      "name": "高雄展覽館・寵物用品展",
+      "date": "8/19–22",
+      "where": "高雄展覽館（亞洲新灣區）",
+      "tag": "女童或鍾意",
+      "note": "重疊你 8/19–21；近圖書館/夢時代（待確認）",
+      "link": "https://www.khmice.org.tw/xcexhibition/calendar?xsmsid=0N195602520127054073",
+      "mapQuery": "高雄展覽館"
+    },
+    {
+      "name": "高雄展覽館・酒展",
+      "date": "8/14–17",
+      "where": "高雄展覽館",
+      "tag": "成人向",
+      "note": "小朋友一般，順帶一提（待確認）",
+      "link": "https://www.khmice.org.tw/xcexhibition/calendar?xsmsid=0N195602520127054073",
+      "mapQuery": "高雄展覽館"
+    },
+    {
+      "name": "游鴻明《敵不過想念》演唱會",
+      "date": "8/22",
+      "where": "高雄巨蛋 K-ARENA",
+      "tag": "❌ 差一日",
+      "note": "你 8/21 走，差一日；如改機可考慮（待確認）",
+      "link": "https://www.kaoarena.com.tw/Home/CalendarList?year=2026",
+      "mapQuery": "高雄巨蛋"
+    }
+  ],
+  "generationDate": "2026-06-29"
+}
+</script>
+<script>
+const T = JSON.parse(document.getElementById('trip-data').textContent);
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const has=v=>v!==undefined&&v!==null&&v!=='';
+const mapUrl=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+function mapBtn(q,label){if(!has(q))return '';return `<a class="btn-map" target="_blank" rel="noopener" href="${mapUrl(q)}">📍 ${E(label||'開地圖導航')}</a>`;}
+function costTag(c){if(c===0)return '<span class="tag free">免費</span>';if(has(c))return `<span class="tag cost">${E(c)}</span>`;return '';}
+function wxIcon(k){const m={sunny:'☀️',cloudy:'☁️',rain:'🌧️',showers:'🌦️',snow:'❄️',storm:'⛈️',partly:'⛅',windy:'🌬️',fog:'🌫️'};return m[k]||'🌤️';}
+function dirUrl(o,d,mode){return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(d)+'&travelmode='+(mode||'transit');}
+function travelMode(t){t=String(t||'');if(/步行|徒步|walk/i.test(t))return 'walking';if(/包車|Uber|計程|taxi|自駕|租車|开车|車/i.test(t))return 'driving';return 'transit';}
+function qOf(a){if(!a)return '';return a.meal?(a.meal.mapQuery||a.meal.name||''):(a.mapQuery||a.address||a.name||'');}
+function dayRouteUrl(d){var pts=(d.activities||[]).map(qOf).filter(Boolean);if(!pts.length)return '';if(pts.length<2)return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(pts[0]);var o=pts[0],z=pts[pts.length-1],wp=pts.slice(1,-1).slice(0,9);return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(z)+(wp.length?'&waypoints='+wp.map(encodeURIComponent).join('%7C'):'')+'&travelmode=transit';}
+function mustList(m){return Array.isArray(m)?m.map(E).join('；'):E(m);}
+
+function render(){
+  let h='';
+  const hero=has(T.heroImage)?`<div class="hero" style="background-image:url('${E(T.heroImage)}')"></div>`:'';
+  h+=`<div class="cover">${hero}<div class="veil"></div><div class="ct">
+    ${has(T.kicker)?`<div class="kicker">${E(T.kicker)}</div>`:''}
+    <h1>${E(T.title)}</h1>
+    ${has(T.subtitle)?`<div class="sub">${E(T.subtitle)}</div>`:''}
+    <div class="deco">🏖️ ✈️ 🌴 🍧 📸 🗺️ 🌈</div>
+    <div class="meta">
+      ${has(T.dateRange)?`<span class="chip">📅 ${E(T.dateRange)}</span>`:''}
+      ${has(T.travelers)?`<span class="chip">👥 ${E(T.travelers)}</span>`:''}
+      ${has(T.days)?`<span class="chip">🗓️ ${T.days.length} 天</span>`:''}
+      ${has(T.budget&&T.budget.perPerson)?`<span class="chip">💰 人均 ${E(T.budget.perPerson)}</span>`:''}
+    </div></div></div>`;
+
+  if(has(T.days)&&T.days.length){
+    h+='<div class="nav"><div class="scroller" id="dnav"><button data-go="top" class="active">總覽</button>';
+    T.days.forEach((d,i)=>{h+=`<button data-go="day${i}">D${i+1}${has(d.date)?' · '+E(d.date):''}</button>`;});
+    if(has(T.events))h+=`<button data-go="events">活動</button>`;
+    if(has(T.dining))h+=`<button data-go="dining">美食</button>`;
+    if(has(T.alternatives))h+=`<button data-go="alts">備選</button>`;
+    if(has(T.hotels))h+=`<button data-go="hotels">住宿</button>`;
+    if(has(T.budget))h+=`<button data-go="budget">預算</button>`;
+    if(has(T.essentials))h+=`<button data-go="ess">實用</button>`;
+    h+='</div></div>';
+  }
+
+  if(has(T.highlights)&&T.highlights.length){
+    h+=`<section id="top"><div class="sec-title"><span class="i">✨</span>行程亮點</div><div class="card"><ul class="tips">`;
+    h+=T.highlights.map(x=>`<li>${E(x)}</li>`).join('')+'</ul></div></section>';
+  }
+
+  if(has(T.weather)){const w=T.weather;
+    h+=`<section><div class="sec-title"><span class="i">🌤️</span>天氣 & 穿搭</div><div class="card">
+      <div>${E(w.summary)||''}</div>
+      <div class="tags" style="margin-top:9px">
+        ${has(w.avgHigh)?`<span class="tag">高 ${E(w.avgHigh)}°</span>`:''}
+        ${has(w.avgLow)?`<span class="tag">低 ${E(w.avgLow)}°</span>`:''}
+        ${has(w.rainfall)?`<span class="tag">降雨 ${E(w.rainfall)}</span>`:''}
+      </div>
+      ${has(w.clothing)?`<div class="small muted" style="margin-top:9px">👕 ${E(w.clothing)}</div>`:''}
+      ${has(w.tips)?`<div class="small muted" style="margin-top:4px">💡 ${E(w.tips)}</div>`:''}
+    </div></section>`;
+  }
+
+  if(has(T.events)&&T.events.length){
+    h+=`<section id="events"><div class="sec-title"><span class="i">🎉</span>期間限定活動（旅程期間）</div>`;
+    h+=`<div class="card"><div class="small muted">出發前 2–3 週多數新活動先公布，呢度會喺臨近再更新；日期/地點以官方為準（標 待確認）。</div></div>`;
+    T.events.forEach(ev=>{
+      h+=`<div class="alt-item"><div class="an">${E(ev.name)}${has(ev.tag)?` <span class="tag">${E(ev.tag)}</span>`:''}</div>
+        <div class="ad">${[ev.date,ev.where].filter(has).map(E).join(' · ')}</div>
+        ${has(ev.note)?`<div class="anote">${E(ev.note)}</div>`:''}
+        <div class="arow">${has(ev.mapQuery)?mapBtn(ev.mapQuery,'地圖'):''}${has(ev.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(ev.link)}">🔗 詳情</a>`:''}</div></div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.days))T.days.forEach((d,i)=>{
+    h+=`<section id="day${i}"><div class="card">
+      <div class="day-head"><span class="d">DAY ${i+1}${has(d.date)?' · '+E(d.date):''}${has(d.weekday)?' '+E(d.weekday):''}</span>
+      ${has(d.weather)?`<span class="wx">${wxIcon(d.weather.icon)} ${has(d.weather.high)?E(d.weather.high)+'°':''}${has(d.weather.low)?'/'+E(d.weather.low)+'°':''}</span>`:''}</div>
+      ${has(d.theme)?`<div class="day-theme">${E(d.theme)}</div>${(d.activities&&d.activities.length>1)?`<a class="daymap" target="_blank" rel="noopener" href="${dayRouteUrl(d)}">🗺️ 今日路線地圖</a>`:``}`:''}`;
+    (d.activities||[]).forEach((a,ai,arr)=>{const nx=arr[ai+1];
+      if(a.meal){const m=a.meal;
+        h+=`<div class="act"><div class="time">${E(a.time)||'🍽'}</div><div class="body">
+          <div class="meal"><div class="mt">🍴 ${E(m.name)}</div>
+          <div class="det">${[m.cuisine,has(m.perPerson)?'人均 '+E(m.perPerson):'',m.location].filter(has).map(E).join(' · ')}</div>
+          ${has(m.recommended)?`<div class="small muted" style="margin-top:3px">推薦：${E(m.recommended)}</div>`:''}
+          <div class="arow">${mapBtn(m.mapQuery||((m.name||'')+' '+(m.location||'')),'搵餐廳')}${has(m.menuLink)?`<a class="btn-menu" target="_blank" rel="noopener" href="${E(m.menuLink)}">📋 Menu</a>`:''}</div>
+          </div>
+          ${has(a.transfer)?`<div class="transfer">➡️ 去下一站：${E(a.transfer)}${nx?` <a class="dirbtn" target="_blank" rel="noopener" href="${dirUrl(qOf(a),qOf(nx),travelMode(a.transport))}">🧭 路線</a>`:``}</div>`:''}</div></div>`;
+      }else{
+        const img = has(a.imageUrl)
+          ? `<img class="thumb" loading="lazy" src="${E(a.imageUrl)}" alt="">`
+          : `<div class="act-ph"><span class="pe">${E(a.icon||'📍')}</span><span>${E(a.name)}</span></div>`;
+        h+=`<div class="act"><div class="time">${E(a.time)||'•'}</div><div class="body">
+          <div class="nm">${E(a.name)}</div>
+          ${has(a.note)?`<div class="det">${E(a.note)}</div>`:''}
+          ${has(a.mustDo)?`<div class="mustdo"><b>✅ 必做：</b>${mustList(a.mustDo)}</div>`:''}
+          <div class="tags">
+            ${has(a.duration)?`<span class="tag">⏱ ${E(a.duration)}</span>`:''}
+            ${costTag(a.cost)}
+            ${has(a.transport)?`<span class="tag">🚇 ${E(a.transport)}</span>`:''}
+          </div>
+          ${img}
+          ${mapBtn(a.mapQuery||a.address||a.name)}
+          ${has(a.transfer)?`<div class="transfer">➡️ 去下一站：${E(a.transfer)}${nx?` <a class="dirbtn" target="_blank" rel="noopener" href="${dirUrl(qOf(a),qOf(nx),travelMode(a.transport))}">🧭 路線</a>`:``}</div>`:''}
+        </div></div>`;
+      }
+    });
+    if(has(d.backup)&&d.backup.length){
+      h+=`<div class="backup"><div class="bt">☔ 後備方案（落雨／改主意）</div><ul>`;
+      h+=d.backup.map(b=>{const t=typeof b==='string'?b:`${b.name}${has(b.note)?' — '+b.note:''}`;
+        const q=typeof b==='object'?(b.mapQuery||b.name):null;
+        return `<li>${E(t)}${q?` <a target="_blank" rel="noopener" href="${mapUrl(q)}">📍</a>`:''}</li>`;}).join('');
+      h+=`</ul></div>`;
+    }
+    h+=`</div></section>`;
+  });
+
+  // Dining guide
+  if(has(T.dining)&&T.dining.length){
+    h+=`<section id="dining"><div class="sec-title"><span class="i">🍴</span>餐廳指南（分類）</div>`;
+    h+=`<div class="card"><div class="small muted">每間有介紹、招牌、營業時間（留意公休）。<b>📷 Google 相片</b> = 一㩒睇該店真實相片同評價；📍地圖導航、🔗介紹、📋Menu。價以現場為準。</div></div>`;
+    T.dining.forEach(g=>{
+      h+=`<div class="alt-group"><h3>${E(g.category)}</h3>`;
+      (g.items||[]).forEach(it=>{
+        h+=`<div class="din-item">
+          ${has(it.imageUrl)?`<img class="thumb" loading="lazy" src="${E(it.imageUrl)}" alt="">`:''}
+          <div class="an">${E(it.name)}</div>
+          <div class="ad">${[it.area,it.price,it.hours].filter(has).map(E).join(' · ')}</div>
+          ${has(it.intro)?`<div class="anote">${E(it.intro)}</div>`:''}
+          ${has(it.signature)?`<div class="sig">🍽 ${E(it.signature)}</div>`:''}
+          <div class="arow">
+            <a class="btn-photo" target="_blank" rel="noopener" href="${mapUrl((it.mapQuery||it.name)+' 高雄')}">📷 Google 相片</a>
+            ${mapBtn(it.mapQuery||it.name,'地圖')}
+            ${has(it.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(it.link)}">🔗 介紹</a>`:''}
+            ${has(it.menuLink)?`<a class="btn-menu" target="_blank" rel="noopener" href="${E(it.menuLink)}">📋 Menu</a>`:''}
+          </div></div>`;
+      });
+      h+=`</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  // Alternatives
+  if(has(T.alternatives)&&T.alternatives.length){
+    h+=`<section id="alts"><div class="sec-title"><span class="i">🔁</span>備選活動庫 — 自由替換</div>`;
+    h+=`<div class="card"><div class="small muted">想換／加邊個都得，話我知就改行程重出。所有 📍 都可一㩒導航。</div></div>`;
+    T.alternatives.forEach(g=>{
+      h+=`<div class="alt-group"><h3>${E(g.category)}</h3>`;
+      (g.items||[]).forEach(it=>{
+        h+=`<div class="alt-item"><div class="an">${E(it.name)}</div>
+          <div class="ad">${[it.area,it.duration,it.hours].filter(has).map(E).join(' · ')}</div>
+          ${has(it.note)?`<div class="anote">${E(it.note)}</div>`:''}
+          <div class="arow">${costTag(it.cost)}${has(it.tag)?`<span class="tag">${E(it.tag)}</span>`:''}${mapBtn(it.mapQuery||it.name)}</div>
+        </div>`;
+      });
+      h+=`</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.hotels)&&T.hotels.length){
+    h+=`<section id="hotels"><div class="sec-title"><span class="i">🏨</span>住宿推薦</div>`;
+    T.hotels.forEach(ht=>{
+      h+=`<div class="card hotel"><div class="hn">${E(ht.name)}</div>
+        <div class="row"><span class="muted">${E(ht.area)||''}${has(ht.rating)?' · ⭐'+E(ht.rating):''}</span>
+        ${has(ht.pricePerNight)?`<span class="price">${E(ht.pricePerNight)}</span>`:''}</div>
+        ${has(ht.checkIn)?`<div class="small muted" style="margin-top:4px">入住 ${E(ht.checkIn)}${has(ht.checkOut)?' → 退房 '+E(ht.checkOut):''}</div>`:''}
+        ${has(ht.highlights)?`<div class="small" style="margin-top:6px">${E(ht.highlights)}</div>`:''}
+        ${has(ht.confirmation)?`<div class="small muted" style="margin-top:4px">訂單號：${E(ht.confirmation)}</div>`:''}
+        ${has(ht.imageUrl)?`<img class="thumb" loading="lazy" src="${E(ht.imageUrl)}" alt="">`:''}
+        ${mapBtn(ht.mapQuery||ht.address||((ht.name||'')+' '+(ht.area||'')))}</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.budget)){const b=T.budget,cats=[['transport','🚄 交通'],['accommodation','🏨 住宿'],['food','🍴 餐飲'],['tickets','🎫 門票'],['other','🛍 其他']];
+    h+=`<section id="budget"><div class="sec-title"><span class="i">💰</span>預算</div>`;
+    if(has(b.tiers)&&b.tiers.length){
+      h+=`<div class="tiers">`+b.tiers.map(t=>`<div class="tier ${t.pick?'pick':''}"><div class="tl">${E(t.label)}</div><div class="tv">${E(t.total)}</div>${has(t.note)?`<div class="tp">${E(t.note)}</div>`:''}</div>`).join('')+`</div>`;
+    }
+    h+=`<div class="card"><table class="bud">`;
+    cats.forEach(([k,lbl])=>{if(b[k]&&has(b[k].subtotal))h+=`<tr><td>${lbl}</td><td class="r">${E(b[k].subtotal)}</td></tr>`;});
+    if(has(b.total))h+=`<tr class="total"><td>總計</td><td class="r">${E(b.total)}</td></tr>`;
+    if(has(b.perPerson))h+=`<tr><td class="muted">人均</td><td class="r muted">${E(b.perPerson)}</td></tr>`;
+    h+=`</table>${has(b.note)?`<div class="reliab">${E(b.note)}</div>`:''}</div></section>`;
+  }
+
+  if(has(T.essentials)){const es=T.essentials;
+    const rows=[['currency','💱 貨幣 / 匯率'],['plug','🔌 插頭電壓'],['transit','🚇 交通卡'],['emergency','🚨 緊急電話'],['sim','📶 上網 / SIM'],['timezone','🕐 時區'],['language','🗣 語言'],['tipping','💵 小費']];
+    h+=`<section id="ess"><div class="sec-title"><span class="i">🧭</span>實用資訊</div><div class="card"><div class="ess">`;
+    rows.forEach(([k,lbl])=>{if(has(es[k]))h+=`<div class="e"><div class="k">${lbl}</div><div class="v">${E(es[k])}</div></div>`;});
+    h+=`</div></div></section>`;
+  }
+
+  if(has(T.tips)&&T.tips.length){
+    h+=`<section><div class="sec-title"><span class="i">📝</span>貼士 & 避坑</div><div class="card"><ul class="tips">`;
+    h+=T.tips.map(x=>`<li>${E(x)}</li>`).join('')+`</ul></div></section>`;
+  }
+
+  h+=`<footer>由 AI Travel Brain · 三角色 Swarm 生成${has(T.generationDate)?' · '+E(T.generationDate):''}<br>資料整合自公開來源，出發前請核實營業時間 / 票價 / 交通 / 天氣。</footer>`;
+  document.getElementById('app').innerHTML=h;
+  wireNav();
+}
+function wireNav(){
+  const nav=document.getElementById('dnav');
+  if(nav){
+    nav.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(!b)return;
+      const id=b.dataset.go;const el=id==='top'?document.body:document.getElementById(id);
+      if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
+    const btns=[...nav.querySelectorAll('button')],map={};btns.forEach(b=>map[b.dataset.go]=b);
+    const io=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting){
+      btns.forEach(x=>x.classList.remove('active'));
+      const m=map[en.target.id]||map['top'];if(m){m.classList.add('active');m.scrollIntoView({inline:'center',block:'nearest'});}}});},
+      {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+  }
+  const tt=document.getElementById('totop');
+  addEventListener('scroll',()=>{tt.style.display=scrollY>500?'block':'none'});
+}
+
+/* ===== 🧮 計錢分攤工具 v3（公數錢包 + 日期時間 + 分類分析 + Firebase 實時共用） ===== */
+const EKEY='exp_'+String(T.title||'trip').replace(/\s+/g,'_');
+const CATS=[['🍴','食'],['🚇','交通'],['🎟','入場'],['🛍','購物'],['🏨','住宿'],['🎉','其他']];
+const FBC=(typeof window!=='undefined'&&window.FIREBASE_CONFIG)||null;
+let SYNC={on:false,app:null,db:null,ref:null,code:null};
+let EX={members:[],expenses:[],pool:[],rate:(T.expense&&T.expense.rate)||4,budget:(T.expense&&T.expense.budget!==undefined?T.expense.budget:16500),cur:(T.expense&&T.expense.cur)||'NT$',disp:'local'};
+function loadDisp(){try{return localStorage.getItem(EKEY+'_disp')||'local';}catch(e){return 'local';}}
+function saveDisp(){try{localStorage.setItem(EKEY+'_disp',EX.disp);}catch(e){}}
+function localSaveAll(){try{localStorage.setItem(EKEY,JSON.stringify(EX));}catch(e){}}
+function expLoad(){try{const s=localStorage.getItem(EKEY);if(s)EX=Object.assign(EX,JSON.parse(s));}catch(e){}EX.disp=loadDisp();
+  if(FBC){try{const r=localStorage.getItem(EKEY+'_room');if(r){const o=JSON.parse(r);reJoin(o.code,o.pw);}}catch(e){}}}
+const uid=()=>Math.random().toString(36).slice(2,9);
+const rnd=n=>Math.round(n);
+const locf=n=>EX.cur+rnd(n).toLocaleString();
+const hkf=n=>'HK$'+rnd(n).toLocaleString();
+const fmt=n=>EX.disp==='hkd'?hkf(n/EX.rate):locf(n);
+const nmOf=id=>{if(id==='POOL')return '💰公數';const m=EX.members.find(x=>x.id===id);return m?m.name:'?';};
+const normWho=x=>Array.isArray(x)?x:(x?Object.values(x):[]);
+function nowParts(){const d=new Date();const p=x=>String(x).padStart(2,'0');return {d:d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()),h:d.getHours()};}
+function hourLabel(h){const ap=h<12?'am':'pm';let hh=h%12;if(hh===0)hh=12;return hh+ap;}
+function dtLabel(dt){if(!dt)return '';const md=dt.d?dt.d.slice(5).replace('-','/'):'';return md+' '+hourLabel(dt.h||0);}
+/* ---- Firebase 同步 ---- */
+function fbInit(){if(SYNC.app)return true;if(!FBC||!window.firebase)return false;try{SYNC.app=firebase.initializeApp(FBC);SYNC.db=firebase.database();}catch(e){if(!SYNC.db){try{SYNC.db=firebase.database();}catch(e2){return false;}}}return true;}
+function seedRoom(ref){const upd={};EX.members.forEach(m=>upd['members/'+m.id]={name:m.name});EX.expenses.forEach(e=>upd['expenses/'+e.id]={desc:e.desc,amount:e.amount,payer:e.payer,who:e.who,cat:e.cat,dt:e.dt});EX.pool.forEach(p=>upd['pool/'+p.id]={amount:p.amount,who:p.who});upd['meta']={rate:EX.rate,budget:(EX.budget==null?0:EX.budget),cur:EX.cur};ref.update(upd);}
+function attachListener(){if(!SYNC.ref)return;SYNC.ref.on('value',function(snap){const v=snap.val()||{};
+  EX.members=v.members?Object.keys(v.members).map(id=>({id,name:(v.members[id]||{}).name})):[];
+  EX.expenses=v.expenses?Object.keys(v.expenses).map(id=>{const o=v.expenses[id]||{};return {id,desc:o.desc,amount:o.amount,payer:o.payer,who:normWho(o.who),cat:o.cat,dt:o.dt};}):[];
+  EX.pool=v.pool?Object.keys(v.pool).map(id=>{const o=v.pool[id]||{};return {id,amount:o.amount,who:normWho(o.who)};}):[];
+  if(v.meta){if(v.meta.rate)EX.rate=v.meta.rate;if(v.meta.budget!==undefined)EX.budget=(v.meta.budget||null);}
+  EX.disp=loadDisp();expRender();});}
+function reJoin(code,pw){if(!fbInit())return;SYNC.ref=SYNC.db.ref('rooms/'+code);SYNC.on=true;SYNC.code=code;attachListener();}
+function syncJoin(){const raw=(document.getElementById('roomcode').value||'').trim().toLowerCase();const code=raw.replace(/[^a-z0-9_-]/g,'');const pw=(document.getElementById('roompw').value||'');
+  if(!code){alert('請輸入行程碼（英文/數字）');return;}if(!FBC){alert('此版本未設定 Firebase');return;}if(!window.firebase){alert('Firebase 未載入（要連網先用到共用）');return;}if(!fbInit()){alert('Firebase 初始化失敗');return;}
+  const ref=SYNC.db.ref('rooms/'+code);
+  ref.child('pw').once('value').then(function(snap){const ex=snap.val();
+    if(ex!==null&&ex!==undefined&&ex!==''){if(String(ex)!==String(pw)){alert('行程碼或密碼唔啱');return;}}
+    else{ref.child('pw').set(pw||'');seedRoom(ref);}
+    SYNC.ref=ref;SYNC.on=true;SYNC.code=code;try{localStorage.setItem(EKEY+'_room',JSON.stringify({code:code,pw:pw}));}catch(e){}
+    attachListener();
+  }).catch(function(e){alert('連線失敗：'+((e&&e.message)||e));});}
+function syncLeave(){if(SYNC.ref){try{SYNC.ref.off();}catch(e){}}SYNC.on=false;SYNC.ref=null;SYNC.code=null;try{localStorage.removeItem(EKEY+'_room');}catch(e){}try{const s=localStorage.getItem(EKEY);EX=Object.assign({members:[],expenses:[],pool:[],rate:EX.rate,budget:EX.budget,cur:EX.cur,disp:EX.disp},s?JSON.parse(s):{});}catch(e){}EX.disp=loadDisp();expRender();}
+/* ---- CRUD（離線寫 localStorage；共用模式寫 Firebase，靠 listener 重繪）---- */
+function expAddMember(){const i=document.getElementById('mname');const v=(i.value||'').trim();if(!v)return;const id=uid();if(SYNC.on){SYNC.ref.child('members/'+id).set({name:v});}else{EX.members.push({id,name:v});localSaveAll();expRender();}const f=document.getElementById('mname');if(f){f.value='';f.focus();}}
+function expDelMember(id){if(SYNC.on){SYNC.ref.child('members/'+id).remove();EX.expenses.forEach(e=>{if(e.payer===id)SYNC.ref.child('expenses/'+e.id).remove();else if(e.who.indexOf(id)>=0)SYNC.ref.child('expenses/'+e.id+'/who').set(e.who.filter(w=>w!==id));});EX.pool.forEach(p=>{if(p.who.indexOf(id)>=0)SYNC.ref.child('pool/'+p.id+'/who').set(p.who.filter(w=>w!==id));});}else{EX.members=EX.members.filter(m=>m.id!==id);EX.expenses=EX.expenses.filter(e=>e.payer!==id);EX.expenses.forEach(e=>e.who=e.who.filter(w=>w!==id));EX.pool.forEach(p=>p.who=p.who.filter(w=>w!==id));localSaveAll();expRender();}}
+function expAddPool(){const amt=parseFloat(document.getElementById('pamt').value);const who=[...document.querySelectorAll('.pwho:checked')].map(c=>c.value);if(!(amt>0)){alert('請填夾入金額');return;}if(!who.length){alert('請揀邊個夾');return;}const id=uid();if(SYNC.on){SYNC.ref.child('pool/'+id).set({amount:amt,who});}else{EX.pool.push({id,amount:amt,who});localSaveAll();expRender();}}
+function expDelPool(id){if(SYNC.on){SYNC.ref.child('pool/'+id).remove();}else{EX.pool=EX.pool.filter(p=>p.id!==id);localSaveAll();expRender();}}
+function expAddExpense(){const desc=(document.getElementById('edesc').value||'').trim()||'未命名';const amt=parseFloat(document.getElementById('eamt').value);const payer=document.getElementById('epayer').value;const cat=document.getElementById('ecat').value;const dd=document.getElementById('edate').value;const hh=parseInt(document.getElementById('ehour').value,10);const who=[...document.querySelectorAll('.ewho:checked')].map(c=>c.value);if(!payer||!(amt>0)){alert('請填付款人同金額');return;}if(!who.length){alert('請揀邊個分攤');return;}const id=uid();const obj={desc,amount:amt,payer,who,cat,dt:{d:dd,h:isNaN(hh)?0:hh}};if(SYNC.on){SYNC.ref.child('expenses/'+id).set(obj);}else{EX.expenses.push(Object.assign({id},obj));localSaveAll();expRender();}}
+function expDel(id){if(SYNC.on){SYNC.ref.child('expenses/'+id).remove();}else{EX.expenses=EX.expenses.filter(e=>e.id!==id);localSaveAll();expRender();}}
+function expSetRate(v){const r=parseFloat(v);if(r>0){EX.rate=r;if(SYNC.on){SYNC.ref.child('meta/rate').set(r);}else{localSaveAll();expRender();}}}
+function expSetBudget(v){const b=parseFloat(v);EX.budget=(b>0?b:null);if(SYNC.on){if(b>0)SYNC.ref.child('meta/budget').set(b);else SYNC.ref.child('meta/budget').remove();}else{localSaveAll();expRender();}}
+function expSetDisp(d){EX.disp=d;saveDisp();expRender();}
+function expClear(){if(confirm('清空所有開支記錄？(成員/公數保留)')){if(SYNC.on){SYNC.ref.child('expenses').remove();}else{EX.expenses=[];localSaveAll();expRender();}}}
+function poolBalance(){let inn=0;EX.pool.forEach(p=>inn+=p.amount*p.who.length);let out=0;EX.expenses.forEach(e=>{if(e.payer==='POOL')out+=e.amount;});return {inn,out,bal:inn-out};}
+function expSettle(){const net={};EX.members.forEach(m=>net[m.id]=0);
+  EX.pool.forEach(p=>{p.who.forEach(w=>{net[w]=(net[w]||0)+p.amount;});});
+  EX.expenses.forEach(e=>{if(e.payer!=='POOL')net[e.payer]=(net[e.payer]||0)+e.amount;const sh=e.amount/e.who.length;e.who.forEach(w=>{net[w]=(net[w]||0)-sh;});});
+  const cred=[],deb=[];Object.keys(net).forEach(id=>{const v=net[id];if(v>0.5)cred.push({id,v});else if(v<-0.5)deb.push({id,v:-v});});
+  cred.sort((a,b)=>b.v-a.v);deb.sort((a,b)=>b.v-a.v);const tx=[];let i=0,j=0;
+  while(i<deb.length&&j<cred.length){const pay=Math.min(deb[i].v,cred[j].v);tx.push({from:deb[i].id,to:cred[j].id,amt:pay});deb[i].v-=pay;cred[j].v-=pay;if(deb[i].v<0.5)i++;if(cred[j].v<0.5)j++;}
+  return {net,tx};}
+function expRender(){const el=document.getElementById('exp');if(!el)return;
+  const total=EX.expenses.reduce((s,e)=>s+e.amount,0);const pb=poolBalance();const now=nowParts();
+  let h=`<div class="sec-title"><span class="i">🧮</span>計錢分攤 + 公數 + 預算</div>`;
+  if(FBC){if(SYNC.on){h+=`<div class="synccard on">🔗 共用中・行程碼 <b>${E(SYNC.code)}</b>（實時同步）<button class="syncleave" onclick="syncLeave()">離開共用</button></div>`;}
+    else{h+=`<div class="synccard"><div class="exlab2">🔗 多人共用（連網實時同步）</div><div class="exrow"><input id="roomcode" placeholder="行程碼（自訂，例：fukuoka2026）"><input id="roompw" type="password" placeholder="密碼(可空)" style="flex:0 0 110px"></div><button class="exbtn full" onclick="syncJoin()">加入 / 建立共用</button><div class="small muted" style="margin-top:6px">同一行程碼嘅人睇到改到同一份分帳；唔開就純本機離線。</div></div>`;}}
+  h+=`<div class="pool"><div class="ptop"><span class="plab">💰 公數錢包餘額</span><span class="pbal">${fmt(pb.bal)}</span></div><div class="psub">已夾入 ${fmt(pb.inn)} · 已用 ${fmt(pb.out)}</div>`;
+  if(EX.members.length){h+=`<div class="exlab2" style="margin-top:9px">夾錢入公數（選人，每人夾同一金額）</div><div class="exrow"><input id="pamt" type="number" inputmode="decimal" placeholder="每人夾 ${EX.cur}"><button class="exbtn" onclick="expAddPool()">＋ 夾入</button></div><div class="chips" style="margin-top:7px">${EX.members.map(m=>`<label class="wchip"><input type="checkbox" class="pwho" value="${m.id}" checked> ${E(m.name)}</label>`).join('')}</div>`;
+    if(EX.pool.length){h+=`<div style="margin-top:8px">`+EX.pool.slice().reverse().map(p=>`<div class="exitem"><div class="small">${p.who.map(w=>E(nmOf(w))).join('、')} 各夾 ${fmt(p.amount)}</div><div class="examt">${fmt(p.amount*p.who.length)}<button onclick="expDelPool('${p.id}')">✕</button></div></div>`).join('')+`</div>`;}}
+  h+=`</div>`;
+  h+=`<div class="card"><div class="exlab">👥 成員</div><div class="chips">`;
+  h+=EX.members.map(m=>`<span class="mchip">${E(m.name)}<button onclick="expDelMember('${m.id}')">✕</button></span>`).join('')||'<span class="muted small">未有成員，先加（例：爸/媽/我/女）</span>';
+  h+=`</div><div class="exrow"><input id="mname" placeholder="加成員名" onkeydown="if(event.key==='Enter')expAddMember()"><button class="exbtn" onclick="expAddMember()">＋ 加</button></div></div>`;
+  if(EX.members.length){h+=`<div class="card"><div class="exlab">➕ 加一筆開支</div><input id="edesc" placeholder="用途（例：晚餐 / 的士 / 門票）"><div class="exrow"><input id="edate" type="date" value="${now.d}"><select id="ehour">${Array.from({length:24},(_,k)=>`<option value="${k}" ${k===now.h?'selected':''}>${hourLabel(k)}</option>`).join('')}</select></div><div class="exrow"><input id="eamt" type="number" inputmode="decimal" placeholder="金額 ${EX.cur}"><select id="epayer"><option value="POOL">💰 公錢付</option>${EX.members.map(m=>`<option value="${m.id}">${E(m.name)} 付</option>`).join('')}</select></div><div class="exrow"><select id="ecat">${CATS.map(c=>`<option value="${c[1]}">${c[0]} ${c[1]}</option>`).join('')}</select></div><div class="exlab2">邊個分攤（預設全部）</div><div class="chips">${EX.members.map(m=>`<label class="wchip"><input type="checkbox" class="ewho" value="${m.id}" checked> ${E(m.name)}</label>`).join('')}</div><button class="exbtn full" onclick="expAddExpense()">加入記錄</button></div>`;}
+  if(EX.expenses.length){const cm={};CATS.forEach(c=>cm[c[1]]=c[0]);
+    const list=EX.expenses.slice().sort((a,b)=>{const ka=(a.dt&&a.dt.d||'')+String((a.dt&&a.dt.h)||0).padStart(2,'0');const kb=(b.dt&&b.dt.d||'')+String((b.dt&&b.dt.h)||0).padStart(2,'0');return kb<ka?-1:kb>ka?1:0;});
+    h+=`<div class="card"><div class="exlab">🧾 記錄（${EX.expenses.length}）</div>`;
+    h+=list.map(e=>`<div class="exitem"><div><b>${cm[e.cat]||''} ${E(e.desc)}</b><div class="small muted">${dtLabel(e.dt)} · ${E(nmOf(e.payer))} 付 · 分 ${e.who.length} 人</div></div><div class="examt">${fmt(e.amount)}<button onclick="expDel('${e.id}')">✕</button></div></div>`).join('');h+=`</div>`;}
+  h+=`<div class="card"><div class="exlab">📊 結算</div>`;
+  h+=`<div class="exrow" style="align-items:center"><span class="exrate">匯率 HK$1=${EX.cur}<input id="erate" type="number" value="${EX.rate}" onchange="expSetRate(this.value)"></span><span style="margin-left:auto"></span><span class="curtog"><button class="${EX.disp==='local'?'on':''}" onclick="expSetDisp('local')">${EX.cur}</button><button class="${EX.disp==='hkd'?'on':''}" onclick="expSetDisp('hkd')">HK$</button></span></div>`;
+  h+=`<div class="exsum"><span>總開支</span><b>${locf(total)} <span class="muted">≈ ${hkf(total/EX.rate)}</span></b></div>`;
+  if(EX.members.length)h+=`<div class="exsum"><span>人均</span><b>${fmt(total/EX.members.length)}</b></div>`;
+  const {net,tx}=expSettle();
+  if(EX.members.length){h+=`<div class="exlab2">每人淨額（含公數夾錢）</div>`;h+=EX.members.map(m=>{const v=net[m.id]||0;return `<div class="exsum"><span>${E(m.name)}</span><b class="${v>=0?'pos':'neg'}">${v>=0?'應收 ':'應付 '}${fmt(Math.abs(v))}</b></div>`;}).join('');}
+  if(tx.length){h+=`<div class="exlab2">💸 最少轉帳結算</div>`;h+=tx.map(t=>`<div class="extx">${E(nmOf(t.from))} → ${E(nmOf(t.to))} <b>${fmt(t.amt)}</b></div>`).join('');}
+  h+=`<div class="exlab2">🎯 預算（HK$）</div><div class="exrow"><input id="ebud" type="number" inputmode="decimal" value="${EX.budget||''}" placeholder="總預算 HK$" onchange="expSetBudget(this.value)"></div>`;
+  if(EX.budget){const usedHK=total/EX.rate,left=EX.budget-usedHK,pct=Math.min(100,EX.budget>0?usedHK/EX.budget*100:0);h+=`<div class="bar"><div class="barfill" style="width:${pct}%"></div></div><div class="exsum"><span>已用</span><b>${hkf(usedHK)} / ${hkf(EX.budget)}</b></div><div class="exsum"><span>${left>=0?'仲有':'⚠️ 超支'}</span><b class="${left>=0?'pos':'neg'}">${hkf(Math.abs(left))}</b></div>`;}
+  h+=`</div>`;
+  if(EX.expenses.length){const by={};CATS.forEach(c=>by[c[1]]=0);EX.expenses.forEach(e=>{by[e.cat]=(by[e.cat]||0)+e.amount;});const mx=Math.max(1,...Object.values(by));
+    h+=`<div class="card"><div class="exlab">📈 分類分析</div>`;CATS.forEach(c=>{const v=by[c[1]]||0;if(v<=0)return;const pct=total>0?rnd(v/total*100):0;h+=`<div class="anarow"><span class="albl">${c[0]} ${c[1]}</span><span class="anabar"><i style="width:${rnd(v/mx*100)}%"></i></span><span class="anaval">${fmt(v)} <span class="muted small">${pct}%</span></span></div>`;});h+=`</div>`;}
+  h+=`<button class="exbtn ghost full" onclick="expClear()" style="margin-bottom:8px">🗑 清空開支記錄</button><div class="small muted">${SYNC.on?'🔗 共用模式：數據存喺 Firebase，同行程碼嘅人實時共用。':'本機模式：數據只存喺你手機（localStorage），離線可用、唔上傳。'}</div>`;
+  el.innerHTML=h;
+}
+
+/* ===== 🎫 訂單收納 + 📱 分享 QR ===== */
+var BKEY='book_'+String(T.title||'trip').replace(/\s+/g,'_');
+var BTYPES=[['✈️','機票'],['🏨','酒店'],['🎫','門票'],['🚗','租車'],['📄','其他']];
+var BK=[];
+function bkLoad(){try{var s=localStorage.getItem(BKEY);if(s)BK=JSON.parse(s);}catch(e){}}
+function bkSave(){try{localStorage.setItem(BKEY,JSON.stringify(BK));}catch(e){}}
+function bkAdd(){var ty=document.getElementById('bty').value,ti=(document.getElementById('bti').value||'').trim(),co=(document.getElementById('bco').value||'').trim(),dd=document.getElementById('bdd').value,tm=(document.getElementById('btm').value||'').trim(),nt=(document.getElementById('bnt').value||'').trim(),lk=(document.getElementById('blk').value||'').trim();if(!ti){alert('請填項目名（例：國泰 CX588）');return;}BK.push({id:Math.random().toString(36).slice(2,8),ty:ty,ti:ti,co:co,dd:dd,tm:tm,nt:nt,lk:lk});bkSave();bkRender();}
+function bkDel(id){BK=BK.filter(function(b){return b.id!==id;});bkSave();bkRender();}
+function bkToday(){var d=new Date(),p=function(x){return String(x).padStart(2,'0');};return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());}
+function bkEmoji(t){var m={};BTYPES.forEach(function(x){m[x[1]]=x[0];});return m[t]||'📄';}
+function bkCard(b){return '<div class="exitem"><div><b>'+bkEmoji(b.ty)+' '+E(b.ti)+'</b><div class="small muted">'+[b.dd?b.dd.slice(5).replace('-','/'):'',b.tm,b.co?('確認號 '+b.co):''].filter(Boolean).map(E).join(' · ')+'</div>'+(b.nt?'<div class="small muted">'+E(b.nt)+'</div>':'')+'</div><div class="examt">'+(b.lk?'<a class="dirbtn" target="_blank" rel="noopener" href="'+E(b.lk)+'">開</a>':'')+'<button onclick="bkDel(\''+b.id+'\')">✕</button></div></div>';}
+function bkRender(){var el=document.getElementById('book');if(!el)return;var today=bkToday();var sorted=BK.slice().sort(function(a,b){return (a.dd||'')<(b.dd||'')?-1:1;});var tdy=sorted.filter(function(b){return b.dd===today;});
+  var h='<div class="sec-title"><span class="i">🎫</span>訂單收納</div>';
+  if(tdy.length){h+='<div class="card bk-today"><div class="exlab">⭐ 今日要用（'+today.slice(5).replace('-','/')+'）</div>'+tdy.map(bkCard).join('')+'</div>';}
+  h+='<div class="card"><div class="exlab">➕ 加訂單</div><div class="exrow"><select id="bty">'+BTYPES.map(function(t){return '<option value="'+t[1]+'">'+t[0]+' '+t[1]+'</option>';}).join('')+'</select><input id="bti" placeholder="項目（例：國泰 CX588）"></div><div class="exrow"><input id="bdd" type="date"><input id="btm" placeholder="時間 11:00"></div><input id="bco" placeholder="確認號 / 訂單號 / PIN" style="width:100%;margin-top:9px"><input id="bnt" placeholder="備註（座位/房型/地址…）" style="width:100%;margin-top:9px"><input id="blk" placeholder="連結（可空）" style="width:100%;margin-top:9px"><button class="exbtn full" onclick="bkAdd()">加入</button></div>';
+  if(sorted.length){h+='<div class="card"><div class="exlab">🗂 全部（'+sorted.length+'）</div>'+sorted.map(bkCard).join('')+'</div>';}
+  h+='<div class="small muted" style="margin-top:6px">數據只存喺你手機（localStorage），離線可用、過關即拎。</div>';
+  el.innerHTML=h;}
+function shareQR(){var ex=document.getElementById('qrov');if(ex){ex.remove();return;}var url=location.href;var ov=document.createElement('div');ov.id='qrov';ov.className='qrov';ov.onclick=function(){ov.remove();};ov.innerHTML='<div class="qrcard"><div style="font-weight:900;font-size:16px;margin-bottom:10px">📱 掃描分享俾朋友</div><img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(url)+'"><div class="small muted" style="margin-top:10px;word-break:break-all">'+url+'</div><div class="small muted" style="margin-top:6px">㩒任何位置關閉</div></div>';document.body.appendChild(ov);}
+
+function setMode(m){document.getElementById('view-trip').style.display=m==='trip'?'':'none';var vb=document.getElementById('view-book');if(vb)vb.style.display=m==='book'?'':'none';var mb=document.getElementById('mb-book');if(mb)mb.classList.toggle('active',m==='book');if(m==='book')bookRender();
+  document.getElementById('view-tools').style.display=m==='money'?'':'none';
+  document.getElementById('mb-trip').classList.toggle('active',m==='trip');
+  document.getElementById('mb-money').classList.toggle('active',m==='money');
+  if(m==='money')expRender();scrollTo({top:0});}
+
+function goTop(){var el=document.scrollingElement||document.documentElement||document.body;if('scrollBehavior' in document.documentElement.style){try{window.scrollTo({top:0,left:0,behavior:'smooth'});return;}catch(e){}}el.scrollTop=0;window.scrollTo(0,0);}
+render();
+expLoad();
+bkLoad();
+</script>
+</body>
+</html>

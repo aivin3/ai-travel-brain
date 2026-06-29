@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Travel Brain — tripData",
+  "description": "旅程結構化數據；由 scripts/generate.py 注入 templates/<template>.html。imageUrl 須為真實 HTTPS 公開圖（可空）。金額用字串夾貨幣號。",
+  "type": "object",
+  "required": ["title"],
+  "properties": {
+    "template": { "type": "string", "description": "揀模板檔名：roadbook.html（夢幻 pastel，預設）/ roadbook_jp.html（和風高對比）" },
+    "firebase": { "type": "object", "description": "（可選）Firebase Realtime DB config；有先注入 SDK + window.FIREBASE_CONFIG，啟用多人共用分帳。離線版唔好放。" },
+    "kicker": { "type": "string", "description": "封面小標（地區英文，例 FUKUOKA · KYUSHU · JAPAN）" },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "dateRange": { "type": "string" },
+    "travelers": { "type": "string" },
+    "heroImage": { "type": "string", "description": "封面大圖 HTTPS（可空）" },
+    "generationDate": { "type": "string" },
+    "expense": {
+      "type": "object", "description": "分帳工具預設",
+      "properties": { "cur": { "type": "string", "description": "本地幣號，例 ¥ / NT$" }, "rate": { "type": "number", "description": "HK$1 = ? 本地幣" }, "budget": { "type": "number", "description": "總預算 HK$" } }
+    },
+    "overview": {
+      "type": "array", "description": "每日速覽表",
+      "items": { "type": "object", "properties": { "d": { "type": "string", "description": "例 D1 8/22" }, "t": { "type": "string", "description": "2-3 個重點 + emoji" } } }
+    },
+    "highlights": { "type": "array", "items": { "type": "string" }, "description": "（舊欄；有 overview 時模板渲染 overview）" },
+    "weather": {
+      "type": "object",
+      "properties": { "summary": { "type": "string" }, "avgHigh": {}, "avgLow": {}, "rainfall": { "type": "string" }, "clothing": { "type": "string" }, "tips": { "type": "string" } }
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string" }, "weekday": { "type": "string" }, "theme": { "type": "string" },
+          "weather": { "type": "object", "properties": { "icon": { "type": "string", "enum": ["sunny","cloudy","rain","showers","snow","storm","partly","windy","fog"] }, "high": {}, "low": {} } },
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "景點活動 或 餐飲（帶 meal 物件即視為餐廳卡）",
+              "properties": {
+                "time": { "type": "string" },
+                "name": { "type": "string" },
+                "icon": { "type": "string", "description": "無 imageUrl 時 act-ph 示意卡顯示嘅 emoji" },
+                "note": { "type": "string" },
+                "mustDo": { "description": "string 或 array；渲染 ✅必做 綠框" },
+                "glow": { "type": "string", "description": "發光徽章文字（必去/限定），只和風模板顯示" },
+                "duration": { "type": "string" },
+                "cost": { "description": "數字 0 = 免費；字串如 '¥980' 直接顯示" },
+                "transport": { "type": "string", "description": "亦用嚟推斷 🧭路線 travelmode（步行→walking，包車/Uber→driving，否則 transit）" },
+                "address": { "type": "string" },
+                "mapQuery": { "type": "string", "description": "Google Maps 搜尋字串；亦用作路線起/終點" },
+                "imageUrl": { "type": "string" },
+                "transfer": { "type": "string", "description": "「去下一站」交通文字；旁附 🧭路線 deep-link 到下一個活動" },
+                "meal": {
+                  "type": "object",
+                  "properties": { "name": { "type": "string" }, "cuisine": { "type": "string" }, "perPerson": {}, "recommended": { "type": "string" }, "location": { "type": "string" }, "mapQuery": { "type": "string" }, "menuLink": { "type": "string" } }
+                }
+              }
+            }
+          },
+          "backup": { "type": "array", "description": "字串 或 {name,note,mapQuery}" }
+        }
+      }
+    },
+    "events": {
+      "type": "array", "description": "期間限定活動（獨立『活動』tab，渲染喺 days 之後）",
+      "items": { "type": "object", "properties": { "name": {}, "date": {}, "where": {}, "tag": {}, "note": {}, "link": {}, "mapQuery": {}, "imageUrl": {} } }
+    },
+    "dining": {
+      "type": "array", "description": "獨立分類餐廳指南",
+      "items": { "type": "object", "properties": { "category": { "type": "string" }, "items": { "type": "array", "items": { "type": "object", "properties": { "name": {}, "area": {}, "price": {}, "hours": {}, "intro": {}, "signature": {}, "mapQuery": {}, "link": {}, "menuLink": {}, "imageUrl": {} } } } } }
+    },
+    "alternatives": {
+      "type": "array", "description": "備選活動庫",
+      "items": { "type": "object", "properties": { "category": { "type": "string" }, "items": { "type": "array", "items": { "type": "object", "properties": { "name": {}, "area": {}, "duration": {}, "hours": {}, "cost": {}, "tag": {}, "note": {}, "mapQuery": {}, "imageUrl": {} } } } } }
+    },
+    "hotels": {
+      "type": "array",
+      "items": { "type": "object", "properties": { "name": {}, "area": {}, "pricePerNight": {}, "rating": {}, "checkIn": {}, "checkOut": {}, "highlights": {}, "confirmation": {}, "address": {}, "mapQuery": {}, "imageUrl": {} } }
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "tiers": { "type": "array", "items": { "type": "object", "properties": { "label": {}, "total": {}, "note": {}, "pick": { "type": "boolean" } } } },
+        "transport": { "type": "object" }, "accommodation": { "type": "object" }, "food": { "type": "object" }, "tickets": { "type": "object" }, "other": { "type": "object" },
+        "total": {}, "perPerson": {}, "note": {}
+      }
+    },
+    "essentials": {
+      "type": "object",
+      "properties": { "currency": {}, "plug": {}, "transit": {}, "emergency": {}, "sim": {}, "timezone": {}, "language": {}, "tipping": {} }
+    },
+    "tips": { "type": "array", "items": { "type": "string" } }
+  }
+}

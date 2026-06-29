@@ -1,0 +1,85 @@
+{
+  "title": "東京親子 3 天遊（示範）",
+  "subtitle": "淺草・台場・新宿 — 輕鬆節奏 + 親子友善",
+  "dateRange": "2026-08-10 ~ 08-12",
+  "travelers": "2 大 1 小（5 歲）",
+  "highlights": [
+    "First day 輕鬆落地，淺草老街 + 晴空塔睇夜景，唔趕行程",
+    "台場一日：teamLab + 高達 + 海濱，全部室內外彈性，落雨都有得玩",
+    "新宿買嘢食嘢一條過，回程前掃手信"
+  ],
+  "weather": {
+    "summary": "盛夏炎熱潮濕，午後偶有雷陣雨。",
+    "avgHigh": 31,
+    "avgLow": 25,
+    "rainfall": "40%",
+    "clothing": "輕薄透氣衫、帽、太陽眼鏡；室內冷氣強，帶件薄外套。",
+    "tips": "帶折疊雨傘 + 小風扇；多補水，小朋友避免正午暴曬。"
+  },
+  "days": [
+    {
+      "date": "08/10", "weekday": "週一", "theme": "落地 + 淺草老街夜景",
+      "weather": { "icon": "partly", "high": 31, "low": 25 },
+      "activities": [
+        { "time": "14:00", "name": "成田機場 → 酒店 Check-in", "note": "Skyliner 直達上野，再轉地鐵", "duration": "1.5h", "transport": "Skyliner ¥2,570", "cost": "HK$300", "mapQuery": "Narita Airport Terminal 1" },
+        { "time": "16:30", "name": "淺草寺 & 仲見世商店街", "note": "雷門影相、行老街食人形燒", "duration": "2h", "cost": 0, "transport": "步行", "mapQuery": "Senso-ji Temple Asakusa" },
+        { "time": "18:30", "name": "晴空塔 Tokyo Skytree", "note": "黃昏上展望台睇日落轉夜景，建議網上預約", "duration": "1.5h", "cost": "¥2,100/人", "transport": "步行 15 分鐘", "mapQuery": "Tokyo Skytree" },
+        { "time": "20:00", "meal": { "name": "天丼 ひさご（淺草）", "cuisine": "日式天婦羅丼", "perPerson": "¥1,800", "recommended": "海老天丼、味噌湯", "location": "淺草站附近" } }
+      ]
+    },
+    {
+      "date": "08/11", "weekday": "週二", "theme": "台場一日：teamLab + 高達 + 海濱",
+      "weather": { "icon": "showers", "high": 30, "low": 25 },
+      "activities": [
+        { "time": "10:00", "name": "teamLab Borderless（麻布台）", "note": "沉浸式數位藝術，小朋友最愛，務必事前購票", "duration": "2.5h", "cost": "¥3,800/人", "transport": "地鐵神谷町站", "mapQuery": "teamLab Borderless Azabudai Hills" },
+        { "time": "13:00", "meal": { "name": "AQUA CiTY 美食廣場", "cuisine": "多國美食", "perPerson": "¥1,500", "recommended": "拉麵 / 親子丼任揀", "location": "台場 AQUA CiTY" } },
+        { "time": "14:30", "name": "獨角獸高達立像", "note": "DiverCity 商場外，定時變身表演", "duration": "1h", "cost": 0, "transport": "步行", "mapQuery": "Unicorn Gundam Statue DiverCity Tokyo Plaza" },
+        { "time": "16:00", "name": "台場海濱公園", "note": "睇彩虹大橋同自由女神像，海風散步", "duration": "1h", "cost": 0, "transport": "步行", "mapQuery": "Odaiba Seaside Park" }
+      ]
+    },
+    {
+      "date": "08/12", "weekday": "週三", "theme": "新宿掃貨 + 回程",
+      "weather": { "icon": "sunny", "high": 32, "low": 26 },
+      "activities": [
+        { "time": "09:30", "name": "新宿御苑", "note": "晨早散步，避開正午熱", "duration": "1.5h", "cost": "¥500/人", "transport": "新宿御苑前站", "mapQuery": "Shinjuku Gyoen National Garden" },
+        { "time": "11:30", "name": "新宿掃手信（唐吉訶德 + Bic Camera）", "note": "藥妝、電器、零食一次過", "duration": "2h", "cost": "視乎", "transport": "步行", "mapQuery": "Don Quijote Shinjuku" },
+        { "time": "14:00", "name": "酒店取行李 → 成田機場", "note": "預留 3 小時 buffer", "duration": "1.5h", "transport": "Skyliner", "cost": "HK$300", "mapQuery": "Narita Airport Terminal 1" }
+      ]
+    }
+  ],
+  "hotels": [
+    {
+      "name": "淺草 Richmond Hotel", "area": "淺草", "pricePerNight": "HK$900", "rating": "4.4",
+      "checkIn": "2026-08-10", "checkOut": "2026-08-12",
+      "highlights": "近淺草站，行得到淺草寺/晴空塔，親子房乾淨",
+      "confirmation": "（自己填訂單號）",
+      "mapQuery": "Richmond Hotel Asakusa"
+    }
+  ],
+  "budget": {
+    "transport": { "items": [], "subtotal": "HK$2,400" },
+    "accommodation": { "items": [], "subtotal": "HK$1,800" },
+    "food": { "items": [], "subtotal": "HK$1,500" },
+    "tickets": { "items": [], "subtotal": "HK$900" },
+    "other": { "items": [], "subtotal": "HK$600" },
+    "total": "HK$7,200",
+    "perPerson": "HK$2,400",
+    "note": "示範估算（≈估算）；機票另計。落單前請於官方平台核實。"
+  },
+  "essentials": {
+    "currency": "日圓 JPY；HK$1 ≈ ¥19",
+    "plug": "A 型兩腳扁插，100V",
+    "transit": "Suica / PASMO（可用 Apple Pay 加值）",
+    "emergency": "警察 110 / 救護消防 119",
+    "sim": "機場買 eSIM 或租 Wi-Fi 蛋",
+    "timezone": "JST（HK +1 小時）",
+    "language": "日語；旅遊區英文 OK",
+    "tipping": "唔使俾小費"
+  },
+  "tips": [
+    "暑假人多，熱門景點（teamLab / 晴空塔）一定要網上預約。",
+    "JR / 地鐵下載 Google Maps 離線地圖；Suica 入 Apple Wallet 最方便。",
+    "午後雷陣雨頻密，行程留室內 backup（商場 / 館）。",
+    "帶定退稅護照影本，掃貨滿 ¥5,000 可退稅。"
+  ]
+}

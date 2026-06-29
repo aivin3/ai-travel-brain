@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0ea5b7">
+<title>__TITLE__</title>
+<style>
+  :root{
+    --ink:#0f2742; --ink2:#3a5670; --muted:#6b7f95;
+    --teal:#0ea5b7; --teal-d:#0b7c8a; --coral:#f4647d; --amber:#f59e0b; --good:#10b981; --sky:#3b82f6; --indigo:#6366f1;
+    --glass:rgba(255,255,255,.72); --glass2:rgba(255,255,255,.5); --line:rgba(15,39,66,.10);
+    --radius:18px; --maxw:700px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+  html,body{margin:0;padding:0}
+  body{
+    color:var(--ink); min-height:100vh; position:relative;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans HK","Microsoft JhengHei",sans-serif;
+    line-height:1.62; font-size:16px; padding-bottom:env(safe-area-inset-bottom);
+    background:linear-gradient(160deg,#9be8ff 0%,#bba6ff 22%,#ff9fde 46%,#ffc07a 70%,#86ffd2 100%);
+    background-size:240% 240%;
+    animation:dreamy 24s ease-in-out infinite;
+  }
+  @keyframes dreamy{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+  /* 夢幻光暈色團（更鮮） */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(40% 34% at 15% 16%, rgba(255,110,200,.68), transparent 70%),
+      radial-gradient(38% 32% at 88% 12%, rgba(100,165,255,.64), transparent 70%),
+      radial-gradient(44% 38% at 80% 74%, rgba(168,120,255,.6), transparent 72%),
+      radial-gradient(42% 36% at 18% 86%, rgba(80,235,190,.58), transparent 72%),
+      radial-gradient(32% 28% at 52% 48%, rgba(255,210,90,.5), transparent 72%);
+    filter:blur(24px) saturate(1.2); animation:floaty 18s ease-in-out infinite alternate;}
+  @keyframes floaty{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-18px,0) scale(1.06)}}
+  @media (prefers-reduced-motion:reduce){body,body::before{animation:none}}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 14px}
+  a{color:var(--teal-d);text-decoration:none}
+  h1,h2,h3{margin:0;line-height:1.25}
+  .muted{color:var(--muted)}
+  .small{font-size:13px}
+
+  .printbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:9px 14px 0}
+  .printbtn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;
+    padding:9px 15px;border-radius:13px;font-size:14px;font-weight:800;box-shadow:0 8px 20px rgba(14,165,183,.35)}
+  .printbtn:active{transform:translateY(1px)}
+
+  .cover{position:relative;border-radius:24px;overflow:hidden;padding:34px 20px 28px;margin:6px 0 4px;
+    background:linear-gradient(130deg,#06b6d4 0%,#3b82f6 38%,#a855f7 64%,#f472b6 82%,#fb923c 100%);
+    box-shadow:0 18px 40px rgba(59,130,246,.28)}
+  .cover .hero{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:.34;mix-blend-mode:overlay}
+  .cover .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,40,80,.05),rgba(8,40,80,.34))}
+  .cover .ct{position:relative;z-index:2}
+  .cover .kicker{font-size:13px;font-weight:800;letter-spacing:3px;color:rgba(255,255,255,.9);text-transform:uppercase}
+  .cover h1{font-size:29px;font-weight:900;color:#fff;letter-spacing:.5px;margin-top:6px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+  .cover .sub{margin-top:7px;color:rgba(255,255,255,.95);font-weight:600}
+  .cover .deco{margin-top:12px;font-size:21px;letter-spacing:7px;filter:drop-shadow(0 2px 5px rgba(0,0,0,.22))}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(6px);
+    padding:6px 12px;border-radius:999px;font-size:13px;color:#fff;font-weight:700;white-space:nowrap}
+
+  .nav{position:sticky;top:50px;z-index:30;margin:10px -14px 0}
+  .nav .scroller{display:flex;gap:7px;overflow-x:auto;padding:9px 14px;scrollbar-width:none;
+    background:rgba(255,255,255,.6);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav .scroller::-webkit-scrollbar{display:none}
+  .nav button{flex:0 0 auto;background:#fff;color:var(--ink2);border:1px solid var(--line);
+    border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(15,39,66,.06)}
+  .nav button.active{background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(14,165,183,.4)}
+
+  section{margin:20px 0}
+  .sec-title{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:900;margin:0 0 12px;
+    background:linear-gradient(100deg,#7c3aed,#0ea5b7 45%,#f4647d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sec-title .i{font-size:22px;-webkit-text-fill-color:initial}
+
+  .card{background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.6));backdrop-filter:blur(16px) saturate(1.3);
+    border:1px solid rgba(255,255,255,.75);border-radius:var(--radius);padding:15px;margin-bottom:13px;
+    box-shadow:0 12px 30px rgba(124,93,237,.12),0 2px 8px rgba(244,100,125,.08)}
+
+  .day-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .day-head .d{font-size:14px;font-weight:900;letter-spacing:.5px;color:#fff;
+    background:linear-gradient(135deg,var(--coral),var(--amber));padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(244,100,125,.32)}
+  .day-theme{font-size:18px;font-weight:900;margin:4px 0 12px;color:var(--ink)}
+  .wx{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--ink2);font-weight:700;
+    background:rgba(255,255,255,.7);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+
+  .act{display:flex;gap:12px;padding:13px 0;border-top:1px dashed var(--line)}
+  .act:first-of-type{border-top:0;padding-top:4px}
+  .act .time{flex:0 0 54px;font-weight:900;color:#fff;font-size:12.5px;text-align:center;
+    background:linear-gradient(135deg,var(--teal),var(--sky));border-radius:10px;padding:5px 4px;height:fit-content;box-shadow:0 4px 10px rgba(14,165,183,.3)}
+  .act .body{flex:1;min-width:0}
+  .act .nm{font-weight:800;font-size:16.5px}
+  .act .det{font-size:13.5px;color:var(--ink2);margin-top:3px}
+  .act .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tag{font-size:12px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid var(--line);color:var(--ink2);white-space:nowrap;font-weight:600}
+  .tag.cost{background:linear-gradient(135deg,rgba(245,158,11,.16),rgba(244,100,125,.16));border-color:rgba(245,158,11,.45);color:#b45309}
+  .tag.free{background:linear-gradient(135deg,rgba(16,185,129,.16),rgba(14,165,183,.16));border-color:rgba(16,185,129,.45);color:#047857}
+  .act img.thumb{width:100%;border-radius:14px;margin-top:10px;display:block;border:1px solid rgba(255,255,255,.6)}
+  .act-ph{margin-top:10px;height:118px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    color:#fff;font-weight:900;font-size:15.5px;text-shadow:0 2px 9px rgba(0,0,0,.32);position:relative;overflow:hidden;
+    background:linear-gradient(125deg,#22d3ee 0%,#6366f1 38%,#d946ef 68%,#fb7185 88%,#fbbf24 100%);border:1px solid rgba(255,255,255,.55)}
+  .act-ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 24%,rgba(255,255,255,.5),transparent 42%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.28),transparent 45%)}
+  .act-ph .pe{font-size:40px;line-height:1;position:relative;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
+  .act-ph span{position:relative;max-width:82%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .din-item img.thumb{width:100%;height:150px;object-fit:cover;border-radius:13px;margin:0 0 9px;border:1px solid rgba(255,255,255,.6);display:block}
+  .mustdo{margin-top:8px;background:linear-gradient(135deg,rgba(16,185,129,.13),rgba(245,158,11,.12));
+    border:1px solid rgba(16,185,129,.38);border-radius:12px;padding:8px 11px;font-size:13.5px}
+  .mustdo b{color:#047857}
+  .transfer{margin-top:11px;font-size:13px;color:var(--ink2);background:rgba(59,130,246,.09);
+    border-left:3px solid var(--sky);border-radius:0 10px 10px 0;padding:7px 11px;font-weight:600}
+  .meal{background:linear-gradient(135deg,rgba(245,158,11,.10),rgba(244,100,125,.08));border:1px solid rgba(245,158,11,.28);border-radius:14px;padding:11px 12px;margin-top:4px}
+  .meal .mt{font-weight:800}
+
+  .btn-map,.btn-link,.btn-menu,.btn-photo{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding:7px 12px;border-radius:11px;font-size:13px;font-weight:800}
+  .btn-photo{background:linear-gradient(135deg,rgba(244,100,125,.16),rgba(217,70,239,.14));border:1px solid rgba(244,100,125,.5);color:#be185d}
+  .btn-photo:active{transform:translateY(1px)}
+  .btn-map{background:linear-gradient(135deg,rgba(14,165,183,.14),rgba(59,130,246,.14));border:1px solid rgba(14,165,183,.4);color:var(--teal-d)}
+  .btn-link{background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.4);color:#4f46e5}
+  .btn-menu{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.5);color:#b45309}
+  .btn-map:active,.btn-link:active,.btn-menu:active{transform:translateY(1px)}
+
+  .backup{margin-top:12px;background:rgba(59,130,246,.07);border:1px dashed rgba(59,130,246,.4);border-radius:13px;padding:10px 12px}
+  .backup .bt{font-weight:800;font-size:13.5px;color:var(--sky);margin-bottom:5px}
+  .backup ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink2)}
+  .backup li{margin:3px 0}
+
+  .alt-group{margin-bottom:16px}
+  .alt-group h3{font-size:16px;font-weight:900;margin:0 0 9px;display:flex;align-items:center;gap:7px}
+  .alt-item,.din-item{background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:11px 12px;margin-bottom:9px}
+  .alt-item .an,.din-item .an{font-weight:800;font-size:15.5px}
+  .alt-item .ad,.din-item .ad{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .alt-item .anote,.din-item .anote{font-size:13.5px;color:var(--ink2);margin-top:5px}
+  .din-item .sig{font-size:13px;color:#b45309;margin-top:5px;font-weight:600}
+  .alt-item .arow,.din-item .arow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:6px}
+
+  .hotel .hn{font-weight:900;font-size:17px}
+  .hotel .row{display:flex;justify-content:space-between;gap:10px;margin-top:5px;font-size:14px}
+  .hotel .price{color:#b45309;font-weight:900}
+  .hotel img.thumb{width:100%;border-radius:14px;margin-top:10px;border:1px solid rgba(255,255,255,.6)}
+
+  table.bud{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.bud td{padding:9px 4px;border-top:1px solid var(--line)}
+  table.bud tr:first-child td{border-top:0}
+  table.bud td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+  table.bud .total td{font-weight:900;font-size:16px;border-top:2px solid var(--coral);color:#b45309}
+  .tiers{display:flex;gap:9px;margin:2px 0 12px;overflow-x:auto;scrollbar-width:none}
+  .tier{flex:1;min-width:118px;background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:11px;text-align:center}
+  .tier .tl{font-size:13px;font-weight:800;color:var(--ink2)}
+  .tier .tv{font-size:18px;font-weight:900;margin-top:3px;background:linear-gradient(135deg,var(--teal),var(--coral));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tier .tp{font-size:12px;color:var(--muted);margin-top:2px}
+  .tier.pick{border-color:var(--teal);box-shadow:0 6px 16px rgba(14,165,183,.2)}
+
+  ul.tips{margin:0;padding-left:19px}
+  ul.tips li{margin:7px 0}
+  .ess{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .ess .e{background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:13px;padding:10px 12px}
+  .ess .e .k{font-size:12px;color:var(--muted);font-weight:700}
+  .ess .e .v{font-weight:800;font-size:14.5px;margin-top:2px}
+
+  .reliab{font-size:12px;color:var(--muted);margin-top:9px;font-style:italic}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 34px}
+  .totop{position:fixed;right:14px;bottom:18px;z-index:40;width:46px;height:46px;border-radius:50%;
+    background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(14,165,183,.4);display:none}
+
+  /* ===== 工具列 + 計錢分帳 ===== */
+  .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:8px 14px;background:rgba(255,255,255,.62);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid rgba(255,255,255,.6)}
+  .modetabs{display:flex;gap:7px}
+  .modetabs button{background:#fff;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 2px 6px rgba(15,39,66,.06)}
+  .modetabs button.active{background:linear-gradient(135deg,#d946ef,#6366f1);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(217,70,239,.4)}
+  #exp input,#exp select{font:inherit;padding:9px 11px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.88);color:var(--ink);min-width:0}
+  #exp input:focus,#exp select:focus{outline:2px solid rgba(99,102,241,.4)}
+  #exp #edesc{width:100%}
+  .exlab{font-weight:900;font-size:16px;margin-bottom:9px}
+  .exlab2{font-weight:800;font-size:13.5px;color:var(--ink2);margin:9px 0 6px}
+  .exrow{display:flex;gap:8px;margin-top:9px}
+  .exrow input{flex:1}
+  .exbtn{background:linear-gradient(135deg,var(--teal),var(--sky));color:#fff;border:0;border-radius:11px;padding:9px 15px;font-weight:800;cursor:pointer;white-space:nowrap}
+  .exbtn.full{width:100%;margin-top:10px;padding:11px}
+  .exbtn.ghost{background:rgba(244,100,125,.12);color:#be185d;border:1px solid rgba(244,100,125,.4)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .mchip{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(14,165,183,.16),rgba(59,130,246,.14));border:1px solid rgba(14,165,183,.4);color:var(--teal-d);padding:5px 10px;border-radius:999px;font-weight:700;font-size:13.5px}
+  .mchip button{background:none;border:0;color:var(--coral);cursor:pointer;font-weight:900;font-size:14px;padding:0;line-height:1}
+  .wchip{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.8);border:1px solid var(--line);padding:5px 10px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer}
+  .exitem{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed var(--line)}
+  .exitem:first-of-type{border-top:0}
+  .examt{font-weight:800;white-space:nowrap;display:flex;align-items:center;gap:8px}
+  .examt button{background:none;border:0;color:var(--coral);cursor:pointer;font-weight:900;font-size:15px}
+  .exsum{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;font-size:14.5px}
+  .exsum .pos{color:#047857}.exsum .neg{color:#be185d}
+  .extx{background:rgba(99,102,241,.08);border-left:3px solid var(--indigo);border-radius:0 10px 10px 0;padding:7px 11px;margin:5px 0;font-weight:600;font-size:14px}
+  .bar{height:12px;border-radius:999px;background:rgba(15,39,66,.1);overflow:hidden;margin:7px 0}
+  .barfill{height:100%;background:linear-gradient(90deg,var(--teal),var(--amber),var(--coral))}
+  .exrate{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--muted);white-space:nowrap}
+  .exrate input{width:56px;padding:6px 8px}
+
+  .pool{background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(99,102,241,.10));border:2px solid var(--good);border-radius:14px;padding:13px;margin-bottom:13px}
+  .pool .ptop{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .pool .plab{font-weight:900;font-size:15px;color:var(--ink)}
+  .pool .pbal{font-weight:900;font-size:23px;color:var(--good)}
+  .pool .psub{font-size:12px;color:var(--muted);margin-top:2px}
+  .curtog{display:inline-flex;border:2px solid var(--indigo);border-radius:999px;overflow:hidden}
+  .curtog button{background:#fff;color:var(--indigo);border:0;padding:5px 13px;font-weight:800;font-size:13px;cursor:pointer}
+  .curtog button.on{background:var(--indigo);color:#fff}
+  .anarow{display:flex;align-items:center;gap:9px;margin:8px 0;font-size:13.5px}
+  .anarow .albl{flex:0 0 84px;font-weight:800;color:var(--ink2)}
+  .anabar{flex:1;height:14px;border-radius:999px;background:rgba(99,102,241,.14);overflow:hidden}
+  .anabar i{display:block;height:100%;background:linear-gradient(90deg,var(--indigo),var(--good))}
+  .anaval{flex:0 0 auto;font-weight:800;font-variant-numeric:tabular-nums}
+  #exp input[type=date]{flex:1}
+
+  .synccard{background:#fff;border:2px solid var(--good);border-radius:13px;padding:12px;margin-bottom:13px}
+  .synccard.on{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;color:var(--good)}
+  .syncleave{margin-left:auto;background:#fff;border:2px solid #e8334a;color:#e8334a;border-radius:9px;padding:4px 11px;font-weight:800;cursor:pointer}
+
+  .dirbtn{display:inline-block;margin-left:8px;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:8px;padding:2px 9px;text-decoration:none}
+  .daymap{display:inline-flex;align-items:center;gap:5px;margin:0 0 11px;font-size:13px;font-weight:800;color:#fff;background:var(--good);border-radius:10px;padding:6px 12px;text-decoration:none}
+  .qrov{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
+  .qrcard{background:#fff;border-radius:18px;padding:22px;text-align:center;max-width:300px}
+  .qrcard img{width:210px;height:210px;display:block;margin:0 auto}
+  .bk-today{border-color:var(--good)!important}
+
+  @media print{
+    @page{margin:11mm}
+    body{background:#fff!important;font-size:12.5px;animation:none}
+    body::before{display:none!important}
+    .topbar,.nav,.totop{display:none!important}
+    .wrap{max-width:none}
+    .cover{box-shadow:none;border-radius:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section,.card,.act,.hotel,.alt-item,.din-item{break-inside:avoid;page-break-inside:avoid}
+    .card{box-shadow:none;background:#fff;border:1px solid #d7dee6;backdrop-filter:none}
+    .sec-title{break-after:avoid}
+    .day-head .d,.act .time,.tag.cost,.tag.free,.day-theme,.mustdo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .btn-map,.btn-link,.btn-menu,.btn-photo,.dirbtn,.daymap,.act-ph{display:none!important}
+    .act img.thumb,.hotel img.thumb,.din-item img.thumb{max-height:150px;object-fit:cover}
+  }
+</style>
+__FIREBASE__
+</head>
+<body>
+<div class="topbar">
+  <div class="modetabs">
+    <button id="mb-trip" class="active" onclick="setMode('trip')">📋 行程</button>
+    <button id="mb-money" onclick="setMode('money')">🧮 分帳</button>
+    <button id="mb-book" onclick="setMode('book')">🎫 訂單</button>
+  </div>
+  <button class="printbtn" onclick="shareQR()" style="background:#7b3fb5;box-shadow:none">📱 分享</button>
+  <button class="printbtn" onclick="window.print()">🖨 PDF</button>
+</div>
+<div id="view-trip"><div class="wrap"><div id="app"></div></div></div>
+<div id="view-tools" style="display:none"><div class="wrap"><div id="exp"></div></div></div>
+<div id="view-book" style="display:none"><div class="wrap"><div id="book"></div></div></div>
+<button class="totop" id="totop" onclick="goTop()">↑</button>
+
+<script id="trip-data" type="application/json">
+__TRIP_DATA__
+</script>
+<script>
+const T = JSON.parse(document.getElementById('trip-data').textContent);
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const has=v=>v!==undefined&&v!==null&&v!=='';
+const mapUrl=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+function mapBtn(q,label){if(!has(q))return '';return `<a class="btn-map" target="_blank" rel="noopener" href="${mapUrl(q)}">📍 ${E(label||'開地圖導航')}</a>`;}
+function costTag(c){if(c===0)return '<span class="tag free">免費</span>';if(has(c))return `<span class="tag cost">${E(c)}</span>`;return '';}
+function wxIcon(k){const m={sunny:'☀️',cloudy:'☁️',rain:'🌧️',showers:'🌦️',snow:'❄️',storm:'⛈️',partly:'⛅',windy:'🌬️',fog:'🌫️'};return m[k]||'🌤️';}
+function dirUrl(o,d,mode){return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(d)+'&travelmode='+(mode||'transit');}
+function travelMode(t){t=String(t||'');if(/步行|徒步|walk/i.test(t))return 'walking';if(/包車|Uber|計程|taxi|自駕|租車|开车|車/i.test(t))return 'driving';return 'transit';}
+function qOf(a){if(!a)return '';return a.meal?(a.meal.mapQuery||a.meal.name||''):(a.mapQuery||a.address||a.name||'');}
+function dayRouteUrl(d){var pts=(d.activities||[]).map(qOf).filter(Boolean);if(!pts.length)return '';if(pts.length<2)return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(pts[0]);var o=pts[0],z=pts[pts.length-1],wp=pts.slice(1,-1).slice(0,9);return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(z)+(wp.length?'&waypoints='+wp.map(encodeURIComponent).join('%7C'):'')+'&travelmode=transit';}
+function mustList(m){return Array.isArray(m)?m.map(E).join('；'):E(m);}
+
+function render(){
+  let h='';
+  const hero=has(T.heroImage)?`<div class="hero" style="background-image:url('${E(T.heroImage)}')"></div>`:'';
+  h+=`<div class="cover">${hero}<div class="veil"></div><div class="ct">
+    ${has(T.kicker)?`<div class="kicker">${E(T.kicker)}</div>`:''}
+    <h1>${E(T.title)}</h1>
+    ${has(T.subtitle)?`<div class="sub">${E(T.subtitle)}</div>`:''}
+    <div class="deco">🏖️ ✈️ 🌴 🍧 📸 🗺️ 🌈</div>
+    <div class="meta">
+      ${has(T.dateRange)?`<span class="chip">📅 ${E(T.dateRange)}</span>`:''}
+      ${has(T.travelers)?`<span class="chip">👥 ${E(T.travelers)}</span>`:''}
+      ${has(T.days)?`<span class="chip">🗓️ ${T.days.length} 天</span>`:''}
+      ${has(T.budget&&T.budget.perPerson)?`<span class="chip">💰 人均 ${E(T.budget.perPerson)}</span>`:''}
+    </div></div></div>`;
+
+  if(has(T.days)&&T.days.length){
+    h+='<div class="nav"><div class="scroller" id="dnav"><button data-go="top" class="active">總覽</button>';
+    T.days.forEach((d,i)=>{h+=`<button data-go="day${i}">D${i+1}${has(d.date)?' · '+E(d.date):''}</button>`;});
+    if(has(T.events))h+=`<button data-go="events">活動</button>`;
+    if(has(T.dining))h+=`<button data-go="dining">美食</button>`;
+    if(has(T.alternatives))h+=`<button data-go="alts">備選</button>`;
+    if(has(T.hotels))h+=`<button data-go="hotels">住宿</button>`;
+    if(has(T.budget))h+=`<button data-go="budget">預算</button>`;
+    if(has(T.essentials))h+=`<button data-go="ess">實用</button>`;
+    h+='</div></div>';
+  }
+
+  if(has(T.highlights)&&T.highlights.length){
+    h+=`<section id="top"><div class="sec-title"><span class="i">✨</span>行程亮點</div><div class="card"><ul class="tips">`;
+    h+=T.highlights.map(x=>`<li>${E(x)}</li>`).join('')+'</ul></div></section>';
+  }
+
+  if(has(T.weather)){const w=T.weather;
+    h+=`<section><div class="sec-title"><span class="i">🌤️</span>天氣 & 穿搭</div><div class="card">
+      <div>${E(w.summary)||''}</div>
+      <div class="tags" style="margin-top:9px">
+        ${has(w.avgHigh)?`<span class="tag">高 ${E(w.avgHigh)}°</span>`:''}
+        ${has(w.avgLow)?`<span class="tag">低 ${E(w.avgLow)}°</span>`:''}
+        ${has(w.rainfall)?`<span class="tag">降雨 ${E(w.rainfall)}</span>`:''}
+      </div>
+      ${has(w.clothing)?`<div class="small muted" style="margin-top:9px">👕 ${E(w.clothing)}</div>`:''}
+      ${has(w.tips)?`<div class="small muted" style="margin-top:4px">💡 ${E(w.tips)}</div>`:''}
+    </div></section>`;
+  }
+
+  if(has(T.events)&&T.events.length){
+    h+=`<section id="events"><div class="sec-title"><span class="i">🎉</span>期間限定活動（旅程期間）</div>`;
+    h+=`<div class="card"><div class="small muted">出發前 2–3 週多數新活動先公布，呢度會喺臨近再更新；日期/地點以官方為準（標 待確認）。</div></div>`;
+    T.events.forEach(ev=>{
+      h+=`<div class="alt-item"><div class="an">${E(ev.name)}${has(ev.tag)?` <span class="tag">${E(ev.tag)}</span>`:''}</div>
+        <div class="ad">${[ev.date,ev.where].filter(has).map(E).join(' · ')}</div>
+        ${has(ev.note)?`<div class="anote">${E(ev.note)}</div>`:''}
+        <div class="arow">${has(ev.mapQuery)?mapBtn(ev.mapQuery,'地圖'):''}${has(ev.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(ev.link)}">🔗 詳情</a>`:''}</div></div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.days))T.days.forEach((d,i)=>{
+    h+=`<section id="day${i}"><div class="card">
+      <div class="day-head"><span class="d">DAY ${i+1}${has(d.date)?' · '+E(d.date):''}${has(d.weekday)?' '+E(d.weekday):''}</span>
+      ${has(d.weather)?`<span class="wx">${wxIcon(d.weather.icon)} ${has(d.weather.high)?E(d.weather.high)+'°':''}${has(d.weather.low)?'/'+E(d.weather.low)+'°':''}</span>`:''}</div>
+      ${has(d.theme)?`<div class="day-theme">${E(d.theme)}</div>${(d.activities&&d.activities.length>1)?`<a class="daymap" target="_blank" rel="noopener" href="${dayRouteUrl(d)}">🗺️ 今日路線地圖</a>`:``}`:''}`;
+    (d.activities||[]).forEach((a,ai,arr)=>{const nx=arr[ai+1];
+      if(a.meal){const m=a.meal;
+        h+=`<div class="act"><div class="time">${E(a.time)||'🍽'}</div><div class="body">
+          <div class="meal"><div class="mt">🍴 ${E(m.name)}</div>
+          <div class="det">${[m.cuisine,has(m.perPerson)?'人均 '+E(m.perPerson):'',m.location].filter(has).map(E).join(' · ')}</div>
+          ${has(m.recommended)?`<div class="small muted" style="margin-top:3px">推薦：${E(m.recommended)}</div>`:''}
+          <div class="arow">${mapBtn(m.mapQuery||((m.name||'')+' '+(m.location||'')),'搵餐廳')}${has(m.menuLink)?`<a class="btn-menu" target="_blank" rel="noopener" href="${E(m.menuLink)}">📋 Menu</a>`:''}</div>
+          </div>
+          ${has(a.transfer)?`<div class="transfer">➡️ 去下一站：${E(a.transfer)}${nx?` <a class="dirbtn" target="_blank" rel="noopener" href="${dirUrl(qOf(a),qOf(nx),travelMode(a.transport))}">🧭 路線</a>`:``}</div>`:''}</div></div>`;
+      }else{
+        const img = has(a.imageUrl)
+          ? `<img class="thumb" loading="lazy" src="${E(a.imageUrl)}" alt="">`
+          : `<div class="act-ph"><span class="pe">${E(a.icon||'📍')}</span><span>${E(a.name)}</span></div>`;
+        h+=`<div class="act"><div class="time">${E(a.time)||'•'}</div><div class="body">
+          <div class="nm">${E(a.name)}</div>
+          ${has(a.note)?`<div class="det">${E(a.note)}</div>`:''}
+          ${has(a.mustDo)?`<div class="mustdo"><b>✅ 必做：</b>${mustList(a.mustDo)}</div>`:''}
+          <div class="tags">
+            ${has(a.duration)?`<span class="tag">⏱ ${E(a.duration)}</span>`:''}
+            ${costTag(a.cost)}
+            ${has(a.transport)?`<span class="tag">🚇 ${E(a.transport)}</span>`:''}
+          </div>
+          ${img}
+          ${mapBtn(a.mapQuery||a.address||a.name)}
+          ${has(a.transfer)?`<div class="transfer">➡️ 去下一站：${E(a.transfer)}${nx?` <a class="dirbtn" target="_blank" rel="noopener" href="${dirUrl(qOf(a),qOf(nx),travelMode(a.transport))}">🧭 路線</a>`:``}</div>`:''}
+        </div></div>`;
+      }
+    });
+    if(has(d.backup)&&d.backup.length){
+      h+=`<div class="backup"><div class="bt">☔ 後備方案（落雨／改主意）</div><ul>`;
+      h+=d.backup.map(b=>{const t=typeof b==='string'?b:`${b.name}${has(b.note)?' — '+b.note:''}`;
+        const q=typeof b==='object'?(b.mapQuery||b.name):null;
+        return `<li>${E(t)}${q?` <a target="_blank" rel="noopener" href="${mapUrl(q)}">📍</a>`:''}</li>`;}).join('');
+      h+=`</ul></div>`;
+    }
+    h+=`</div></section>`;
+  });
+
+  // Dining guide
+  if(has(T.dining)&&T.dining.length){
+    h+=`<section id="dining"><div class="sec-title"><span class="i">🍴</span>餐廳指南（分類）</div>`;
+    h+=`<div class="card"><div class="small muted">每間有介紹、招牌、營業時間（留意公休）。<b>📷 Google 相片</b> = 一㩒睇該店真實相片同評價；📍地圖導航、🔗介紹、📋Menu。價以現場為準。</div></div>`;
+    T.dining.forEach(g=>{
+      h+=`<div class="alt-group"><h3>${E(g.category)}</h3>`;
+      (g.items||[]).forEach(it=>{
+        h+=`<div class="din-item">
+          ${has(it.imageUrl)?`<img class="thumb" loading="lazy" src="${E(it.imageUrl)}" alt="">`:''}
+          <div class="an">${E(it.name)}</div>
+          <div class="ad">${[it.area,it.price,it.hours].filter(has).map(E).join(' · ')}</div>
+          ${has(it.intro)?`<div class="anote">${E(it.intro)}</div>`:''}
+          ${has(it.signature)?`<div class="sig">🍽 ${E(it.signature)}</div>`:''}
+          <div class="arow">
+            <a class="btn-photo" target="_blank" rel="noopener" href="${mapUrl((it.mapQuery||it.name)+' 高雄')}">📷 Google 相片</a>
+            ${mapBtn(it.mapQuery||it.name,'地圖')}
+            ${has(it.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(it.link)}">🔗 介紹</a>`:''}
+            ${has(it.menuLink)?`<a class="btn-menu" target="_blank" rel="noopener" href="${E(it.menuLink)}">📋 Menu</a>`:''}
+          </div></div>`;
+      });
+      h+=`</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  // Alternatives
+  if(has(T.alternatives)&&T.alternatives.length){
+    h+=`<section id="alts"><div class="sec-title"><span class="i">🔁</span>備選活動庫 — 自由替換</div>`;
+    h+=`<div class="card"><div class="small muted">想換／加邊個都得，話我知就改行程重出。所有 📍 都可一㩒導航。</div></div>`;
+    T.alternatives.forEach(g=>{
+      h+=`<div class="alt-group"><h3>${E(g.category)}</h3>`;
+      (g.items||[]).forEach(it=>{
+        h+=`<div class="alt-item"><div class="an">${E(it.name)}</div>
+          <div class="ad">${[it.area,it.duration,it.hours].filter(has).map(E).join(' · ')}</div>
+          ${has(it.note)?`<div class="anote">${E(it.note)}</div>`:''}
+          <div class="arow">${costTag(it.cost)}${has(it.tag)?`<span class="tag">${E(it.tag)}</span>`:''}${mapBtn(it.mapQuery||it.name)}</div>
+        </div>`;
+      });
+      h+=`</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.hotels)&&T.hotels.length){
+    h+=`<section id="hotels"><div class="sec-title"><span class="i">🏨</span>住宿推薦</div>`;
+    T.hotels.forEach(ht=>{
+      h+=`<div class="card hotel"><div class="hn">${E(ht.name)}</div>
+        <div class="row"><span class="muted">${E(ht.area)||''}${has(ht.rating)?' · ⭐'+E(ht.rating):''}</span>
+        ${has(ht.pricePerNight)?`<span class="price">${E(ht.pricePerNight)}</span>`:''}</div>
+        ${has(ht.checkIn)?`<div class="small muted" style="margin-top:4px">入住 ${E(ht.checkIn)}${has(ht.checkOut)?' → 退房 '+E(ht.checkOut):''}</div>`:''}
+        ${has(ht.highlights)?`<div class="small" style="margin-top:6px">${E(ht.highlights)}</div>`:''}
+        ${has(ht.confirmation)?`<div class="small muted" style="margin-top:4px">訂單號：${E(ht.confirmation)}</div>`:''}
+        ${has(ht.imageUrl)?`<img class="thumb" loading="lazy" src="${E(ht.imageUrl)}" alt="">`:''}
+        ${mapBtn(ht.mapQuery||ht.address||((ht.name||'')+' '+(ht.area||'')))}</div>`;
+    });
+    h+=`</section>`;
+  }
+
+  if(has(T.budget)){const b=T.budget,cats=[['transport','🚄 交通'],['accommodation','🏨 住宿'],['food','🍴 餐飲'],['tickets','🎫 門票'],['other','🛍 其他']];
+    h+=`<section id="budget"><div class="sec-title"><span class="i">💰</span>預算</div>`;
+    if(has(b.tiers)&&b.tiers.length){
+      h+=`<div class="tiers">`+b.tiers.map(t=>`<div class="tier ${t.pick?'pick':''}"><div class="tl">${E(t.label)}</div><div class="tv">${E(t.total)}</div>${has(t.note)?`<div class="tp">${E(t.note)}</div>`:''}</div>`).join('')+`</div>`;
+    }
+    h+=`<div class="card"><table class="bud">`;
+    cats.forEach(([k,lbl])=>{if(b[k]&&has(b[k].subtotal))h+=`<tr><td>${lbl}</td><td class="r">${E(b[k].subtotal)}</td></tr>`;});
+    if(has(b.total))h+=`<tr class="total"><td>總計</td><td class="r">${E(b.total)}</td></tr>`;
+    if(has(b.perPerson))h+=`<tr><td class="muted">人均</td><td class="r muted">${E(b.perPerson)}</td></tr>`;
+    h+=`</table>${has(b.note)?`<div class="reliab">${E(b.note)}</div>`:''}</div></section>`;
+  }
+
+  if(has(T.essentials)){const es=T.essentials;
+    const rows=[['currency','💱 貨幣 / 匯率'],['plug','🔌 插頭電壓'],['transit','🚇 交通卡'],['emergency','🚨 緊急電話'],['sim','📶 上網 / SIM'],['timezone','🕐 時區'],['language','🗣 語言'],['tipping','💵 小費']];
+    h+=`<section id="ess"><div class="sec-title"><span class="i">🧭</span>實用資訊</div><div class="card"><div class="ess">`;
+    rows.forEach(([k,lbl])=>{if(has(es[k]))h+=`<div class="e"><div class="k">${lbl}</div><div class="v">${E(es[k])}</div></div>`;});
+    h+=`</div></div></section>`;
+  }
+
+  if(has(T.tips)&&T.tips.length){
+    h+=`<section><div class="sec-title"><span class="i">📝</span>貼士 & 避坑</div><div class="card"><ul class="tips">`;
+    h+=T.tips.map(x=>`<li>${E(x)}</li>`).join('')+`</ul></div></section>`;
+  }
+
+  h+=`<footer>由 AI Travel Brain · 三角色 Swarm 生成${has(T.generationDate)?' · '+E(T.generationDate):''}<br>資料整合自公開來源，出發前請核實營業時間 / 票價 / 交通 / 天氣。</footer>`;
+  document.getElementById('app').innerHTML=h;
+  wireNav();
+}
+function wireNav(){
+  const nav=document.getElementById('dnav');
+  if(nav){
+    nav.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(!b)return;
+      const id=b.dataset.go;const el=id==='top'?document.body:document.getElementById(id);
+      if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
+    const btns=[...nav.querySelectorAll('button')],map={};btns.forEach(b=>map[b.dataset.go]=b);
+    const io=new IntersectionObserver(ents=>{ents.forEach(en=>{if(en.isIntersecting){
+      btns.forEach(x=>x.classList.remove('active'));
+      const m=map[en.target.id]||map['top'];if(m){m.classList.add('active');m.scrollIntoView({inline:'center',block:'nearest'});}}});},
+      {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+  }
+  const tt=document.getElementById('totop');
+  addEventListener('scroll',()=>{tt.style.display=scrollY>500?'block':'none'});
+}
+
+/* ===== 🧮 計錢分攤工具 v3（公數錢包 + 日期時間 + 分類分析 + Firebase 實時共用） ===== */
+const EKEY='exp_'+String(T.title||'trip').replace(/\s+/g,'_');
+const CATS=[['🍴','食'],['🚇','交通'],['🎟','入場'],['🛍','購物'],['🏨','住宿'],['🎉','其他']];
+const FBC=(typeof window!=='undefined'&&window.FIREBASE_CONFIG)||null;
+let SYNC={on:false,app:null,db:null,ref:null,code:null};
+let EX={members:[],expenses:[],pool:[],rate:(T.expense&&T.expense.rate)||4,budget:(T.expense&&T.expense.budget!==undefined?T.expense.budget:16500),cur:(T.expense&&T.expense.cur)||'NT$',disp:'local'};
+function loadDisp(){try{return localStorage.getItem(EKEY+'_disp')||'local';}catch(e){return 'local';}}
+function saveDisp(){try{localStorage.setItem(EKEY+'_disp',EX.disp);}catch(e){}}
+function localSaveAll(){try{localStorage.setItem(EKEY,JSON.stringify(EX));}catch(e){}}
+function expLoad(){try{const s=localStorage.getItem(EKEY);if(s)EX=Object.assign(EX,JSON.parse(s));}catch(e){}EX.disp=loadDisp();
+  if(FBC){try{const r=localStorage.getItem(EKEY+'_room');if(r){const o=JSON.parse(r);reJoin(o.code,o.pw);}}catch(e){}}}
+const uid=()=>Math.random().toString(36).slice(2,9);
+const rnd=n=>Math.round(n);
+const locf=n=>EX.cur+rnd(n).toLocaleString();
+const hkf=n=>'HK$'+rnd(n).toLocaleString();
+const fmt=n=>EX.disp==='hkd'?hkf(n/EX.rate):locf(n);
+const nmOf=id=>{if(id==='POOL')return '💰公數';const m=EX.members.find(x=>x.id===id);return m?m.name:'?';};
+const normWho=x=>Array.isArray(x)?x:(x?Object.values(x):[]);
+function nowParts(){const d=new Date();const p=x=>String(x).padStart(2,'0');return {d:d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()),h:d.getHours()};}
+function hourLabel(h){const ap=h<12?'am':'pm';let hh=h%12;if(hh===0)hh=12;return hh+ap;}
+function dtLabel(dt){if(!dt)return '';const md=dt.d?dt.d.slice(5).replace('-','/'):'';return md+' '+hourLabel(dt.h||0);}
+/* ---- Firebase 同步 ---- */
+function fbInit(){if(SYNC.app)return true;if(!FBC||!window.firebase)return false;try{SYNC.app=firebase.initializeApp(FBC);SYNC.db=firebase.database();}catch(e){if(!SYNC.db){try{SYNC.db=firebase.database();}catch(e2){return false;}}}return true;}
+function seedRoom(ref){const upd={};EX.members.forEach(m=>upd['members/'+m.id]={name:m.name});EX.expenses.forEach(e=>upd['expenses/'+e.id]={desc:e.desc,amount:e.amount,payer:e.payer,who:e.who,cat:e.cat,dt:e.dt});EX.pool.forEach(p=>upd['pool/'+p.id]={amount:p.amount,who:p.who});upd['meta']={rate:EX.rate,budget:(EX.budget==null?0:EX.budget),cur:EX.cur};ref.update(upd);}
+function attachListener(){if(!SYNC.ref)return;SYNC.ref.on('value',function(snap){const v=snap.val()||{};
+  EX.members=v.members?Object.keys(v.members).map(id=>({id,name:(v.members[id]||{}).name})):[];
+  EX.expenses=v.expenses?Object.keys(v.expenses).map(id=>{const o=v.expenses[id]||{};return {id,desc:o.desc,amount:o.amount,payer:o.payer,who:normWho(o.who),cat:o.cat,dt:o.dt};}):[];
+  EX.pool=v.pool?Object.keys(v.pool).map(id=>{const o=v.pool[id]||{};return {id,amount:o.amount,who:normWho(o.who)};}):[];
+  if(v.meta){if(v.meta.rate)EX.rate=v.meta.rate;if(v.meta.budget!==undefined)EX.budget=(v.meta.budget||null);}
+  EX.disp=loadDisp();expRender();});}
+function reJoin(code,pw){if(!fbInit())return;SYNC.ref=SYNC.db.ref('rooms/'+code);SYNC.on=true;SYNC.code=code;attachListener();}
+function syncJoin(){const raw=(document.getElementById('roomcode').value||'').trim().toLowerCase();const code=raw.replace(/[^a-z0-9_-]/g,'');const pw=(document.getElementById('roompw').value||'');
+  if(!code){alert('請輸入行程碼（英文/數字）');return;}if(!FBC){alert('此版本未設定 Firebase');return;}if(!window.firebase){alert('Firebase 未載入（要連網先用到共用）');return;}if(!fbInit()){alert('Firebase 初始化失敗');return;}
+  const ref=SYNC.db.ref('rooms/'+code);
+  ref.child('pw').once('value').then(function(snap){const ex=snap.val();
+    if(ex!==null&&ex!==undefined&&ex!==''){if(String(ex)!==String(pw)){alert('行程碼或密碼唔啱');return;}}
+    else{ref.child('pw').set(pw||'');seedRoom(ref);}
+    SYNC.ref=ref;SYNC.on=true;SYNC.code=code;try{localStorage.setItem(EKEY+'_room',JSON.stringify({code:code,pw:pw}));}catch(e){}
+    attachListener();
+  }).catch(function(e){alert('連線失敗：'+((e&&e.message)||e));});}
+function syncLeave(){if(SYNC.ref){try{SYNC.ref.off();}catch(e){}}SYNC.on=false;SYNC.ref=null;SYNC.code=null;try{localStorage.removeItem(EKEY+'_room');}catch(e){}try{const s=localStorage.getItem(EKEY);EX=Object.assign({members:[],expenses:[],pool:[],rate:EX.rate,budget:EX.budget,cur:EX.cur,disp:EX.disp},s?JSON.parse(s):{});}catch(e){}EX.disp=loadDisp();expRender();}
+/* ---- CRUD（離線寫 localStorage；共用模式寫 Firebase，靠 listener 重繪）---- */
+function expAddMember(){const i=document.getElementById('mname');const v=(i.value||'').trim();if(!v)return;const id=uid();if(SYNC.on){SYNC.ref.child('members/'+id).set({name:v});}else{EX.members.push({id,name:v});localSaveAll();expRender();}const f=document.getElementById('mname');if(f){f.value='';f.focus();}}
+function expDelMember(id){if(SYNC.on){SYNC.ref.child('members/'+id).remove();EX.expenses.forEach(e=>{if(e.payer===id)SYNC.ref.child('expenses/'+e.id).remove();else if(e.who.indexOf(id)>=0)SYNC.ref.child('expenses/'+e.id+'/who').set(e.who.filter(w=>w!==id));});EX.pool.forEach(p=>{if(p.who.indexOf(id)>=0)SYNC.ref.child('pool/'+p.id+'/who').set(p.who.filter(w=>w!==id));});}else{EX.members=EX.members.filter(m=>m.id!==id);EX.expenses=EX.expenses.filter(e=>e.payer!==id);EX.expenses.forEach(e=>e.who=e.who.filter(w=>w!==id));EX.pool.forEach(p=>p.who=p.who.filter(w=>w!==id));localSaveAll();expRender();}}
+function expAddPool(){const amt=parseFloat(document.getElementById('pamt').value);const who=[...document.querySelectorAll('.pwho:checked')].map(c=>c.value);if(!(amt>0)){alert('請填夾入金額');return;}if(!who.length){alert('請揀邊個夾');return;}const id=uid();if(SYNC.on){SYNC.ref.child('pool/'+id).set({amount:amt,who});}else{EX.pool.push({id,amount:amt,who});localSaveAll();expRender();}}
+function expDelPool(id){if(SYNC.on){SYNC.ref.child('pool/'+id).remove();}else{EX.pool=EX.pool.filter(p=>p.id!==id);localSaveAll();expRender();}}
+function expAddExpense(){const desc=(document.getElementById('edesc').value||'').trim()||'未命名';const amt=parseFloat(document.getElementById('eamt').value);const payer=document.getElementById('epayer').value;const cat=document.getElementById('ecat').value;const dd=document.getElementById('edate').value;const hh=parseInt(document.getElementById('ehour').value,10);const who=[...document.querySelectorAll('.ewho:checked')].map(c=>c.value);if(!payer||!(amt>0)){alert('請填付款人同金額');return;}if(!who.length){alert('請揀邊個分攤');return;}const id=uid();const obj={desc,amount:amt,payer,who,cat,dt:{d:dd,h:isNaN(hh)?0:hh}};if(SYNC.on){SYNC.ref.child('expenses/'+id).set(obj);}else{EX.expenses.push(Object.assign({id},obj));localSaveAll();expRender();}}
+function expDel(id){if(SYNC.on){SYNC.ref.child('expenses/'+id).remove();}else{EX.expenses=EX.expenses.filter(e=>e.id!==id);localSaveAll();expRender();}}
+function expSetRate(v){const r=parseFloat(v);if(r>0){EX.rate=r;if(SYNC.on){SYNC.ref.child('meta/rate').set(r);}else{localSaveAll();expRender();}}}
+function expSetBudget(v){const b=parseFloat(v);EX.budget=(b>0?b:null);if(SYNC.on){if(b>0)SYNC.ref.child('meta/budget').set(b);else SYNC.ref.child('meta/budget').remove();}else{localSaveAll();expRender();}}
+function expSetDisp(d){EX.disp=d;saveDisp();expRender();}
+function expClear(){if(confirm('清空所有開支記錄？(成員/公數保留)')){if(SYNC.on){SYNC.ref.child('expenses').remove();}else{EX.expenses=[];localSaveAll();expRender();}}}
+function poolBalance(){let inn=0;EX.pool.forEach(p=>inn+=p.amount*p.who.length);let out=0;EX.expenses.forEach(e=>{if(e.payer==='POOL')out+=e.amount;});return {inn,out,bal:inn-out};}
+function expSettle(){const net={};EX.members.forEach(m=>net[m.id]=0);
+  EX.pool.forEach(p=>{p.who.forEach(w=>{net[w]=(net[w]||0)+p.amount;});});
+  EX.expenses.forEach(e=>{if(e.payer!=='POOL')net[e.payer]=(net[e.payer]||0)+e.amount;const sh=e.amount/e.who.length;e.who.forEach(w=>{net[w]=(net[w]||0)-sh;});});
+  const cred=[],deb=[];Object.keys(net).forEach(id=>{const v=net[id];if(v>0.5)cred.push({id,v});else if(v<-0.5)deb.push({id,v:-v});});
+  cred.sort((a,b)=>b.v-a.v);deb.sort((a,b)=>b.v-a.v);const tx=[];let i=0,j=0;
+  while(i<deb.length&&j<cred.length){const pay=Math.min(deb[i].v,cred[j].v);tx.push({from:deb[i].id,to:cred[j].id,amt:pay});deb[i].v-=pay;cred[j].v-=pay;if(deb[i].v<0.5)i++;if(cred[j].v<0.5)j++;}
+  return {net,tx};}
+function expRender(){const el=document.getElementById('exp');if(!el)return;
+  const total=EX.expenses.reduce((s,e)=>s+e.amount,0);const pb=poolBalance();const now=nowParts();
+  let h=`<div class="sec-title"><span class="i">🧮</span>計錢分攤 + 公數 + 預算</div>`;
+  if(FBC){if(SYNC.on){h+=`<div class="synccard on">🔗 共用中・行程碼 <b>${E(SYNC.code)}</b>（實時同步）<button class="syncleave" onclick="syncLeave()">離開共用</button></div>`;}
+    else{h+=`<div class="synccard"><div class="exlab2">🔗 多人共用（連網實時同步）</div><div class="exrow"><input id="roomcode" placeholder="行程碼（自訂，例：fukuoka2026）"><input id="roompw" type="password" placeholder="密碼(可空)" style="flex:0 0 110px"></div><button class="exbtn full" onclick="syncJoin()">加入 / 建立共用</button><div class="small muted" style="margin-top:6px">同一行程碼嘅人睇到改到同一份分帳；唔開就純本機離線。</div></div>`;}}
+  h+=`<div class="pool"><div class="ptop"><span class="plab">💰 公數錢包餘額</span><span class="pbal">${fmt(pb.bal)}</span></div><div class="psub">已夾入 ${fmt(pb.inn)} · 已用 ${fmt(pb.out)}</div>`;
+  if(EX.members.length){h+=`<div class="exlab2" style="margin-top:9px">夾錢入公數（選人，每人夾同一金額）</div><div class="exrow"><input id="pamt" type="number" inputmode="decimal" placeholder="每人夾 ${EX.cur}"><button class="exbtn" onclick="expAddPool()">＋ 夾入</button></div><div class="chips" style="margin-top:7px">${EX.members.map(m=>`<label class="wchip"><input type="checkbox" class="pwho" value="${m.id}" checked> ${E(m.name)}</label>`).join('')}</div>`;
+    if(EX.pool.length){h+=`<div style="margin-top:8px">`+EX.pool.slice().reverse().map(p=>`<div class="exitem"><div class="small">${p.who.map(w=>E(nmOf(w))).join('、')} 各夾 ${fmt(p.amount)}</div><div class="examt">${fmt(p.amount*p.who.length)}<button onclick="expDelPool('${p.id}')">✕</button></div></div>`).join('')+`</div>`;}}
+  h+=`</div>`;
+  h+=`<div class="card"><div class="exlab">👥 成員</div><div class="chips">`;
+  h+=EX.members.map(m=>`<span class="mchip">${E(m.name)}<button onclick="expDelMember('${m.id}')">✕</button></span>`).join('')||'<span class="muted small">未有成員，先加（例：爸/媽/我/女）</span>';
+  h+=`</div><div class="exrow"><input id="mname" placeholder="加成員名" onkeydown="if(event.key==='Enter')expAddMember()"><button class="exbtn" onclick="expAddMember()">＋ 加</button></div></div>`;
+  if(EX.members.length){h+=`<div class="card"><div class="exlab">➕ 加一筆開支</div><input id="edesc" placeholder="用途（例：晚餐 / 的士 / 門票）"><div class="exrow"><input id="edate" type="date" value="${now.d}"><select id="ehour">${Array.from({length:24},(_,k)=>`<option value="${k}" ${k===now.h?'selected':''}>${hourLabel(k)}</option>`).join('')}</select></div><div class="exrow"><input id="eamt" type="number" inputmode="decimal" placeholder="金額 ${EX.cur}"><select id="epayer"><option value="POOL">💰 公錢付</option>${EX.members.map(m=>`<option value="${m.id}">${E(m.name)} 付</option>`).join('')}</select></div><div class="exrow"><select id="ecat">${CATS.map(c=>`<option value="${c[1]}">${c[0]} ${c[1]}</option>`).join('')}</select></div><div class="exlab2">邊個分攤（預設全部）</div><div class="chips">${EX.members.map(m=>`<label class="wchip"><input type="checkbox" class="ewho" value="${m.id}" checked> ${E(m.name)}</label>`).join('')}</div><button class="exbtn full" onclick="expAddExpense()">加入記錄</button></div>`;}
+  if(EX.expenses.length){const cm={};CATS.forEach(c=>cm[c[1]]=c[0]);
+    const list=EX.expenses.slice().sort((a,b)=>{const ka=(a.dt&&a.dt.d||'')+String((a.dt&&a.dt.h)||0).padStart(2,'0');const kb=(b.dt&&b.dt.d||'')+String((b.dt&&b.dt.h)||0).padStart(2,'0');return kb<ka?-1:kb>ka?1:0;});
+    h+=`<div class="card"><div class="exlab">🧾 記錄（${EX.expenses.length}）</div>`;
+    h+=list.map(e=>`<div class="exitem"><div><b>${cm[e.cat]||''} ${E(e.desc)}</b><div class="small muted">${dtLabel(e.dt)} · ${E(nmOf(e.payer))} 付 · 分 ${e.who.length} 人</div></div><div class="examt">${fmt(e.amount)}<button onclick="expDel('${e.id}')">✕</button></div></div>`).join('');h+=`</div>`;}
+  h+=`<div class="card"><div class="exlab">📊 結算</div>`;
+  h+=`<div class="exrow" style="align-items:center"><span class="exrate">匯率 HK$1=${EX.cur}<input id="erate" type="number" value="${EX.rate}" onchange="expSetRate(this.value)"></span><span style="margin-left:auto"></span><span class="curtog"><button class="${EX.disp==='local'?'on':''}" onclick="expSetDisp('local')">${EX.cur}</button><button class="${EX.disp==='hkd'?'on':''}" onclick="expSetDisp('hkd')">HK$</button></span></div>`;
+  h+=`<div class="exsum"><span>總開支</span><b>${locf(total)} <span class="muted">≈ ${hkf(total/EX.rate)}</span></b></div>`;
+  if(EX.members.length)h+=`<div class="exsum"><span>人均</span><b>${fmt(total/EX.members.length)}</b></div>`;
+  const {net,tx}=expSettle();
+  if(EX.members.length){h+=`<div class="exlab2">每人淨額（含公數夾錢）</div>`;h+=EX.members.map(m=>{const v=net[m.id]||0;return `<div class="exsum"><span>${E(m.name)}</span><b class="${v>=0?'pos':'neg'}">${v>=0?'應收 ':'應付 '}${fmt(Math.abs(v))}</b></div>`;}).join('');}
+  if(tx.length){h+=`<div class="exlab2">💸 最少轉帳結算</div>`;h+=tx.map(t=>`<div class="extx">${E(nmOf(t.from))} → ${E(nmOf(t.to))} <b>${fmt(t.amt)}</b></div>`).join('');}
+  h+=`<div class="exlab2">🎯 預算（HK$）</div><div class="exrow"><input id="ebud" type="number" inputmode="decimal" value="${EX.budget||''}" placeholder="總預算 HK$" onchange="expSetBudget(this.value)"></div>`;
+  if(EX.budget){const usedHK=total/EX.rate,left=EX.budget-usedHK,pct=Math.min(100,EX.budget>0?usedHK/EX.budget*100:0);h+=`<div class="bar"><div class="barfill" style="width:${pct}%"></div></div><div class="exsum"><span>已用</span><b>${hkf(usedHK)} / ${hkf(EX.budget)}</b></div><div class="exsum"><span>${left>=0?'仲有':'⚠️ 超支'}</span><b class="${left>=0?'pos':'neg'}">${hkf(Math.abs(left))}</b></div>`;}
+  h+=`</div>`;
+  if(EX.expenses.length){const by={};CATS.forEach(c=>by[c[1]]=0);EX.expenses.forEach(e=>{by[e.cat]=(by[e.cat]||0)+e.amount;});const mx=Math.max(1,...Object.values(by));
+    h+=`<div class="card"><div class="exlab">📈 分類分析</div>`;CATS.forEach(c=>{const v=by[c[1]]||0;if(v<=0)return;const pct=total>0?rnd(v/total*100):0;h+=`<div class="anarow"><span class="albl">${c[0]} ${c[1]}</span><span class="anabar"><i style="width:${rnd(v/mx*100)}%"></i></span><span class="anaval">${fmt(v)} <span class="muted small">${pct}%</span></span></div>`;});h+=`</div>`;}
+  h+=`<button class="exbtn ghost full" onclick="expClear()" style="margin-bottom:8px">🗑 清空開支記錄</button><div class="small muted">${SYNC.on?'🔗 共用模式：數據存喺 Firebase，同行程碼嘅人實時共用。':'本機模式：數據只存喺你手機（localStorage），離線可用、唔上傳。'}</div>`;
+  el.innerHTML=h;
+}
+
+/* ===== 🎫 訂單收納 + 📱 分享 QR ===== */
+var BKEY='book_'+String(T.title||'trip').replace(/\s+/g,'_');
+var BTYPES=[['✈️','機票'],['🏨','酒店'],['🎫','門票'],['🚗','租車'],['📄','其他']];
+var BK=[];
+function bkLoad(){try{var s=localStorage.getItem(BKEY);if(s)BK=JSON.parse(s);}catch(e){}}
+function bkSave(){try{localStorage.setItem(BKEY,JSON.stringify(BK));}catch(e){}}
+function bkAdd(){var ty=document.getElementById('bty').value,ti=(document.getElementById('bti').value||'').trim(),co=(document.getElementById('bco').value||'').trim(),dd=document.getElementById('bdd').value,tm=(document.getElementById('btm').value||'').trim(),nt=(document.getElementById('bnt').value||'').trim(),lk=(document.getElementById('blk').value||'').trim();if(!ti){alert('請填項目名（例：國泰 CX588）');return;}BK.push({id:Math.random().toString(36).slice(2,8),ty:ty,ti:ti,co:co,dd:dd,tm:tm,nt:nt,lk:lk});bkSave();bkRender();}
+function bkDel(id){BK=BK.filter(function(b){return b.id!==id;});bkSave();bkRender();}
+function bkToday(){var d=new Date(),p=function(x){return String(x).padStart(2,'0');};return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());}
+function bkEmoji(t){var m={};BTYPES.forEach(function(x){m[x[1]]=x[0];});return m[t]||'📄';}
+function bkCard(b){return '<div class="exitem"><div><b>'+bkEmoji(b.ty)+' '+E(b.ti)+'</b><div class="small muted">'+[b.dd?b.dd.slice(5).replace('-','/'):'',b.tm,b.co?('確認號 '+b.co):''].filter(Boolean).map(E).join(' · ')+'</div>'+(b.nt?'<div class="small muted">'+E(b.nt)+'</div>':'')+'</div><div class="examt">'+(b.lk?'<a class="dirbtn" target="_blank" rel="noopener" href="'+E(b.lk)+'">開</a>':'')+'<button onclick="bkDel(\''+b.id+'\')">✕</button></div></div>';}
+function bkRender(){var el=document.getElementById('book');if(!el)return;var today=bkToday();var sorted=BK.slice().sort(function(a,b){return (a.dd||'')<(b.dd||'')?-1:1;});var tdy=sorted.filter(function(b){return b.dd===today;});
+  var h='<div class="sec-title"><span class="i">🎫</span>訂單收納</div>';
+  if(tdy.length){h+='<div class="card bk-today"><div class="exlab">⭐ 今日要用（'+today.slice(5).replace('-','/')+'）</div>'+tdy.map(bkCard).join('')+'</div>';}
+  h+='<div class="card"><div class="exlab">➕ 加訂單</div><div class="exrow"><select id="bty">'+BTYPES.map(function(t){return '<option value="'+t[1]+'">'+t[0]+' '+t[1]+'</option>';}).join('')+'</select><input id="bti" placeholder="項目（例：國泰 CX588）"></div><div class="exrow"><input id="bdd" type="date"><input id="btm" placeholder="時間 11:00"></div><input id="bco" placeholder="確認號 / 訂單號 / PIN" style="width:100%;margin-top:9px"><input id="bnt" placeholder="備註（座位/房型/地址…）" style="width:100%;margin-top:9px"><input id="blk" placeholder="連結（可空）" style="width:100%;margin-top:9px"><button class="exbtn full" onclick="bkAdd()">加入</button></div>';
+  if(sorted.length){h+='<div class="card"><div class="exlab">🗂 全部（'+sorted.length+'）</div>'+sorted.map(bkCard).join('')+'</div>';}
+  h+='<div class="small muted" style="margin-top:6px">數據只存喺你手機（localStorage），離線可用、過關即拎。</div>';
+  el.innerHTML=h;}
+function shareQR(){var ex=document.getElementById('qrov');if(ex){ex.remove();return;}var url=location.href;var ov=document.createElement('div');ov.id='qrov';ov.className='qrov';ov.onclick=function(){ov.remove();};ov.innerHTML='<div class="qrcard"><div style="font-weight:900;font-size:16px;margin-bottom:10px">📱 掃描分享俾朋友</div><img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(url)+'"><div class="small muted" style="margin-top:10px;word-break:break-all">'+url+'</div><div class="small muted" style="margin-top:6px">㩒任何位置關閉</div></div>';document.body.appendChild(ov);}
+
+function setMode(m){document.getElementById('view-trip').style.display=m==='trip'?'':'none';var vb=document.getElementById('view-book');if(vb)vb.style.display=m==='book'?'':'none';var mb=document.getElementById('mb-book');if(mb)mb.classList.toggle('active',m==='book');if(m==='book')bookRender();
+  document.getElementById('view-tools').style.display=m==='money'?'':'none';
+  document.getElementById('mb-trip').classList.toggle('active',m==='trip');
+  document.getElementById('mb-money').classList.toggle('active',m==='money');
+  if(m==='money')expRender();scrollTo({top:0});}
+
+function goTop(){var el=document.scrollingElement||document.documentElement||document.body;if('scrollBehavior' in document.documentElement.style){try{window.scrollTo({top:0,left:0,behavior:'smooth'});return;}catch(e){}}el.scrollTop=0;window.scrollTo(0,0);}
+render();
+expLoad();
+bkLoad();
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+  "template": "roadbook_jp.html",
+  "kicker": "FUKUOKA · KYUSHU · JAPAN",
+  "title": "彤滺福岡 2026",
+  "subtitle": "8/22–8/28",
+  "dateRange": "2026/8/22（六）– 8/28（五）· 7 天",
+  "travelers": "3 大人 + 1 小童（8 歲）",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Fukuoka_Skyline_of_Seaside_Momochi.jpg",
+  "expense": { "cur": "¥", "rate": 20.5, "budget": 25000 },
+  "overview": [
+    { "d": "D1 8/22", "t": "✈️ 落地(3pm) · 🛍️ 博多運河城 · 🎐 天神夏祭" },
+    { "d": "D2 8/23", "t": "🏊 海之中道泳池 · 🐬 Marine World · 🌃 夜の水族館" },
+    { "d": "D3 8/24", "t": "🌌 teamLab 森林 · 🎢 BOSS E・ZO · 🍲 もつ鍋" },
+    { "d": "D4 8/25", "t": "🎒 KidZania · 🤖 LaLaport νGundam" },
+    { "d": "D5 8/26", "t": "⛩ 太宰府天滿宮 · 🛶 柳川泛舟(optional)" },
+    { "d": "D6 8/27", "t": "🚆 由布院之森 · ♨ 金鱗湖溫泉 · 🏮 中洲屋台" },
+    { "d": "D7 8/28", "t": "🦢 大濠公園晨遊 · 🎁 手信 · ✈️ 6pm 到機場返港" }
+  ],
+  "weather": {
+    "summary": "全年最熱最焗：平均高溫約 32°C、濕度約 74%，午後常有雷陣雨，8–10 月颱風季。",
+    "avgHigh": 32, "avgLow": 25, "rainfall": "約 10–20 雨日",
+    "clothing": "輕薄透氣衫、帽、太陽眼鏡、防曬；室內冷氣極強帶薄外套；玩水帶泳衣泳帽毛巾；女童帶替換衫。",
+    "tips": "帶摺傘/雨衣+電解質；戶外排上午/黃昏、正午躲室內；颱風即查 JMA 預報，近郊日改室內並對調。"
+  },
+  "days": [
+    {
+      "date": "8/22", "weekday": "週六", "theme": "落地・博多運河城・天神夏祭（輕量）",
+      "weather": { "icon": "partly", "high": 32, "low": 25 },
+      "activities": [
+        { "time": "15:00", "name": "抵達福岡機場（FUK）", "icon": "✈️", "note": "22 號下午 3 點到達；地下鐵空港線 機場→博多 5 分・¥260（→天神 11 分）", "transport": "地下鐵空港線", "mapQuery": "Fukuoka Airport",
+          "transfer": "地鐵入市・5–11 分" },
+        { "time": "16:00", "name": "Airbnb Check-in（博多站／天神區）", "icon": "🏠", "note": "首選博多站（去機場/近郊JR最方便）或天神（購物+西鐵太宰府柳川起點）", "transport": "地下鐵", "mapQuery": "博多駅",
+          "transfer": "地鐵到中洲川端・5 分" },
+        { "time": "17:30", "name": "博多運河城 Canal City", "glow": "必去", "note": "運河噴泉光影表演+商場+戲院，全室內，落地日輕鬆（拉麵 stadium 已休業）", "duration": "1.5h", "cost": "免費入場", "transport": "地鐵中洲川端站",
+          "mustDo": "整點睇運河噴泉光影 show", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/canalcity.jpg", "mapQuery": "キャナルシティ博多",
+          "transfer": "地鐵到天神・5 分" },
+        { "time": "19:00", "name": "天神地下街 & 天神夏まつり", "glow": "必去", "note": "天神地下街長街室內避雨；★ 天神夏まつり 7/17–8/23（你趕得切！）盆踊+屋台+縁日攤位，免費（待官方確認）", "duration": "1.5h", "cost": 0, "transport": "地下鐵天神站",
+          "mustDo": "地下街掃街、撈金魚/射的縁日攤", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/tenjin.jpg", "mapQuery": "天神地下街" },
+        { "time": "20:30", "meal": { "name": "博多らーめん ShinShin 天神本店", "cuisine": "博多純情拉麵", "perPerson": "¥1,000", "recommended": "細麵豚骨拉麵+替玉、餃子；屋台出身本地人最愛（博多駅 KITTE/デイトス 有分店）", "location": "天神", "mapQuery": "博多らーめん ShinShin 天神本店", "menuLink": "https://www.hakata-shinshin.com/" } }
+      ],
+      "backup": [
+        "落地太累 → 跳夏祭，Airbnb 附近食拉麵早抖",
+        { "name": "甘木川花火大會（近郊）", "note": "★ 8/22 約 4,000 發花火+流燈籠；甘木站，博多約 1–1.5h，自駕/轉車（待確認）", "mapQuery": "甘木川花火大会 朝倉" }
+      ]
+    },
+    {
+      "date": "8/23", "weekday": "週日", "theme": "東區水陸日：海之中道泳池 + Marine World + 夜の水族館",
+      "weather": { "icon": "sunny", "high": 32, "low": 26 },
+      "activities": [
+        { "time": "09:30", "name": "國營海之中道海濱公園・サンシャインプール", "glow": "必去", "note": "起點：博多 JR 約 45–60 分（海ノ中道駅）。滑水梯+流水池+兒童池，國營大公園仲有動物之森/花園/單車；★ WEB 預售平 ¥200/人+免排隊", "duration": "半日", "cost": "泳池 大人 ¥2,300・小中學 ¥1,300・3–5歲 ¥500（+公園入園 大人 ¥450・中學以下免費）", "transport": "JR 香椎線 海ノ中道駅",
+          "mustDo": "玩水放電；★ 8/22–27 連開、8/28(五) 休唔好撞；自備泳衣泳帽", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/uminaka.jpg", "mapQuery": "海の中道サンシャインプール",
+          "transfer": "步行/園內接駁到隔籬 Marine World・約 10 分" },
+        { "time": "15:30", "name": "海洋世界海之中道 Marine World", "glow": "必去", "note": "350 種 3 萬隻生物 + 海豚海獅 show；同公園相鄰，玩完水順玩", "duration": "2–3h", "cost": "大人 ¥2,500・中小學 ¥1,200・3歲+ ¥700", "transport": "步行",
+          "mustDo": "海豚 show、企鵝、觸摸池", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/marineworld.jpg", "mapQuery": "マリンワールド海の中道",
+          "transfer": "原館留低等夜場（18:00 起夜間燈光）" },
+        { "time": "18:00", "name": "夜の水族館 2026（夜間水族館）", "glow": "限定", "icon": "🌃", "note": "★ 8/22–23 等週末開到 21:00（最終入館 20:00），魚群燈光超有氣氛；同日一張票玩到夜（待官方確認 2026 確切日）", "duration": "1.5h", "cost": "（多數含日間/夜場票，查官網）", "transport": "JR 海ノ中道駅",
+          "mustDo": "夜間水母/魚群燈光", "mapQuery": "マリンワールド海の中道" }
+      ],
+      "backup": [
+        "8/28 泳池休 / 落雨 → 改 teamLab/Canal City（同 D3 對調）",
+        { "name": "海之中道海濱公園 動物之森", "note": "唔玩水都得：摸小動物、租單車 12km 徑", "mapQuery": "海の中道海浜公園" }
+      ]
+    },
+    {
+      "date": "8/24", "weekday": "週一", "theme": "★ 室內日：teamLab 森林 + BOSS E・ZO（避週一休館+避雷雨）",
+      "weather": { "icon": "rain", "high": 31, "low": 26 },
+      "activities": [
+        { "time": "11:00", "name": "teamLab Forest 福岡（森林）", "glow": "必去", "note": "BOSS E・ZO 5F（PayPay Dome 旁），沉浸式光影互動，夏季限定作品；建議網上預約", "duration": "1.5–2h", "cost": "16歲+ ¥2,400・4–15歲 ¥1,000・3歲下免費", "transport": "巴士 PayPayドーム前",
+          "mustDo": "夏季限定光影森林、Soft Terrain 互動", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/teamlab.jpg", "mapQuery": "チームラボフォレスト 福岡",
+          "transfer": "同棟・步行" },
+        { "time": "13:30", "name": "BOSS E・ZO FUKUOKA（頂樓玩到地下）", "glow": "必去", "note": "同棟：VR 樂園、絕望滑梯、屋頂活動，雨天一站玩足；設施分別收費", "duration": "半日", "cost": "各設施分別收費", "transport": "步行",
+          "mustDo": "頂樓絕望滑梯/吊橋、VR、teamLab 同棟", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/ezo.jpg", "mapQuery": "BOSS E・ZO FUKUOKA",
+          "transfer": "地鐵/巴士回市區・約 15 分" },
+        { "time": "18:00", "meal": { "name": "博多もつ鍋 おおやま（本店／KITTE博多店）", "cuisine": "もつ鍋（內臟鍋）名店", "perPerson": "¥4,000–5,000", "recommended": "味噌/醤油もつ鍋、ちゃんぽん麺締め；全店掘りごたつ個室（KITTE博多店近博多駅）", "location": "呉服町／博多駅", "mapQuery": "博多もつ鍋 おおやま 本店", "menuLink": "https://www.motu-ooyama.com/en/" } }
+      ],
+      "backup": [
+        { "name": "福岡 Anpanman 兒童博物館", "note": "全室內親子，雨天/颱風神救星（8歲偏大但仍啱）", "mapQuery": "福岡アンパンマンこどもミュージアム" },
+        { "name": "天神地下街", "note": "長地下購物街，落雨完全唔使出地面；2026 屆 50 週年新店陸續開", "mapQuery": "天神地下街" }
+      ]
+    },
+    {
+      "date": "8/25", "weekday": "週二", "theme": "KidZania 福岡 + LaLaport 實物大 νGundam（同一棟）",
+      "weather": { "icon": "cloudy", "high": 32, "low": 26 },
+      "activities": [
+        { "time": "09:00", "name": "KidZania 福岡（職業體驗）", "glow": "必去", "note": "ららぽーと福岡 4F；70+ 種職業體驗，8 歲黃金年齡全程做主角。★ 8 月飛約 6/2 開賣即搶（2 部制），博多巴士 44/45 約 20 分直達", "duration": "第1部 9:00–14:30", "cost": "假日小學生約 ¥4,300–5,300・大人約 ¥2,400（未核實當日）", "transport": "巴士 ららぽーと福岡 / JR 竹下駅",
+          "mustDo": "開場即攞籌玩熱門職業（壽司/消防/披薩）；揀動作型職業（日語門檻低）", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/kidzania.jpg", "mapQuery": "キッザニア福岡",
+          "transfer": "同棟商場・步行（午餐+逛 LaLaport）" },
+        { "time": "15:00", "name": "LaLaport 福岡・GUNDAM SIDE-F（實物大 νGundam）", "glow": "限定", "icon": "🤖", "note": "全球最高實物大高達『RX-93ff νガンダム』約 24.8m，免費觀賞；商場美食+親子店", "duration": "2–3h", "cost": "免費（商品另計）", "transport": "同棟",
+          "mustDo": "★ 夜間映像演出 19:00–21:00 燈效最靚（日間每正點起動），SIDE-F 限定扭蛋", "mapQuery": "ららぽーと福岡",
+          "transfer": "巴士 44/45 返博多/天神・約 20 分" }
+      ],
+      "backup": [
+        "KidZania 訂第2部（15:30–20:00）→ 上午改太宰府/市區",
+        { "name": "ボーネルンド / 商場親子設施", "note": "LaLaport 內室內遊樂，落雨同棟搞掂", "mapQuery": "ららぽーと福岡" }
+      ]
+    },
+    {
+      "date": "8/26", "weekday": "週三", "theme": "近郊一：太宰府天滿宮 +（optional）柳川遊船",
+      "weather": { "icon": "showers", "high": 33, "low": 26 },
+      "activities": [
+        { "time": "09:30", "name": "太宰府天滿宮", "note": "起點：天神西鐵約 45 分。學問之神，參道梅枝餅必食；買西鐵『太宰府・柳川套票』一日串", "duration": "半日", "cost": "免費（西鐵套票 大人 ¥3,210・小童 ¥1,610 含柳川船）", "transport": "西鐵天神大牟田線+太宰府線",
+          "mustDo": "本殿參拜、梅枝餅、隈研吾設計星巴克打卡、九州國立博物館（雨天 backup）", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg", "mapQuery": "太宰府天満宮",
+          "transfer": "西鐵太宰府→西鐵柳川（經二日市轉車）約 50 分" },
+        { "time": "12:00", "meal": { "name": "かさの家（太宰府參道・梅ヶ枝餅）", "cuisine": "和菓子・名物", "perPerson": "¥200–1,000", "recommended": "現烤梅ヶ枝餅 ¥130/個、堂食烏冬/善哉；1922 年老舖", "location": "太宰府參道", "mapQuery": "かさの家 太宰府 参道", "menuLink": "https://tabelog.com/en/fukuoka/A4003/A400301/40006129/" } },
+        { "time": "14:30", "name": "柳川遊船（柳川川下り）※ optional・睇天氣", "icon": "🛶", "note": "九州威尼斯水鄉搖船約 70–90 分，慢遊消暑；★ 颱風/暴雨停航，唔得就純太宰府慢遊", "duration": "2h", "cost": "大人約 ¥1,700–2,000・小童約 ¥850（套票已含）", "transport": "西鐵柳川站步行",
+          "mustDo": "搖櫓船穿水鄉、船上聽船伕民謠", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Yanagawa-kawakudari.jpg", "mapQuery": "柳川川下り",
+          "transfer": "西鐵柳川→天神約 50 分直達" }
+      ],
+      "backup": [
+        "柳川停航/太攰 → 跳柳川，太宰府慢遊 + 九州國立博物館（室內）",
+        { "name": "九州國立博物館", "note": "太宰府旁大型國立博物館，雨天 backup", "mapQuery": "九州国立博物館" }
+      ]
+    },
+    {
+      "date": "8/27", "weekday": "週四", "theme": "近郊二：由布院之森・金鱗湖溫泉小鎮（須早訂指定席）",
+      "weather": { "icon": "sunny", "high": 31, "low": 24 },
+      "activities": [
+        { "time": "09:17", "name": "JR 特急『由布院之森』博多 → 由布院", "icon": "🚆", "note": "★ 全車指定席必須提前訂（乘車 1 個月前早上 10:00 開賣，暑假秒殺）；約 2h15，森林綠復古列車本身就是體驗", "duration": "2h15", "cost": "約 ¥5,690（乘車券+指定席）/網購來回 ¥5,600", "transport": "JR 特急ゆふいんの森",
+          "mustDo": "搶到指定席、車上 buffet、影綠色列車", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/yufuintrain.jpg", "mapQuery": "由布院駅",
+          "transfer": "由布院站步行入小鎮" },
+        { "time": "11:45", "name": "由布院（湯布院）金鱗湖 + 湯之坪街道", "note": "溫泉文青小鎮，金鱗湖晨霧、湯之坪街道掃街；可浸足湯", "duration": "半日", "cost": "街區免費（足湯/館另計）", "transport": "步行",
+          "mustDo": "金鱗湖、湯之坪街道、足湯、布丁/可樂餅", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Yufuin_and_Mount_Yufu.jpg", "mapQuery": "湯布院 金鱗湖",
+          "transfer": "JR 由布院之森下午班返博多約 2h15，趕得切夜食" },
+        { "time": "19:30", "name": "中洲屋台街（夜食）", "icon": "🏮", "note": "返到博多食晚餐：那珂川河畔屋台一字排開，霓虹倒影超有氣氛；帶女童早場、現金為主、落雨會休", "duration": "1.5h", "cost": "每檔約 ¥1,500–3,000/人", "transport": "地下鐵中洲川端站",
+          "mustDo": "屋台拉麵/燒鳥/天婦羅 hopping、河畔夜景", "mapQuery": "中洲 屋台街 福岡" }
+      ],
+      "backup": [
+        { "name": "門司港懷舊（門司港レトロ）", "note": "改近郊二選項：大正洋風港 + 燒咖喱，JR 約 1.5h", "mapQuery": "門司港レトロ" },
+        { "name": "熊本城", "note": "新幹線約 40 分；仍修復中可入特別見學通路", "mapQuery": "熊本城" },
+        "颱風/暴雨 → 特急可能停駛，改市區補漏日"
+      ]
+    },
+    {
+      "date": "8/28", "weekday": "週五", "theme": "大濠公園晨遊・手信・回程（6pm 到機場返港）",
+      "weather": { "icon": "partly", "high": 32, "low": 26 },
+      "activities": [
+        { "time": "09:30", "name": "大濠公園（晨遊）", "note": "最後一日輕鬆：大湖公園散步、踩天鵝船、超 chill，順遊福岡城跡", "duration": "1.5h", "cost": "免費（船另計）", "transport": "地下鐵大濠公園站",
+          "mustDo": "湖畔散步、踩天鵝船、福岡城跡", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92_%283360365578%29.jpg", "mapQuery": "大濠公園",
+          "transfer": "地鐵返博多站・約 8 分" },
+        { "time": "12:00", "name": "博多站 AMU Plaza・手信 + 午餐", "icon": "🎁", "note": "車站直結商場，最後補手信；免稅店滿 ¥5,000 可退稅帶護照；KITTE 食堂街午餐", "duration": "2.5h", "cost": "視消費", "transport": "步行",
+          "mustDo": "博多通りもん、ふくや明太子、太宰府梅枝餅", "mapQuery": "アミュプラザ博多",
+          "transfer": "地下鐵空港線 博多→福岡機場 5 分・¥260" },
+        { "time": "16:30", "name": "福岡機場（FUK）→ 回程", "icon": "✈️", "note": "★ 28 號下午 6 點要到福岡機場準備上機返港；地鐵 5 分直達，預早出發、留足 buffer", "duration": "30分", "cost": "地鐵 ¥260/人", "transport": "地下鐵空港線", "mapQuery": "Fukuoka Airport" }
+      ],
+      "backup": [
+        { "name": "福岡塔（有早班空檔先去）", "note": "234m 海濱塔黃昏夜景一流；但今日趕 6pm 機場多數無時間，留作彈性", "mapQuery": "福岡タワー" },
+        "想睇 Disney on Ice（8/28 マリンメッセ）→ 6pm 走趕唔切，要改遲機先得"
+      ]
+    }
+  ],
+  "events": [
+    { "name": "Disney on Ice『LET'S PARTY!』40 週年", "date": "8/28–29", "where": "マリンメッセ福岡 A館（呉服町站）", "tag": "✅✅ 親子首選", "note": "迪士尼冰上歌舞 40 週年；必購票對號入座（e+/Lawson）（待官方場次確認）", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/disney.jpg", "link": "https://schedule.enjoy-live.net/schedule.php?hall_id=4", "mapQuery": "マリンメッセ福岡 A館" },
+    { "name": "夜の水族館 2026（Marine World）", "date": "8/22–23 等週末・到 21:00", "where": "海洋世界海之中道（JR 海ノ中道駅）", "tag": "✅✅ 親子・限定", "note": "夏季夜場開到 21:00（最終入館 20:00），18:00 起夜間燈光；同日玩埋泳池/公園（待官方確認確切日）", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/marineworld.jpg", "link": "https://marine-world.jp/", "mapQuery": "マリンワールド海の中道" },
+    { "name": "天神夏まつり × 鷹祭", "date": "7/17–8/23（你 8/22–23 兩晚趕得切）", "where": "福岡市役所西側ふれあい廣場（天神站）", "tag": "✅✅ 親子・免費", "note": "盆踊+屋台+縁日攤位，市中心唔使出遠門（待官方確認）", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/natsumatsuri.jpg", "link": "https://www.tenjinnatumaturi.com/", "mapQuery": "福岡市役所 ふれあい広場" },
+    { "name": "甘木川花火大會", "date": "8/22（落地當晚）", "where": "朝倉市甘木 小石原川畔（甘木站，博多約1–1.5h）", "tag": "✅ 親子・免費", "note": "約 4,000 發花火 + 流燈籠慰靈祭；近郊需自駕/轉車，留意尾班車（待確認）", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/amagi.jpg", "link": "https://hanabi.walkerplus.com/detail/ar1040e01031/", "mapQuery": "甘木川花火大会 朝倉" },
+    { "name": "νGUNDAM 起動・夜間映像", "date": "每日・夜場 19:00–21:00", "where": "LaLaport 福岡 GUNDAM SIDE-F（JR 竹下駅）", "tag": "✅ 親子・免費打卡", "note": "實物大 24.8m νGundam，日間每正點起動、夜間牆面映像最靚", "link": "https://mitsui-shopping-park.com/lalaport/fukuoka/event/2718166.html", "mapQuery": "ららぽーと福岡" },
+    { "name": "夜の動植物園（Night Zoo）", "date": "暑期週六夜場（8/22・8/29 大機率）", "where": "福岡市動植物園（藥院大通/櫻坂）", "tag": "✅ 親子・限定", "note": "夜行動物、夜開花、溫室燈光、Live Painting（2026 確切日待官方）", "link": "https://zoo.city.fukuoka.lg.jp/", "mapQuery": "福岡市動植物園" },
+    { "name": "まつりみなみ（夏祭・花火）", "date": "8/29 18:00–21:00", "where": "志井公園（北九州小倉南，志井公園站）", "tag": "❌ 你 8/28 已走", "note": "花火+盆踊+Kitchen Car；但你 28 號 6pm 返港，趕唔切（官方已公布）", "link": "https://www.city.kitakyushu.lg.jp/kokuraminami/w3200178.html", "mapQuery": "志井公園 北九州" },
+    { "name": "屋頂啤酒花園（多間酒店天台）", "date": "6/1–8/31・覆蓋全程", "where": "福岡市中心多間酒店天台", "tag": "◯ 早場可帶細路", "note": "夏夜啤酒花園，部分有兒童餐；偏成人場早場去", "link": "https://www.crossroadfukuoka.jp/feature/beer", "mapQuery": "福岡 ビアガーデン" },
+    { "name": "ONE FUKUOKA BLDG.（2025/4 新開）", "date": "常設新地標", "where": "天神（地下鐵天神站）", "tag": "🆕 雨天備案", "note": "B2–5F 商場餐飲、MoMA Design Store 九州首間、REC Coffee；新淨好行", "link": "https://onefukuoka-building.jp/", "mapQuery": "ONE FUKUOKA BLDG 天神" },
+    { "name": "關門海峽花火大會", "date": "8/13", "where": "門司區西海岸", "tag": "❌ 早過你到埗", "note": "2026 約 8/13、18,000 發；你 8/22 先到趕唔切（門司側日期出發前再確認）", "link": "https://hanabi.walkerplus.com/detail/ar1040e00932/", "mapQuery": "関門海峡花火大会" }
+  ],
+  "dining": [
+    {
+      "category": "🍜 博多拉麵（豚骨）",
+      "items": [
+        { "name": "一蘭 総本店", "area": "中洲川端站步行30米", "price": "¥1,000–2,000", "hours": "24 小時（全年無休）", "intro": "一蘭發源地總本店，獨立『味集中』隔板座，遊客必朝聖。Tabelog 3.45。", "signature": "天然とんこつラーメン ¥980、替玉 ¥210、半熟卵 ¥140", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tonkotsu_ramen.JPG", "mapQuery": "一蘭 総本店 中洲 福岡", "link": "https://tabelog.com/en/fukuoka/A4001/A400102/40000130/" },
+        { "name": "一風堂 大名本店", "area": "天神站步行7分（大名）", "price": "¥1,000–2,000", "hours": "11:00–22:00（每日）", "intro": "一風堂發源本店，只此一間賣元祖白丸/赤丸原版。Tabelog 3.22。", "signature": "元祖白丸元味 ¥850、赤丸新味 ¥950", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tonkotsu_ramen.JPG", "mapQuery": "博多 一風堂 大名本店", "link": "https://tabelog.com/en/fukuoka/A4001/A400103/40025391/" },
+        { "name": "博多らーめん ShinShin 天神本店", "area": "天神（博多駅有分店）", "price": "約 ¥1,000", "hours": "約 11:00–翌3:00（分店各異）；不定休", "intro": "屋台出身、本地人最愛『博多純情らーめん』，細麵掛湯、叉燒入口即化；博多駅店最方便帶細路。", "signature": "ラーメン ¥750、替玉、餃子、炒飯", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tonkotsu_ramen.JPG", "mapQuery": "博多らーめん ShinShin 天神本店", "link": "https://www.hakata-shinshin.com/" },
+        { "name": "博多一双 博多駅東店", "area": "博多駅筑紫口步行5分", "price": "約 ¥1,000", "hours": "約 11:00–24:00（不定休，先查）", "intro": "近年最紅『泡系豚骨』（湯面泡沫綿密如卡布奇諾），遊客排隊店，近博多駅。", "signature": "博多新風ラーメン ¥850、替玉 ¥150", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tonkotsu_ramen.JPG", "mapQuery": "博多一双 博多駅東店" }
+      ]
+    },
+    {
+      "category": "🍲 もつ鍋 / 水炊き",
+      "items": [
+        { "name": "博多もつ鍋 おおやま 本店", "area": "呉服町站步行2分（KITTE博多有店）", "price": "¥4,000–5,000", "hours": "16:00–23:00；定休 12/31、1/1", "intro": "福岡もつ鍋代表，全店掘りごたつ個室，鮮甜味噌湯底招牌。", "signature": "みそ/しょうゆもつ鍋 ¥2,178/人、ちゃんぽん締め", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Motsunabe.jpg", "mapQuery": "博多もつ鍋 おおやま 本店 店屋町", "link": "https://www.motu-ooyama.com/en/" },
+        { "name": "博多もつ鍋 前田屋 総本店", "area": "博多駅周邊", "price": "¥4,000–5,500", "hours": "約 17:00–24:00（不定休）", "intro": "與おおやま齊名兩大派之一，濃厚白湯/味噌、內臟新鮮。", "signature": "もつ鍋（味噌/醤油/水炊き風）¥2,000–2,400/人、明太子料理", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Motsunabe.jpg", "mapQuery": "博多もつ鍋 前田屋 総本店", "link": "https://motsunabe-maedaya.com/" },
+        { "name": "水たき 長野", "area": "中洲川端站附近（対馬小路）", "price": "¥3,000–5,000", "hours": "月–六 12:00–22:00；★週日定休（建議預約）", "intro": "百年水炊き老舖，每日熬鮮雞骨白濁湯；料亭和座，雞肉清淡，最啱一家人慢食、8歲女啱。", "signature": "骨付肉コース、ミンチ（去骨啱細路）、雞湯", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Motsunabe.jpg", "mapQuery": "博多名代 水たき長野 対馬小路", "link": "https://mizutakinagano.com/" },
+        { "name": "水たき料亭 博多華味鳥 中洲本店", "area": "中洲川端站步行5分（博多駅前有店）", "price": "約 ¥5,000", "hours": "午 11:30–15:00、晚 17:00–23:00；4人以上需3日前預約", "intro": "自家雞場『華味鳥』料亭級水炊き，多層個室，私隱好，最啱一家大細圍爐；雞湯清甜小朋友友善。", "signature": "水たきコース ¥4,200起、華味鳥つくね、雞湯雜炊", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Motsunabe.jpg", "mapQuery": "水たき料亭 博多華味鳥 中洲本店", "link": "https://www.hanamidori.net/" }
+      ]
+    },
+    {
+      "category": "🐟 海鮮 / 壽司",
+      "items": [
+        { "name": "河太郎 博多駅店", "area": "JR博多駅博多口步行3分", "price": "午 ¥4,000+・晚 ¥8,000–10,000", "hours": "午 12:00–13:30、晚 17:00–21:30（休お盆/正月）", "intro": "『イカ活造り』發祥店，墨魚透明鮮甜即叫即劏。Tabelog 3.67 Very Good。★活イカ數量有限務必預約。", "signature": "いか活造り ¥2,420/100g、活造り定食 ¥4,180、九州海鮮", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ikizukuri.jpg", "mapQuery": "河太郎 博多駅店 JRJP博多ビル", "link": "https://www.kawataro.jp/hakata/", "menuLink": "https://www.kawataro.jp/hakata/menu.html" },
+        { "name": "河太郎 中洲本店", "area": "櫛田神社前站附近（中洲）", "price": "晚 ¥8,000+", "hours": "午/晚兩部（不定休，查官網）", "intro": "活造り總本店，臨中洲氣氛傳統，活イカ及九州海鮮見稱；要活イカ請預約。", "signature": "いか活造り（時價約 ¥2,400/100g）、河太郎御膳（午）", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ikizukuri.jpg", "mapQuery": "河太郎 中洲本店 福岡", "link": "https://tabelog.com/en/fukuoka/A4001/A400102/40000013/" }
+      ]
+    },
+    {
+      "category": "🏮 屋台（中洲 / 天神夜食）",
+      "items": [
+        { "name": "中洲屋台街", "area": "中洲川端站・那珂川河畔", "price": "¥2,000–3,000/人", "hours": "各檔約 18:00–翌1:00（週日多休、荒天休）", "intro": "福岡最有名屋台街，河邊一字排開、霓虹倒影超有氣氛，易連跳幾檔；帶女童早場去。", "signature": "屋台拉麵/燒鳥/天婦羅/餃子（逐件點）", "mapQuery": "中洲 屋台街 福岡", "link": "https://yokanavi.com/yatai" },
+        { "name": "屋台 呑龍（天神/中洲）", "area": "天神/中洲（流動屋台）", "price": "¥2,000–3,000", "hours": "傍晚–翌2:30（天氣差休）", "intro": "店主夫婦老派屋台，豚骨拉麵/燒鳥/關東煮齊全，常列『初心者啱入』名單。", "signature": "豚骨ラーメン、焼き鳥、おでん", "mapQuery": "屋台 呑龍 福岡 天神", "link": "https://yokanavi.com/yatai" }
+      ]
+    },
+    {
+      "category": "🍮 甜品 / Cafe",
+      "items": [
+        { "name": "いちごや café TANNAL 大名店", "area": "天神/大名", "price": "¥2,000–2,800", "hours": "約 11:00–（季節限定，先查）", "intro": "あまおう草莓農家直營，招牌『本気のあまおうパフェ』，女童會超鍾意。（8月草莓非當造，先確認當季）", "signature": "あまおうパフェ ¥2,300、草莓系列甜品", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Parfait_samples_by_pinguino_in_Osaka%2C_Japan.jpg", "mapQuery": "いちごや cafe TANNAL 福岡大名店", "link": "https://www.nishitetsu.jp/nishitetsu_news/entry_type/post-6978/" },
+        { "name": "スターバックス 太宰府天満宮表参道店", "area": "太宰府參道", "price": "¥600–1,000", "hours": "約 8:00–20:00", "intro": "隈研吾設計『木組み』榫接外觀，全球最美星巴克之一，遊太宰府順道打卡，細路覺得型。", "signature": "季節飲品、福岡限定商品", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Parfait_samples_by_pinguino_in_Osaka%2C_Japan.jpg", "mapQuery": "スターバックス 太宰府天満宮表参道店" }
+      ]
+    },
+    {
+      "category": "☕ 咖啡",
+      "items": [
+        { "name": "REC COFFEE 天神ワンビル店", "area": "天神 ONE FUKUOKA BLDG.", "price": "¥600–1,200", "hours": "月火水金 8:00–20:00、土日祝 10:00–20:00", "intro": "福岡之光，岩瀬由和 2016 世界咖啡師亞軍；自家烘焙精品豆，天神新地標大樓內。", "signature": "手沖單品、拿鐵、自家烘焙豆（手信）", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Latte_and_dark_coffee.jpg", "mapQuery": "REC COFFEE 天神ワンビル店", "link": "https://rec-coffee.com/en" },
+        { "name": "豆香洞コーヒー（本店・大野城）", "area": "大野城（福岡近郊）", "price": "¥500–1,000", "hours": "約 10:00–19:00（不定休）", "intro": "後藤直紀 2013 世界烘焙冠軍（日本唯一），烘焙界殿堂；買豆/掛耳一流手信。", "signature": "單品手沖、冠軍烘焙豆、掛耳包", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Latte_and_dark_coffee.jpg", "mapQuery": "豆香洞コーヒー 本店 大野城", "link": "https://www.welcomekyushu.jp/article/?mode=detail&id=436" }
+      ]
+    },
+    {
+      "category": "🥟 居酒屋 / 家庭餐（啱 8 歲女）",
+      "items": [
+        { "name": "博多鉄なべ 無限餃子", "area": "博多駅周邊", "price": "¥2,500–3,500", "hours": "約 17:00–24:00（不定休）", "intro": "明確標榜親子友善：梳化大位、空間闊落、一口 size 餃子細路一啖一隻，最推薦帶 8 歲女。", "signature": "鉄なべ餃子（一口）、串燒、飯/湯", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/%E5%8F%B0%E7%81%A3%E5%8D%97%E6%8A%95%E8%8D%89%E5%B1%AF%E6%B0%B4%E9%A4%83Nantou%2C_Taiwan_Caotun_dumplings.jpg", "mapQuery": "博多鉄なべ 無限餃子 博多駅", "link": "https://mugengyoza.owst.jp/" },
+        { "name": "博多祇園 鉄なべ", "area": "博多駅・祇園", "price": "¥2,000–3,500", "hours": "約 17:00–24:00（不定休）", "intro": "博多『鉄なべ餃子』代表，一口大、鐵鍋上枱滋滋作響、皮脆餡多。", "signature": "鉄なべ餃子、手羽先", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/%E5%8F%B0%E7%81%A3%E5%8D%97%E6%8A%95%E8%8D%89%E5%B1%AF%E6%B0%B4%E9%A4%83Nantou%2C_Taiwan_Caotun_dumplings.jpg", "mapQuery": "博多祇園 鉄なべ" },
+        { "name": "KITTE博多 / デイトス 食堂街", "area": "JR博多駅直結", "price": "¥1,500–4,000", "hours": "約 11:00–23:00（各店不一）", "intro": "車站大樓內集合おおやま、ShinShin、明太子、海鮮定食多間名店分店；有冷氣、嬰兒車友善、選擇多，最穩陣家庭選擇。", "signature": "一站食勻もつ鍋/拉麵/明太子定食/海鮮丼", "mapQuery": "KITTE博多 うまかんね横丁", "link": "https://hakata.jp-kitte.jp/" }
+      ]
+    },
+    {
+      "category": "🍡 お土産 / 伴手禮",
+      "items": [
+        { "name": "博多通りもん（明月堂）", "area": "博多駅マイング/福岡空港", "price": "12個 ¥1,650", "hours": "依店", "intro": "福岡手信代名詞，連續 19 年 Monde Selection 金獎；白豆沙+煉乳奶香，老少咸宜。", "signature": "博多通りもん", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Alaska_pollack_liver_roe_milt.jpg/1280px-Alaska_pollack_liver_roe_milt.jpg", "mapQuery": "博多通りもん マイング 博多駅", "link": "https://www.meigetsudo.co.jp/" },
+        { "name": "辛子明太子（ふくや）", "area": "博多駅地下街/空港", "price": "¥1,000–3,000", "hours": "約 10:00–18:30", "intro": "日本首創明太子，純鱈魚卵鮮味、辣度可揀；冷藏，最後一日買用保冷。", "signature": "味の明太子（各規格）", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Alaska_pollack_liver_roe_milt.jpg/1280px-Alaska_pollack_liver_roe_milt.jpg", "mapQuery": "ふくや 博多駅地下街店", "link": "https://www.fukuya.com/shop/ekichika/" }
+      ]
+    }
+  ],
+  "alternatives": [
+    {
+      "category": "👧 親子・8 歲女童啱玩",
+      "items": [
+        { "name": "KidZania 福岡（職業體驗）", "area": "ららぽーと福岡 4F", "cost": "假日小學生約 ¥4,300–5,300", "tag": "★ 約6/2搶飛", "note": "70+ 職業體驗，8 歲黃金；2 部制要預約", "mapQuery": "キッザニア福岡" },
+        { "name": "海之中道 サンシャインプール", "area": "海ノ中道駅", "cost": "大人 ¥2,300（WEB ¥2,100）", "tag": "★ 8/28休", "note": "夏季水樂園，8/22–27 連開；WEB 預售平+免排隊", "mapQuery": "海の中道サンシャインプール" },
+        { "name": "BOSS E・ZO FUKUOKA", "area": "PayPay Dome 旁", "cost": "各設施分別收費", "tag": "室內外", "note": "VR、絕望滑梯、teamLab 同棟", "mapQuery": "BOSS E・ZO FUKUOKA" },
+        { "name": "福岡 Anpanman 兒童博物館", "area": "博多 Asian Pace", "cost": "約 ¥2,000+/人", "tag": "全室內", "note": "雨天/颱風神救星（8歲偏大但仍啱）", "mapQuery": "福岡アンパンマンこどもミュージアム" },
+        { "name": "福岡市動植物園", "area": "市中心 南公園", "cost": "約 ¥600", "tag": "★週一休・夜場", "note": "暑期週六有夜の動植物園", "mapQuery": "福岡市動植物園" }
+      ]
+    },
+    {
+      "category": "🌧️ 室內・落雨 backup",
+      "items": [
+        { "name": "Canal City 博多", "area": "中洲川端旁", "cost": "免費入場", "tag": "商場+噴泉", "note": "全室內，戲院+美食（拉麵 stadium 已休業）", "mapQuery": "キャナルシティ博多" },
+        { "name": "天神地下街 / ONE FUKUOKA", "area": "天神", "cost": "免費", "tag": "避雨購物", "note": "長地下街+2025 新開大樓，落雨唔使出地面", "mapQuery": "天神地下街" },
+        { "name": "九州國立博物館", "area": "太宰府旁", "cost": "常設約 ¥700（未核實）", "tag": "室內", "note": "配太宰府同日，雨天 backup", "mapQuery": "九州国立博物館" }
+      ]
+    },
+    {
+      "category": "🚆 近郊 / optional（睇時間天氣）",
+      "items": [
+        { "name": "糸島 櫻井二見浦", "area": "地鐵+JR/巴士 40–70分", "cost": "免費", "tag": "optional・要租車", "note": "九州版夏威夷，純白海中鳥居+海邊咖啡；景點散落晴天先值得，建議租車", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/itoshima.jpg", "mapQuery": "糸島 二見ヶ浦" },
+        { "name": "柳川遊船", "area": "西鐵 約50分", "cost": "大人約 ¥1,700–2,000", "tag": "optional・天氣", "note": "九州威尼斯水鄉搖船；颱風/暴雨停航", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Yanagawa-kawakudari.jpg", "mapQuery": "柳川川下り" },
+        { "name": "由布院（湯布院）", "area": "JR特急 約2h15", "cost": "約 ¥5,690（含指定席）", "tag": "溫泉小鎮・要早訂", "note": "金鱗湖+湯之坪街道；由布院之森指定席 1 個月前搶", "imageUrl": "https://aivin3.github.io/fukuoka-trip-2026/img/yufuintrain.jpg", "mapQuery": "湯布院 金鱗湖" },
+        { "name": "門司港懷舊 / 熊本城", "area": "JR 1.5h / 新幹線 40分", "cost": "免費 / 約 ¥800", "tag": "近郊備選", "note": "大正洋風港 / 名城修復中特別見學", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/1280px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg", "mapQuery": "門司港レトロ" }
+      ]
+    }
+  ],
+  "hotels": [
+    {
+      "name": "🥇 Airbnb 整套・博多站周邊（首選）", "area": "博多區（地下鐵博多站）", "pricePerNight": "7晚 ≈ HK$8,880", "rating": "區域首選",
+      "highlights": "福岡交通樞紐：機場→博多地鐵僅 5 分 ¥260；去由布院/門司港/熊本 JR 全由博多站起，每朝慳轉乘。Canal City/屋台步行可達。揀盤：整套・房數≥2-3・入住≥4人・近地鐵≤8分・評分≥4.8・有冷氣・電梯・洗衣機・★民泊許可番號 M+9位。",
+      "confirmation": "（自己 Airbnb 訂・填訂單號）", "mapQuery": "博多駅" },
+    {
+      "name": "🥈 Airbnb 整套・天神／大名", "area": "中央區（地下鐵天神站）", "pricePerNight": "7晚 ≈ HK$8,880–12,980", "rating": "購物食買中心",
+      "highlights": "福岡第一購物食買區，西鐵天神站係去太宰府/柳川起點（唔使先入博多）。整套 Airbnb 較少要早搶。",
+      "confirmation": "", "mapQuery": "天神駅 福岡" },
+    {
+      "name": "🥉 Airbnb 整套・唐人町／大濠公園", "area": "中央區西側", "pricePerNight": "7晚 ≈ HK$6,150–8,880", "rating": "靜・公園旁",
+      "highlights": "大濠+舞鶴公園綠地，靜、適合一家大細放電；地鐵空港線一條過去博多/天神/機場。購物食肆密度低過天神。",
+      "confirmation": "", "mapQuery": "大濠公園 福岡" },
+    {
+      "name": "⚠️ 民泊合法 + 中洲只去唔住", "area": "全福岡", "rating": "避坑",
+      "highlights": "日本民泊新法：合法盤有『M+9位許可番號』(listing 認可欄)，無番號高風險唔好訂；民泊每年上限 180 日，旺季確認收得。揀 Superhost+真實評論+全程平台付款。★中洲夜嘈近風月場所，帶細路只去食屋台唔好住。查冊：觀光廳民泊ポータル / 福岡県住宅宿泊事業制度。",
+      "confirmation": "", "mapQuery": "中洲 福岡" }
+  ],
+  "budget": {
+    "tiers": [
+      { "label": "💵 經濟", "total": "≈ HK$19,000", "note": "人均 ~4,750｜性價比2房・多自煮・近郊1–2個" },
+      { "label": "💴 中等（已鎖）", "total": "≈ HK$25,370", "note": "人均 ~6,340｜新淨好位整套房・近郊3–4個", "pick": true },
+      { "label": "💎 寬鬆", "total": "≈ HK$33,170", "note": "人均 ~8,290｜頂級新盤・近郊全跑+特急・餐廳多" }
+    ],
+    "accommodation": { "items": [], "subtotal": "整套2–3房 7晚 ≈ ¥182,000（約 HK$8,880）" },
+    "transport": { "items": [], "subtotal": "市內+近郊（太宰府柳川套票/由布院特急/海之中道）≈ ¥66,000（約 HK$3,220）" },
+    "food": { "items": [], "subtotal": "4人×8日（拉麵/屋台/名店混）≈ ¥192,000（約 HK$9,370）" },
+    "tickets": { "items": [], "subtotal": "KidZania/海洋世界/サンシャインプール/teamLab/福岡塔/由布院 ≈ ¥48,000（約 HK$2,340）" },
+    "other": { "items": [], "subtotal": "手信/雜項 ≈ ¥40,000（約 HK$1,950）" },
+    "total": "≈ ¥520,000（約 HK$25,370）",
+    "perPerson": "≈ HK$6,340",
+    "note": "中等檔（4人7夜・不計機票）。匯率 HK$1≈¥20.5（2026/6 實際，比 ¥19 更抵）。8月暑假 Airbnb 全年最貴要早訂；由布院之森指定席 1 個月前搶；KidZania 8 月飛約 6/2 開賣即搶。所有價為 2025–26 公開資料整合，落單前以官方即時價為準；標 未核實/估算 者尤其要自行核對。"
+  },
+  "essentials": {
+    "currency": "日圓 JPY；HK$1 ≈ ¥20.5（出發前查即時匯率）",
+    "plug": "A 型兩腳扁插，100V",
+    "transit": "はやかけん / SUGOCA IC 卡（地鐵/JR/巴士通用）；地鐵一日券 大人 ¥640",
+    "emergency": "警察 110 / 救護消防 119 / 日本旅遊熱線 050-3816-2787",
+    "sim": "機場買 eSIM 或租 Wi-Fi；docomo/SoftBank 訊號好",
+    "timezone": "日本時間（HK +1 小時）",
+    "language": "日語；漢字筆談 OK，旅遊區英文一般",
+    "tipping": "唔使俾小費"
+  },
+  "tips": [
+    "★ KidZania 福岡：8 月飛約 6/2（每月 2 日 10:00 開賣 3 個月後嗰月）即搶，2 部制；體驗日語為主，揀動作型職業（消防/披薩/運轉）細路最 enjoy。",
+    "★ 海之中道 サンシャインプール：8/22–27 連開、★ 8/28(五) 休唔好撞；WEB 預售平 ¥200/人+免排隊；自備泳衣泳帽防曬。",
+    "★ νGundam 夜場 19:00–21:00 燈效最靚（日間每正點起動）；KidZania + LaLaport 同一棟，44/45 巴士一程到。",
+    "★ 由布院之森全車指定席：乘車 1 個月前早上 10:00 開賣，暑假秒殺，必經 JR九州網上會員或 Midori 窗口搶位。",
+    "★ 8/22–23 PayPay Dome 有音樂祭可能撞鷹隊賽 → 唐人町一帶逼爆房價升；嗰兩日去東區（海之中道）反而清靜。",
+    "★ 8/28 下午 6 點要到福岡機場上機返港，當日只安排大濠晨遊+博多站手信+午餐，預早出發。",
+    "颱風季（8–10 月）：近郊日（柳川/由布院）遇颱風停航停駛；每朝查 JMA 預報，市區室內 backup 充足可同近郊日對調。8/24 週一多設施休館已排室內日避開。",
+    "酷暑 32°C+高濕：戶外排上午/黃昏，正午躲室內；屋台落雨/荒天休、現金為主、早場去；名店（華味鳥/水たき長野/河太郎活イカ）出發前網上預約。太宰府+柳川用西鐵套票（大人 ¥3,210 含船）。糸島牡蠣 8 月冇。"
+  ]
+}

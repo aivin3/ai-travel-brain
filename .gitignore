@@ -1,0 +1,8 @@
+# deploy 輸出係獨立 GitHub Pages repo（自有 .git + 已備份喺 GitHub），唔入 master
+deploy/
+deploy-fukuoka/
+deploy-fukuoka-sync/
+deploy-kaohsiung-sync/
+.DS_Store
+*.log
+/tmp/
