@@ -6,3 +6,4 @@ deploy-kaohsiung-sync/
 .DS_Store
 *.log
 /tmp/
+backups/

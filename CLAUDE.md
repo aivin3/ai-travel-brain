@@ -1,5 +1,9 @@
 # AI Travel Brain — 旅遊研究・規劃・路書主規範
 
+> 🆕 **新 AI 接手 / 跨環境遷移**：先讀 [`BLUEPRINT.md`](BLUEPRINT.md)（完整上下文備份：架構/決定/坑/源碼/待辦）。
+> Master 源碼備份 repo（private）：`github.com/aivin3/ai-travel-brain`。
+> 開工必讀順序：BLUEPRINT.md → 本檔 → schema/tripData.schema.json → templates/roadbook.html → 某 trips/*/tripData.json。
+
 > 本檔是 Claude 在此工作區的最高指令。所有旅遊 research / planning / 出路書必須遵守。
 > 用戶：香港出發，國際旅行（家庭為主）。語言：**繁體中文輸出**，景點/酒店/餐廳保留當地原名方便當地用。
 > 定位：**自己旅行用**（出發前規劃 + 旅行途中手機查 + 同家人分享），唔係商業客戶路書。
