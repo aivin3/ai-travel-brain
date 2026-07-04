@@ -57,8 +57,20 @@ while IFS="$(printf '\t')" read -r url dir slug mode; do
     if diff -q "$TMP/live.html" "$dir/index.html" >/dev/null 2>&1; then ok=1; break; fi
     sleep 30
   done
-  [ "$ok" = "1" ] && PASS "live 已一致: $url" \
-    || FAIL "live 仲未同本地一致（Pages 可能仲喺度 build，2 分鐘後跑 check.sh 覆核）: $url"
+  if [ "$ok" = "1" ]; then
+    PASS "live 已一致: $url"
+  else
+    # 實測（2026-07-04）：Pages 嘅 deploy 步驟會transient fail（幾個 repo 同時 push 尤其易中）。
+    # 診斷：睇最新 run 結論；係 failure → 空 commit 重觸發多數搞掂。
+    repo="$(git -C "$dir" remote get-url origin | sed 's#.*/\([^/]*\)\.git#\1#')"
+    concl="$(curl -s --max-time 15 "https://api.github.com/repos/aivin3/$repo/actions/runs?per_page=1" \
+      | python3 -c "import json,sys;w=json.load(sys.stdin).get('workflow_runs',[{}])[0];print(w.get('status',''),w.get('conclusion',''))" 2>/dev/null)"
+    FAIL "live 未同本地一致: $url（Pages run: ${concl:-unknown}）"
+    case "$concl" in *failure*)
+      echo "   ↳ deploy 步驟 fail 咗（transient 常見）。重觸發：( cd $dir && git commit --allow-empty -m 'retrigger pages' && git push origin main )";;
+      *) echo "   ↳ 可能仲喺度 build；2 分鐘後跑 bash scripts/check.sh 覆核";;
+    esac
+  fi
 done < scripts/deploy_map.tsv
 
 printf '\n════════════════════════════════════\n'

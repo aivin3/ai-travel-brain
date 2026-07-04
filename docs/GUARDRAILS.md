@@ -56,6 +56,7 @@
 - **症狀**：`deploy*/` 資料夾係獨立 git repo（唔喺本 repo 入面）。三種靜默死法：①push 失敗/repo 改名 → 開唔到 ②commit 咗冇 push / Pages 未刷新 → live 係舊版 ③改咗模板/數據漏重出 → 本地 deploy 檔都係舊。
 - **規則**：deploy 一律跑 `bash scripts/deploy.sh`（重生→push→等 Pages→驗 live 一致）；新 deploy 必須加入 `scripts/deploy_map.tsv`（url/dir/slug/mode 四欄，係 deploy 清單嘅單一真相）。
 - **機械檢查**：check.sh §4 三層 —— live 200；live == 本地 deploy 檔；本地 deploy 檔 == 由當前數據+模板重生。（淨 clone 冇 deploy 資料夾會跳後兩層並警告。）
+- **已知現象（2026-07-04 實測）**：Pages「deploy」步驟會 transient fail（幾個 repo 同時 push 尤其易中；build 成功但 deploy 失敗）。deploy.sh 會自動報 run 結論；修法 = 空 commit 重觸發（`git commit --allow-empty && git push`），唔使改任何內容。
 
 ## G11 · 揀錯模板靜默 fallback
 - **症狀**：tripData 寫 `"template": "roadbook_pj.html"`（打錯字）→ 舊版 generate.py 靜默用預設模板，出咗個完全唔同設計都冇人發現。
