@@ -50,11 +50,12 @@ while IFS="$(printf '\t')" read -r url dir slug mode; do
   fi
 
   # 3) 等 GitHub Pages 刷新 → 驗 live == 本地（點解：push 成功 ≠ 上線成功；CDN 有延遲）
+  # 實測（2026-07-04）：Pages 冷 build + CDN 可以要 >2 分鐘，等候窗要闊
   ok=0
-  for i in 1 2 3 4 5 6; do
+  for i in 1 2 3 4 5 6 7 8 9 10; do
     curl -sL --max-time 20 "$url" -o "$TMP/live.html"
     if diff -q "$TMP/live.html" "$dir/index.html" >/dev/null 2>&1; then ok=1; break; fi
-    sleep 20
+    sleep 30
   done
   [ "$ok" = "1" ] && PASS "live 已一致: $url" \
     || FAIL "live 仲未同本地一致（Pages 可能仲喺度 build，2 分鐘後跑 check.sh 覆核）: $url"
