@@ -28,8 +28,9 @@ SECTION(){ printf '\n━━━ %s ━━━\n' "$1"; }
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-# 共用 JS 模板對（roadbook-washi.html 係分家實驗 fork，JS 唔共用，唔入呢個閘；見 GUARDRAILS G2）
-SHARED_JS_PAIR=("templates/roadbook.html" "templates/roadbook_jp.html")
+# 共用 JS 基準模板：templates/ 內「所有」模板嘅主 JS 必須同佢逐字節一致（只准 CSS 唔同）。
+# 2026-07-04 起 washi 分家 fork 已刪（GUARDRAILS G2）；新視覺模板 = copy 基準檔只改 CSS，即自動受呢個閘保護。
+JS_BASELINE="templates/roadbook.html"
 
 # ---------------------------------------------------------------------------
 # 0) 工具存在（點解：node --check 係唯一 JS 語法閘，冇佢 = 閘穿窿，寧願 fail）
@@ -68,20 +69,22 @@ for t in templates/*.html; do
   fi
 done
 
-# 1d. 共用 JS drift 閘（點解：兩模板共用同一份 render+工具 JS，歷史上已經走樣過一次
-#     —— pastel 版曾缺 overview/glow/events 縮圖。呢個閘要求兩檔主 JS 逐字節一致，
-#     只有 CSS 准唔同。改邏輯必須兩檔同步改，改完呢度先會綠。）
-extract_js "${SHARED_JS_PAIR[0]}" "$TMP/js_a.js"
-extract_js "${SHARED_JS_PAIR[1]}" "$TMP/js_b.js"
-# 正規化：去尾隨空白（唔正規化其他嘢——縮排都要一致，先易 grep-replace 同步）
-sed 's/[[:space:]]*$//' "$TMP/js_a.js" > "$TMP/js_a_n.js"
-sed 's/[[:space:]]*$//' "$TMP/js_b.js" > "$TMP/js_b_n.js"
-if diff -q "$TMP/js_a_n.js" "$TMP/js_b_n.js" >/dev/null; then
-  PASS "共用 JS 無 drift（${SHARED_JS_PAIR[0]} ↔ ${SHARED_JS_PAIR[1]}）"
-else
-  FAIL "共用 JS drift！兩模板主 <script> 唔一致（頭號隱形 bug 源）。diff 摘要："
-  diff "$TMP/js_a_n.js" "$TMP/js_b_n.js" | head -20
-fi
+# 1d. 共用 JS drift 閘（點解：全部模板共用同一份 render+工具 JS，歷史上已經走樣過一次
+#     —— pastel 版曾缺 overview/glow/events 縮圖成個月。呢個閘要求每個模板主 JS 同基準
+#     逐字節一致，只有 CSS 准唔同。改邏輯必須全部模板同步改，改完呢度先會綠。）
+extract_js "$JS_BASELINE" "$TMP/js_base.js"
+sed 's/[[:space:]]*$//' "$TMP/js_base.js" > "$TMP/js_base_n.js"
+for t in templates/*.html; do
+  [ "$t" = "$JS_BASELINE" ] && continue
+  extract_js "$t" "$TMP/js_t.js"
+  sed 's/[[:space:]]*$//' "$TMP/js_t.js" > "$TMP/js_t_n.js"
+  if diff -q "$TMP/js_base_n.js" "$TMP/js_t_n.js" >/dev/null; then
+    PASS "共用 JS 無 drift（$JS_BASELINE ↔ $t）"
+  else
+    FAIL "共用 JS drift！$t 主 <script> 同基準唔一致（頭號隱形 bug 源）。diff 摘要："
+    diff "$TMP/js_base_n.js" "$TMP/js_t_n.js" | head -20
+  fi
+done
 
 # ---------------------------------------------------------------------------
 # 2) 每個 trip：JSON → 生成 → 語法 → 殘留 → 新鮮度
@@ -204,16 +207,57 @@ else
   done < "$TMP/imgs_u.txt"
   [ "$IMG_FAILS" = "0" ] && PASS "$(wc -l < "$TMP/imgs_u.txt" | tr -d ' ') 條圖片 URL 全部 200 image/*"
 
-  SECTION "4. Deploy link 健康檢查"
-  # 點解：deploy*/ 資料夾唔喺本 repo，push 咗冇上線 / repo 改名都係靜默死；呢度係唯一補閘。
-  if [ -f scripts/deploy_urls.txt ]; then
-    while IFS= read -r u; do
+  SECTION "4. Deploy 健康 + 新鮮度"
+  # 點解：deploy*/ 資料夾係獨立 git repo，push 咗冇上線 / 改咗模板漏重出 / Pages 未刷新
+  # 全部係靜默死。呢度三層閘：live 200 → live 內容 = 本地 deploy 檔 → 本地 deploy 檔 = 由
+  # 當前 tripData+模板重生（sync 版注入 firebase）。deploy 資料夾唔存在（例如淨 clone）就跳後兩層。
+  # 清單：scripts/deploy_map.tsv（url \t dir \t slug \t offline|sync）。新 deploy 必須加一行。
+  if [ -f scripts/deploy_map.tsv ]; then
+    while IFS="$(printf '\t')" read -r u dir slug mode; do
       case "$u" in \#*|"") continue;; esac
-      code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "$u")"
-      [ "$code" = "200" ] && PASS "上線中: $u" || FAIL "deploy link 死咗 [$code]: $u"
-    done < scripts/deploy_urls.txt
+      body="$TMP/live_${slug}_${mode}.html"
+      code="$(curl -sL -o "$body" -w '%{http_code}' --max-time 20 "$u")"
+      [ "$code" = "200" ] && PASS "上線中: $u" || { FAIL "deploy link 死咗 [$code]: $u"; continue; }
+      if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
+        # live == 本地 deploy 檔？（唔等 = push 咗未 / Pages CDN 未刷新）
+        if diff -q "$body" "$dir/index.html" >/dev/null; then
+          PASS "live 同本地 deploy 一致: $dir"
+        else
+          FAIL "live ≠ 本地 $dir/index.html（未 push？Pages 未刷新？等 1-2 分鐘再跑）"
+        fi
+        # 本地 deploy 檔 == 由當前數據+模板重生？（唔等 = 改咗嘢漏重出，跑 scripts/deploy.sh）
+        if [ "$mode" = "sync" ]; then
+          python3 -c "import json;d=json.load(open('trips/$slug/tripData.json'));d['firebase']=json.load(open('firebase.config.json'));open('$TMP/s.json','w').write(json.dumps(d,ensure_ascii=False))" \
+            && python3 scripts/generate.py "$TMP/s.json" -o "$TMP/dep.html" >/dev/null 2>&1
+        else
+          python3 scripts/generate.py "trips/$slug/tripData.json" -o "$TMP/dep.html" >/dev/null 2>&1
+        fi
+        grep -v '"generationDate"' "$TMP/dep.html" > "$TMP/dep_n.html"
+        grep -v '"generationDate"' "$dir/index.html" > "$TMP/loc_n.html"
+        diff -q "$TMP/dep_n.html" "$TMP/loc_n.html" >/dev/null \
+          && PASS "deploy 成品新鮮: $dir" \
+          || FAIL "$dir/index.html stale（數據/模板改咗未重出）→ 跑 bash scripts/deploy.sh"
+      else
+        WARN "$dir 唔存在（淨 clone 環境），跳過 $slug $mode 新鮮度檢查"
+      fi
+    done < scripts/deploy_map.tsv
   else
-    WARN "冇 scripts/deploy_urls.txt，跳過 deploy 檢查"
+    WARN "冇 scripts/deploy_map.tsv，跳過 deploy 檢查"
+  fi
+
+  SECTION "5. Firebase 規則健康（共用分帳）"
+  # 點解：RTDB 測試模式規則會靜默過期 → 家人部機分帳突然唔同步，冇 error 冇人知。
+  # 正確狀態（用戶已 publish）：房間內可讀寫；/rooms 列舉拒絕；/rooms 以外拒絕。
+  if [ -f firebase.config.json ]; then
+    DBURL="$(python3 -c "import json;print(json.load(open('firebase.config.json')).get('databaseURL',''))")"
+    if [ -n "$DBURL" ]; then
+      r1="$(curl -s --max-time 15 "$DBURL/rooms/_healthcheck_probe.json")"
+      r2="$(curl -s --max-time 15 -X PUT -d '"x"' "$DBURL/_outside_probe.json")"
+      [ "$r1" = "null" ] && PASS "房間級讀取 OK（sync 功能生存）" \
+        || FAIL "房間級讀取被拒（rules 過期/改壞？sync 分帳已死）: $r1"
+      case "$r2" in *"Permission denied"*) PASS "/rooms 以外寫入被拒（rules 冇 wide-open）";;
+        *) FAIL "/rooms 以外寫得入！rules 太寬，去 Firebase console 收窄";; esac
+    fi
   fi
 fi
 

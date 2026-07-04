@@ -58,26 +58,24 @@
 3. 如果改動需要新 CSS class → 兩檔**各自**加（CSS 准唔同，用各自嘅色變數；pastel 冇 `--aka/--gold`，和風冇 `--coral/--amber`）。
 4. 重生**所有** trip：`for t in trips/*/tripData.json; do python3 scripts/generate.py "$t"; done`
 5. 跑 `bash scripts/check.sh`（drift 閘會逼你做齊 2 同 4）。
-6. 有 deploy 需要 → 跟 P6。
-- washi 模板唔喺共用份（G2）：唔使同步，但都唔准當佢有新功能。
+6. 改咗模板 = live 版都舊咗 → 跑 `bash scripts/deploy.sh`（P6）。
+- 新視覺模板 = copy `roadbook.html` 只改 CSS，主 JS 一隻字唔准郁（G2；drift 閘自動涵蓋新檔）。
 
-## P6 · Deploy SOP（每個 deploy*/ 係獨立 git repo）
+## P6 · Deploy SOP（已腳本化，唔好人手逐步做）
 
-1. 離線版：`cp trips/<slug>/roadbook.html deploy-<x>/index.html`
-2. 共用版（注入 firebase）：
-   ```bash
-   python3 -c "import json;d=json.load(open('trips/<slug>/tripData.json'));d['firebase']=json.load(open('firebase.config.json'));open('/tmp/s.json','w').write(json.dumps(d,ensure_ascii=False))"
-   python3 scripts/generate.py /tmp/s.json -o deploy-<x>-sync/index.html
-   ```
-3. `( cd deploy-<x> && git add index.html img/ && git commit -m "update" && git push origin main )`
-4. 新 deploy link → 加入 `scripts/deploy_urls.txt`（唔加 = check.sh 冇得幫你守）。
-5. 改咗模板 = 4 條 link 全部要重出（兩 trip × 離線/共用）。
-6. 最後跑 `bash scripts/check.sh` 驗 deploy link 200。
+```bash
+bash scripts/deploy.sh                    # 重出全部（重生→push→等 Pages→驗 live 一致）
+bash scripts/deploy.sh fukuoka-2026-08    # 只重出一個 trip 嘅離線+共用兩條
+```
+- 要喺**工作夾**跑（deploy*/ 資料夾要存在）；淨 clone 會即刻報錯。
+- **新 deploy** → 起好 deploy 資料夾（獨立 git repo 掛 GitHub Pages）後，加一行入 `scripts/deploy_map.tsv`（`url \t dir \t slug \t offline|sync`）—— 唔加 = deploy.sh 同 check.sh 都唔知佢存在。
+- 改咗模板 = 全部 trip 嘅 live 版都舊咗，跑無參數版重出晒。
+- 最後跑 `bash scripts/check.sh`（§4 會驗 live 200 + live==本地 + 本地==重生）。
 
 ## P7 · 新 trip 開工清單
 
 1. 讀 `CLAUDE.md` → 跟 `skill.md` 七步 workflow。
 2. 黃金範本：**抄 `trips/fukuoka-2026-08/tripData.json` 嘅結構**（唔好由零作），對照 `docs/GOLDEN_RUBRIC.md` 自評。
-3. 模板只准揀 `roadbook.html` / `roadbook_jp.html`（G2）。
+3. 模板揀 `roadbook.html`（夢幻）或 `roadbook_jp.html`（和風）。
 4. `title` 要同現有 trip 唔同（G9）。
 5. 收工前：`python3 scripts/generate.py <tripData> --strict` 清零警告 + `bash scripts/check.sh` 全綠。

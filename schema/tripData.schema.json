@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["title"],
   "properties": {
-    "template": { "type": "string", "description": "揀模板檔名：roadbook.html（夢幻 pastel，預設）/ roadbook_jp.html（和風高對比）。roadbook-washi.html 係分家實驗品，新 trip 唔准用（docs/GUARDRAILS.md G2）" },
+    "template": { "type": "string", "description": "揀模板檔名：roadbook.html（夢幻 pastel，預設）/ roadbook_jp.html（和風高對比）。所有模板主 JS 逐字節一致，只有 CSS 唔同（docs/GUARDRAILS.md G1/G2）" },
     "firebase": { "type": "object", "description": "（可選）Firebase Realtime DB config；有先注入 SDK + window.FIREBASE_CONFIG，啟用多人共用分帳。離線版唔好放。" },
     "kicker": { "type": "string", "description": "封面小標（地區英文，例 FUKUOKA · KYUSHU · JAPAN）" },
     "title": { "type": "string" },

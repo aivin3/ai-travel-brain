@@ -11,10 +11,10 @@
 - **規則**：`roadbook.html` 同 `roadbook_jp.html` 嘅主 `<script>` 區塊必須**逐字節一致**（連縮排）；兩檔只准 CSS 唔同。改 JS = 兩檔同步改（SOP 見 PLAYBOOK P5）。
 - **機械檢查**：check.sh §1d —— 抽兩檔最後一個 `<script>`，normalize 尾隨空白後 diff，唔一致即 FAIL。
 
-## G2 · roadbook-washi.html 係分家 fork，唔受 G1 保護
-- **症狀**：以為 washi 都係「共用 JS」一份子，改完兩主模板就話 done；或者新 trip 用 washi，發現冇訂單收納/Firebase 同步/QR（佢 JS 係另一套，缺工具族）。
-- **規則**：washi 係實驗品：**新 trip 只准用 `roadbook.html` / `roadbook_jp.html`**；要用 washi 先要人類拍板 + 把佢 JS 統一入共用份（做完先可以加入 G1 drift 閘）。
-- **機械檢查**：部分——check.sh §1 對 washi 只驗 placeholder/JS 語法/iOS 坑；JS 分家風險靠本條規則 + PLAYBOOK P5。**呢個係已知缺口**（見 INSTITUTIONALIZED.md）。
+## G2 · 分家模板 fork（歷史：roadbook-washi.html，2026-07-04 已刪）
+- **症狀**：有人 copy 模板出去做新視覺，JS 順手改咗/冇跟上，變成第二套碼 —— 唔受 drift 閘保護，工具功能靜默缺失。真實案例：washi fork JS 完全分家、缺訂單收納/Firebase 同步/QR、仲有 iOS 坑，喺 repo 躺咗好耐冇人發現。
+- **規則**：**新視覺模板 = copy `templates/roadbook.html`，只准改 CSS，主 `<script>` 一隻字都唔准郁**。做完佢自動受 G1 drift 閘保護（閘係「全部 templates/*.html 對基準」）。
+- **機械檢查**：check.sh §1d —— 任何模板主 JS 同基準唔一致即 FAIL；想「試驗性分家」= 唔准，先統一先入 repo。
 
 ## G3 · 手改 HTML / 改完唔重生（stale 成品）
 - **症狀**：直接手改 `trips/*/roadbook.html`（或改咗 tripData/模板但冇重跑 generate.py）。下次任何人重生成，手改嘢即刻蒸發；或者 repo 入面成品同數據講緊兩個唔同故事。
@@ -52,10 +52,10 @@
 - **規則**：每個 trip 嘅 `title` 必須全 repo 唯一。
 - **機械檢查**：check.sh §2f —— titles 有重複即 FAIL。
 
-## G10 · Deploy 靜默死鏈
-- **症狀**：`deploy*/` 資料夾係獨立 git repo（唔喺本 repo 入面），push 失敗/repo 改名/Pages 設定壞 → 家人手機開唔到，冇人知。
-- **規則**：4 條 live link 記錄喺 `scripts/deploy_urls.txt`；新 deploy 要加入去。
-- **機械檢查**：check.sh §4 —— 逐條 curl 驗 200。
+## G10 · Deploy 靜默死鏈 / 靜默 stale
+- **症狀**：`deploy*/` 資料夾係獨立 git repo（唔喺本 repo 入面）。三種靜默死法：①push 失敗/repo 改名 → 開唔到 ②commit 咗冇 push / Pages 未刷新 → live 係舊版 ③改咗模板/數據漏重出 → 本地 deploy 檔都係舊。
+- **規則**：deploy 一律跑 `bash scripts/deploy.sh`（重生→push→等 Pages→驗 live 一致）；新 deploy 必須加入 `scripts/deploy_map.tsv`（url/dir/slug/mode 四欄，係 deploy 清單嘅單一真相）。
+- **機械檢查**：check.sh §4 三層 —— live 200；live == 本地 deploy 檔；本地 deploy 檔 == 由當前數據+模板重生。（淨 clone 冇 deploy 資料夾會跳後兩層並警告。）
 
 ## G11 · 揀錯模板靜默 fallback
 - **症狀**：tripData 寫 `"template": "roadbook_pj.html"`（打錯字）→ 舊版 generate.py 靜默用預設模板，出咗個完全唔同設計都冇人發現。
@@ -71,3 +71,8 @@
 - **症狀**：check.sh 連跑幾次後圖片閘大量 FAIL 429，誤以為圖死咗，亂換圖/剷閘。
 - **規則**：429 = 你請求太密，唔係圖有問題。等 10 分鐘再跑；cache 會令已驗過嘅唔使重驗。
 - **機械檢查**：check.sh §3 對 429 出專用錯誤訊息（教你等，唔係教你換圖）。
+
+## G14 · Firebase 規則靜默過期/改壞
+- **症狀**：共用分帳突然唔同步 —— 前端唔會彈 error，家人以為係網絡問題。成因：RTDB 測試模式規則 30 日過期，或有人喺 console 改壞規則。
+- **規則**：正確狀態（用戶 2026-07 前已 publish）= 房間內 (`rooms/$code`) 可讀寫、`/rooms` 列舉拒絕、`/rooms` 以外拒絕。規則 JSON 喺 BLUEPRINT §5。
+- **機械檢查**：check.sh §5 —— 房間級讀 probe（要通）+ `/rooms` 外寫 probe（要拒）。
