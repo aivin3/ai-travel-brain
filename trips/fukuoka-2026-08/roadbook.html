@@ -1293,7 +1293,7 @@
     "颱風季（8–10 月）：近郊日（柳川/由布院）遇颱風停航停駛；每朝查 JMA 預報，市區室內 backup 充足可同近郊日對調。8/24 週一多設施休館已排室內日避開。",
     "酷暑 32°C+高濕：戶外排上午/黃昏，正午躲室內；屋台落雨/荒天休、現金為主、早場去；名店（華味鳥/水たき長野/河太郎活イカ）出發前網上預約。太宰府+柳川用西鐵套票（大人 ¥3,210 含船）。糸島牡蠣 8 月冇。"
   ],
-  "generationDate": "2026-06-29"
+  "generationDate": "2026-07-04"
 }
 </script>
 <script>
@@ -1341,6 +1341,9 @@ function render(){
     h+=`<section id="top"><div class="sec-title"><span class="i">🗺️</span>每日速覽</div><div class="card"><table class="ovw">`;
     T.overview.forEach(o=>{h+=`<tr><td><span class="od">${E(o.d)}</span></td><td class="ot">${E(o.t)}</td></tr>`;});
     h+=`</table></div></section>`;
+  }else if(has(T.highlights)&&T.highlights.length){
+    h+=`<section id="top"><div class="sec-title"><span class="i">✨</span>行程亮點</div><div class="card"><ul class="tips">`;
+    h+=T.highlights.map(x=>`<li>${E(x)}</li>`).join('')+'</ul></div></section>';
   }
 
   if(has(T.weather)){const w=T.weather;
@@ -1355,7 +1358,6 @@ function render(){
       ${has(w.tips)?`<div class="small muted" style="margin-top:4px">💡 ${E(w.tips)}</div>`:''}
     </div></section>`;
   }
-
 
   if(has(T.days))T.days.forEach((d,i)=>{
     h+=`<section id="day${i}"><div class="card">

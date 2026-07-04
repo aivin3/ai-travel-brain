@@ -14,6 +14,7 @@
     --radius:16px; --maxw:720px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{overflow-x:hidden;-webkit-text-size-adjust:100%} /* iOS 防橫向溢位標準方案（bg fixed 係坑，見 docs/GUARDRAILS.md G4） */
   html,body{margin:0;padding:0}
   body{
     color:var(--ink); min-height:100vh; position:relative;
@@ -21,7 +22,6 @@
     line-height:1.72; font-size:16px; padding-bottom:env(safe-area-inset-bottom);
     background-color:#f3ead3;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cg fill='none' stroke='%231f4e8c' stroke-opacity='0.10' stroke-width='1.1'%3E%3Cpath d='M0 22a11 11 0 0 1 22 0M22 22a11 11 0 0 1 22 0M-11 11a11 11 0 0 1 22 0M11 11a11 11 0 0 1 22 0M33 11a11 11 0 0 1 22 0'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment:fixed;
   }
   /* 角落和風夏日裝飾 */
   body::before,body::after{content:"";position:fixed;z-index:0;pointer-events:none;opacity:.5}
@@ -209,6 +209,7 @@
     .act img.photo,.din-item img.photo{max-height:180px;object-fit:cover}
   }
 </style>
+__FIREBASE__
 </head>
 <body>
 <div class="topbar">

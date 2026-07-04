@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["title"],
   "properties": {
-    "template": { "type": "string", "description": "揀模板檔名：roadbook.html（夢幻 pastel，預設）/ roadbook_jp.html（和風高對比）" },
+    "template": { "type": "string", "description": "揀模板檔名：roadbook.html（夢幻 pastel，預設）/ roadbook_jp.html（和風高對比）。roadbook-washi.html 係分家實驗品，新 trip 唔准用（docs/GUARDRAILS.md G2）" },
     "firebase": { "type": "object", "description": "（可選）Firebase Realtime DB config；有先注入 SDK + window.FIREBASE_CONFIG，啟用多人共用分帳。離線版唔好放。" },
     "kicker": { "type": "string", "description": "封面小標（地區英文，例 FUKUOKA · KYUSHU · JAPAN）" },
     "title": { "type": "string" },
@@ -45,7 +45,7 @@
                 "icon": { "type": "string", "description": "無 imageUrl 時 act-ph 示意卡顯示嘅 emoji" },
                 "note": { "type": "string" },
                 "mustDo": { "description": "string 或 array；渲染 ✅必做 綠框" },
-                "glow": { "type": "string", "description": "發光徽章文字（必去/限定），只和風模板顯示" },
+                "glow": { "type": "string", "description": "發光徽章文字（必去/限定），兩個共用模板都顯示（2026-07 起 JS 統一）" },
                 "duration": { "type": "string" },
                 "cost": { "description": "數字 0 = 免費；字串如 '¥980' 直接顯示" },
                 "transport": { "type": "string", "description": "亦用嚟推斷 🧭路線 travelmode（步行→walking，包車/Uber→driving，否則 transit）" },

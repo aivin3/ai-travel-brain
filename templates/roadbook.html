@@ -153,6 +153,16 @@
 
   ul.tips{margin:0;padding-left:19px}
   ul.tips li{margin:7px 0}
+
+  /* 每日速覽 + 發光 badge + 活動圖（同 roadbook_jp 共用 JS 所需；只准改色，唔准改 class 名） */
+  .ovw{width:100%;border-collapse:separate;border-spacing:0 8px}
+  .ovw td{vertical-align:middle;padding:0}
+  .ovw .od{display:inline-block;white-space:nowrap;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--coral),var(--amber));border-radius:999px;padding:5px 10px;font-size:12.5px;box-shadow:0 2px 8px rgba(244,100,125,.35)}
+  .ovw .ot{padding-left:13px;font-weight:700;font-size:14px;color:var(--ink)}
+  .glow{display:inline-block;margin-left:7px;font-size:11.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--coral),var(--amber));padding:2px 9px;border-radius:999px;vertical-align:middle;animation:glowpulse 1.4s ease-in-out infinite}
+  @keyframes glowpulse{0%,100%{box-shadow:0 0 4px rgba(244,100,125,.55),0 0 9px rgba(245,158,11,.4)}50%{box-shadow:0 0 12px rgba(244,100,125,.9),0 0 22px rgba(245,158,11,.8)}}
+  .alt-item img.thumb{width:100%;height:130px;object-fit:cover;border-radius:12px;margin:0 0 9px;border:1px solid var(--line);display:block}
+  @media (prefers-reduced-motion:reduce){.glow{animation:none}}
   .ess{display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .ess .e{background:var(--glass2);border:1px solid rgba(255,255,255,.6);border-radius:13px;padding:10px 12px}
   .ess .e .k{font-size:12px;color:var(--muted);font-weight:700}
@@ -297,7 +307,11 @@ function render(){
     h+='</div></div>';
   }
 
-  if(has(T.highlights)&&T.highlights.length){
+  if(has(T.overview)&&T.overview.length){
+    h+=`<section id="top"><div class="sec-title"><span class="i">🗺️</span>每日速覽</div><div class="card"><table class="ovw">`;
+    T.overview.forEach(o=>{h+=`<tr><td><span class="od">${E(o.d)}</span></td><td class="ot">${E(o.t)}</td></tr>`;});
+    h+=`</table></div></section>`;
+  }else if(has(T.highlights)&&T.highlights.length){
     h+=`<section id="top"><div class="sec-title"><span class="i">✨</span>行程亮點</div><div class="card"><ul class="tips">`;
     h+=T.highlights.map(x=>`<li>${E(x)}</li>`).join('')+'</ul></div></section>';
   }
@@ -313,18 +327,6 @@ function render(){
       ${has(w.clothing)?`<div class="small muted" style="margin-top:9px">👕 ${E(w.clothing)}</div>`:''}
       ${has(w.tips)?`<div class="small muted" style="margin-top:4px">💡 ${E(w.tips)}</div>`:''}
     </div></section>`;
-  }
-
-  if(has(T.events)&&T.events.length){
-    h+=`<section id="events"><div class="sec-title"><span class="i">🎉</span>期間限定活動（旅程期間）</div>`;
-    h+=`<div class="card"><div class="small muted">出發前 2–3 週多數新活動先公布，呢度會喺臨近再更新；日期/地點以官方為準（標 待確認）。</div></div>`;
-    T.events.forEach(ev=>{
-      h+=`<div class="alt-item"><div class="an">${E(ev.name)}${has(ev.tag)?` <span class="tag">${E(ev.tag)}</span>`:''}</div>
-        <div class="ad">${[ev.date,ev.where].filter(has).map(E).join(' · ')}</div>
-        ${has(ev.note)?`<div class="anote">${E(ev.note)}</div>`:''}
-        <div class="arow">${has(ev.mapQuery)?mapBtn(ev.mapQuery,'地圖'):''}${has(ev.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(ev.link)}">🔗 詳情</a>`:''}</div></div>`;
-    });
-    h+=`</section>`;
   }
 
   if(has(T.days))T.days.forEach((d,i)=>{
@@ -346,7 +348,7 @@ function render(){
           ? `<img class="thumb" loading="lazy" src="${E(a.imageUrl)}" alt="">`
           : `<div class="act-ph"><span class="pe">${E(a.icon||'📍')}</span><span>${E(a.name)}</span></div>`;
         h+=`<div class="act"><div class="time">${E(a.time)||'•'}</div><div class="body">
-          <div class="nm">${E(a.name)}</div>
+          <div class="nm">${E(a.name)}${has(a.glow)?`<span class="glow">${E(a.glow)}</span>`:``}</div>
           ${has(a.note)?`<div class="det">${E(a.note)}</div>`:''}
           ${has(a.mustDo)?`<div class="mustdo"><b>✅ 必做：</b>${mustList(a.mustDo)}</div>`:''}
           <div class="tags">
@@ -369,6 +371,18 @@ function render(){
     }
     h+=`</div></section>`;
   });
+
+  if(has(T.events)&&T.events.length){
+    h+=`<section id="events"><div class="sec-title"><span class="i">🎉</span>期間限定活動</div>`;
+    h+=`<div class="card"><div class="small muted">出發前 2–3 週多數新活動先公布，臨近會再更新；日期/地點以官方為準（標 待確認）。</div></div>`;
+    T.events.forEach(ev=>{
+      h+=`<div class="alt-item">${has(ev.imageUrl)?`<img class="thumb" loading="lazy" src="${E(ev.imageUrl)}" alt="">`:``}<div class="an">${E(ev.name)}${has(ev.tag)?` <span class="tag">${E(ev.tag)}</span>`:``}</div>
+        <div class="ad">${[ev.date,ev.where].filter(has).map(E).join(' · ')}</div>
+        ${has(ev.note)?`<div class="anote">${E(ev.note)}</div>`:``}
+        <div class="arow">${has(ev.mapQuery)?mapBtn(ev.mapQuery,'地圖'):``}${has(ev.link)?`<a class="btn-link" target="_blank" rel="noopener" href="${E(ev.link)}">🔗 詳情</a>`:``}</div></div>`;
+    });
+    h+=`</section>`;
+  }
 
   // Dining guide
   if(has(T.dining)&&T.dining.length){

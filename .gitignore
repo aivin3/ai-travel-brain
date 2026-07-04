@@ -7,3 +7,4 @@ deploy-kaohsiung-sync/
 *.log
 /tmp/
 backups/
+scripts/.img_cache.tsv

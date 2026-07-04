@@ -2,6 +2,7 @@
 
 > 本檔目的：俾**一個完全冇本對話歷史嘅 AI** 讀完即可 100% 繼承理解，無縫接手繼續開發。
 > 最後更新：2026-06（請以 git log 為準）。語言：繁體中文（程式碼/變數保留原文）。
+> ⚠️ 2026-07 制度化（Fable 5 一次性審查）後：規則以 `CLAUDE.md`（憲法）+ `docs/`（PLAYBOOK/GUARDRAILS/GOLDEN_RUBRIC）+ `scripts/check.sh`（收工閘）為準；本檔內嵌源碼/個別描述（例如 generate.py 全文、「glow 只和風顯示」）係歷史快照，同 repo 現檔有出入時**以現檔為準**。制度化總結見 `INSTITUTIONALIZED.md`。
 
 ---
 

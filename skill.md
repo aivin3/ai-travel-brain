@@ -70,9 +70,6 @@
 ---
 
 ## 品質檢查（出路書前自查）
-- [ ] 每日有 theme、活動有時間
-- [ ] 景點/酒店/餐廳大部分有 mapQuery 或 address
-- [ ] 預算有可靠度標籤 + disclaimer
-- [ ] essentials 填齊（旅行途中速查）
-- [ ] imageUrl 全部真實 HTTPS（或留空），冇作圖
-- [ ] 未核實項目已標明
+1. 逐項過 `docs/GOLDEN_RUBRIC.md`（yes/no 自評表；黃金範本 = trips/fukuoka-2026-08）。
+2. `python3 scripts/generate.py <tripData> --strict` 零警告。
+3. `bash scripts/check.sh` 全綠（exit 0）先准交付。
